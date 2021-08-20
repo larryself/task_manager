@@ -12,7 +12,7 @@
     "serv": "webpack server --mode development",
     "deploy": "gh-pages -d dist",
     "lint": "eslint src",
-    "lintFix": "eslint --fix **.scss"
+    "fix": "eslint --fix src"
   },
   "dependencies": {},
   "devDependencies": {
