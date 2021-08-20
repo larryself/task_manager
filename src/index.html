@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width" name="viewport" />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <link href="assets/favicon.ico" rel="icon" />
+    <title>Видеосeрвис</title>
+  </head>
+  <body class="page-body">
+    <header class="page-header">
+      <div class="container">
+        <div class="page-header__inner">
+          <a class="page-header__logo-link" href="index.html">
+            <img alt="Логотип Видеосервис" src="img/logo.svg" />
+            <h1 class="page-header__title">Видеосервис</h1>
+          </a>
+          <section class="header-search">
+            <form action="#" class="header-search__form" method="get">
+              <label class="header-search__label_sr-only" for="search">Поиск </label>
+              <input class="header-search__input" id="search" name="search" placeholder="Поиск..." type="text" />
+              <button class="header-search__btn" type="submit">Найти</button>
+            </form>
+          </section>
+          <div class="header-login">
+            <form action="#" class="header-login__form-change-name js-form-change-name">
+              <label class="header-login__label_sr-only" for="change">Изменить имя</label>
+              <input class="header-login__input js-change-name-input" id="change" name="change" required type="text" />
+            </form>
+            <span class="header-login__user-name js-current-user-name"></span>
+            <button
+              class="
+                header-login__btn header-login__btn-enter header-login__btn_active header-login__btn_red
+                js-enter-modal
+              "
+              type="button"
+            >
+              Войти
+            </button>
+            <button class="header-login__btn header-login__btn-exit header-login__btn_white js-logguot" type="button">
+              Выйти
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="page-content">
+      <div class="container">
+        <ul class="main-nav">
+          <li class="main-nav__item main-nav__item_active js-tabs" data-trigger="films">
+            <a class="main-nav__link" href="#">
+              <h2 class="main-nav__title">Фильмы</h2>
+            </a>
+          </li>
+          <li class="main-nav__item js-tabs" data-trigger="tv">
+            <a class="main-nav__link" href="#tv">
+              <h2 class="main-nav__title">Телеканалы</h2>
+            </a>
+          </li>
+        </ul>
+        <section class="films main-nav__section main-nav__section_active js-section" data-content="films">
+          <h3 class="films__title films__title_active-img">Новинки</h3>
+          <ul class="films__list">
+            <li class="films__item">
+              <a class="films__link" href="#">
+                <div class="films__poster">
+                  <img alt="Мульт в кино" class="films__img" height="370" src="img/cat.jpg" width="280" />
+                  <p class="films__desc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque eveniet impedit&nbsp;in, inventore
+                    ipsa ipsum.
+                  </p>
+                </div>
+                <span class="films__name">Мульт в&nbsp;кино. Выпуск &#8470;&nbsp;103. Некогда грустить!</span>
+              </a>
+            </li>
+            <li class="films__item">
+              <a class="films__link" href="#">
+                <div class="films__poster">
+                  <img alt="Бэтман" class="films__img" height="370" src="img/batman.jpg" width="280" />
+                  <p class="films__desc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias corporis eos est
+                    ex&nbsp;id&nbsp;in&nbsp;nulla quisquam rerum! Dolore enim excepturi harum molestias nemo nihil nulla
+                    porro quos sunt.
+                  </p>
+                </div>
+                <span class="films__name">Новый Бэтмен</span>
+              </a>
+            </li>
+            <li class="films__item">
+              <a class="films__link" href="#">
+                <div class="films__poster">
+                  <img
+                    alt="Надпись Голливуд на холме"
+                    class="films__img"
+                    height="370"
+                    src="img/hollywood.jpg"
+                    width="280"
+                  />
+                  <p class="films__desc">
+                    Фильм повествует о&nbsp;череде событий, произошедших в&nbsp;Голливуде в 1969 году, на&nbsp;закате
+                    его &laquo;золотого века&raquo;. Известный актер Рик Далтон и&nbsp;его дублер Клифф Бут пытаются
+                    найти свое место в&nbsp;стремительно меняющемся мире киноиндустрии.
+                  </p>
+                </div>
+                <span class="films__name">Однажды... в Голливуде</span>
+              </a>
+            </li>
+            <li class="films__item">
+              <a class="films__link" href="#">
+                <div class="films__poster">
+                  <img alt="Девушка в темных очках" class="films__img" height="370" src="img/girl.jpg" width="280" />
+                  <p class="films__desc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est nulla obcaecati voluptate voluptatem?
+                    Aliquam deserunt minus ratione sit? Aperiam dolore expedita id&nbsp;ipsa laboriosam rem tempore
+                    voluptatem? Saepe.
+                  </p>
+                </div>
+                <span class="films__name">Стриптизёрши</span>
+              </a>
+            </li>
+          </ul>
+          <h3 class="films__title">Жанры</h3>
+          <ul class="content-genre">
+            <li class="content-genre__item content-genre__item_bg-yellow">
+              <a class="content-genre__item-link" href="#">
+                <img alt="Комедии" height="48" src="img/grinning.png" width="48" />
+                <span class="content-genre__item-title">Комедии</span>
+              </a>
+            </li>
+            <li class="content-genre__item content-genre__item_bg-orange">
+              <a class="content-genre__item-link" href="#">
+                <img alt="Драмы" height="48" src="img/loudlyCrying%20.png" width="48" />
+                <span class="content-genre__item-title">Драмы</span>
+              </a>
+            </li>
+            <li class="content-genre__item content-genre__item_bg-blue">
+              <a class="content-genre__item-link" href="#">
+                <img alt="Фантастика" height="48" src="img/alien.png" width="48" />
+                <span class="content-genre__item-title">Фантастика</span>
+              </a>
+            </li>
+            <li class="content-genre__item content-genre__item_bg-gray">
+              <a class="content-genre__item-link" href="#">
+                <img alt="Ужасы" height="48" src="img/ghost.png" width="48" />
+                <span class="content-genre__item-title">Ужасы</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="tv main-nav__section scrollable js-section" data-content="tv">
+          <ul class="tv__list scrollable__elem">
+            <li class="tv__item">
+              <div class="tv__logo"><img alt="Первый канал" class="tv__img" src="img/1st.png" /></div>
+              <div class="tv-desc">
+                <h4 class="tv-desc__title">Первый канал</h4>
+                <ul class="tv-desc__list">
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">13:00</span>
+                    <span>Новости (с субтитрами)</span>
+                  </li>
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">14:00</span>
+                    <span>Давай поженимся</span>
+                  </li>
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">15:00</span>
+                    <span>Другие новости</span>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="tv__item">
+              <div class="tv__logo"><img alt="2x2" class="tv__img" src="img/2x2.png" /></div>
+              <div class="tv-desc">
+                <h4 class="tv-desc__title">2x2</h4>
+                <ul class="tv-desc__list">
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">13:00</span>
+                    <span>МУЛЬТ ТВ. Сезон 4, 7 серия</span>
+                  </li>
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">14:00</span>
+                    <span>ПОДОЗРИТЕЛЬНАЯ СОВА. Сезон 7, 7 серия</span>
+                  </li>
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">15:00</span>
+                    <span>БУРДАШЕВ. Сезон 1, 20 серия</span>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="tv__item">
+              <div class="tv__logo"><img alt="РБК" class="tv__img" src="img/rbc.png" /></div>
+              <div class="tv-desc">
+                <h4 class="tv-desc__title">РБК</h4>
+                <ul class="tv-desc__list">
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">13:00</span>
+                    <span>ДЕНЬ. Горючая смесь: как бороться с суррогатом на АЗС</span>
+                  </li>
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">14:00</span>
+                    <span>ДЕНЬ. Главные темы</span>
+                  </li>
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">15:00</span>
+                    <span>Главные новости</span>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="tv__item">
+              <div class="tv__logo"><img alt="AMEDIA PREMIUM" class="tv__img" src="img/amedia.png" /></div>
+              <div class="tv-desc">
+                <h4 class="tv-desc__title">AMEDIA PREMIUM</h4>
+                <ul class="tv-desc__list">
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">13:00</span>
+                    <span>Клиент всегда мёртв</span>
+                  </li>
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">14:00</span>
+                    <span>Голодные игры: Сойка-пересмешница. Часть I</span>
+                  </li>
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">15:00</span>
+                    <span>Секс в большом городе</span>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="tv__item">
+              <div class="tv__logo"><img alt="1st" class="tv__img" src="img/1st.png" /></div>
+              <div class="tv-desc">
+                <h4 class="tv-desc__title">1st</h4>
+                <ul class="tv-desc__list">
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">13:00</span>
+                    <span>Передача</span>
+                  </li>
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">14:00</span>
+                    <span>Передача о передачах</span>
+                  </li>
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">15:00</span>
+                    <span>Вечерняя передача</span>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="tv__item">
+              <div class="tv__logo"><img alt="2x2" class="tv__img" src="img/2x2.png" /></div>
+              <div class="tv-desc">
+                <h4 class="tv-desc__title">2x2</h4>
+                <ul class="tv-desc__list">
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">13:00</span>
+                    <span>Передача</span>
+                  </li>
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">14:00</span>
+                    <span>Передача о передачах</span>
+                  </li>
+                  <li class="tv-desc__item">
+                    <span class="tv-desc__time">15:00</span>
+                    <span>Вечерняя передача</span>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <a class="footer__logo-link" href="">
+            <img alt="Логотип" class="footer__logo-img" src="img/logo-footer.svg" />
+          </a>
+          <address class="footer__contacts">
+            <p>426057, Россия, Удмуртская Республика, г. Ижевск, ул. Карла Маркса, 246 (ДК «Металлург»)</p>
+            <span class="footer__contacts-phone">
+              <a class="footer__contacts-phone-link" href="tel:+73412938861">+7 (3412) 93-88-61</a>,
+              <a class="footer__contacts-phone-link" href="tel:+73412432929">43-29-29</a>
+            </span>
+            <a class="footer__contacts-link-to-site" href="https://htc-cs.ru/" target="_blank">htc-cs.ru</a>
+          </address>
+        </div>
+      </div>
+    </footer>
+    <section class="modal js-modal-window">
+      <div class="modal-login">
+        <h2 class="modal-login__title">Вход</h2>
+        <form action="#" class="modal-login__form js-modal-form">
+          <label class="modal-login__label modal-login__label_sr-only" for="login-name">Логин</label>
+          <input
+            class="modal-login__input js-form-login"
+            id="login-name"
+            name="login-name"
+            placeholder="Логин"
+            required
+            type="text"
+          />
+          <label class="modal-login__label modal-login__label_sr-only" for="login-password">Пароль</label>
+          <input
+            autocomplete="on"
+            class="modal-login__input js-form-password"
+            id="login-password"
+            name="login-password"
+            placeholder="Пароль"
+            required
+            type="password"
+          />
+          <input checked class="modal-login__checkbox js-form-checkbox" id="checkbox" type="checkbox" />
+          <label class="modal-login__checkbox-label" for="checkbox">Запомнить</label>
+          <button class="modal-login__btn modal-login__btn_red js-form-btn" type="submit">Войти</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
