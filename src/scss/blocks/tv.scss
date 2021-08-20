@@ -1,0 +1,40 @@
+.tv {
+  display: none;
+  padding-top: 23px;
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    overflow: auto;
+    height: 696px;
+  }
+
+  &__item {
+    display: flex;
+    background: #f2f2f2;
+    border-radius: 8px;
+    margin-bottom: 16px;
+
+    @media (max-width: 1160px) {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item:last-child {
+    margin-bottom: 0;
+  }
+
+  &__logo {
+    width: 33.9%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 1160px) {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+}

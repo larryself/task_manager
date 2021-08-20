@@ -1,0 +1,106 @@
+.films {
+  display: none;
+  padding-top: 14px;
+
+  &__title {
+    font-weight: 500;
+    font-size: 24px;
+    padding: 14px 0 16px;
+  }
+
+  &__title_active-img {
+    padding-left: 30px;
+    position: relative;
+  }
+
+  &__title_active-img::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background: url('../img/fire.png'), no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+  }
+
+  &__list {
+    display: flex;
+    padding-left: 0;
+    padding-bottom: 18px;
+    list-style: none;
+    justify-content: space-between;
+    margin: 0;
+    flex-wrap: wrap;
+
+    @media (max-width: 1160px) {
+      justify-content: space-around;
+    }
+
+    @media (max-width: 595px) {
+      justify-content: center;
+      margin: 0 5px;
+    }
+  }
+
+  &__item {
+    max-width: 280px;
+    width: 100%;
+
+    @media (max-width: 1160px) {
+      margin: 0 5px 10px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__link :visited {
+    color: inherit;
+  }
+
+  &__desc {
+    height: 100%;
+    border-radius: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 16px;
+    margin: 0;
+    background: #333;
+    color: #f2f2f2;
+    font-size: 16px;
+    line-height: 1.4;
+    opacity: 0;
+  }
+
+  &__poster {
+    height: 370px;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  &__poster:hover {
+    cursor: pointer;
+  }
+
+  &__poster:hover .films__desc {
+    opacity: 0.8;
+    transition: 0.2s all;
+  }
+
+  &__img {
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__name {
+    font-size: 20px;
+    padding-top: 16px;
+  }
+}

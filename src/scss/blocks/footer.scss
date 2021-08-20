@@ -1,0 +1,36 @@
+.footer {
+  flex: 0 0 auto;
+  background: #f2f2f2;
+
+  &__inner {
+    display: flex;
+    padding: 22px 0 25px;
+  }
+
+  &__logo-link {
+    padding: 8px 40px 8px 28px;
+    margin-left: -28px;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    font-style: normal;
+    font-size: 16px;
+  }
+
+  &__contacts-phone {
+    padding: 7px 0 8px;
+  }
+
+  &__contacts-phone-link {
+    color: #333;
+    text-decoration: none;
+  }
+
+  &__contacts-link-to-site {
+    text-decoration: none;
+    font-weight: 500;
+    color: #1f4766;
+  }
+}

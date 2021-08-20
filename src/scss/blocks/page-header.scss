@@ -1,0 +1,32 @@
+.page-header {
+  flex: 0 0 auto;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  &__logo-link {
+    width: 33%;
+    display: flex;
+    text-decoration: none;
+    align-self: flex-start;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+    padding-left: 11px;
+    color: #333;
+
+    @media (max-width: 600px) {
+      overflow: hidden;
+      height: 1px;
+      width: 1px;
+    }
+  }
+}

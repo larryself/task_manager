@@ -1,0 +1,11 @@
+.page-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+
+  &_not-overflow {
+    overflow: hidden;
+  }
+}
