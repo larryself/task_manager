@@ -8,7 +8,8 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 const filename = (ext) => `[name].[contenthash].${ext}`;
 
-const config = {
+module.exports = ({ develop }) => ({
+    mode: develop ? 'development' : 'production',
     context: path.resolve(__dirname, 'src'),
     entry: './main.js',
     output: {
@@ -77,4 +78,4 @@ const config = {
           ]
         }),
     ]
-};
+});
