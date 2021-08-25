@@ -10,7 +10,6 @@
     "dev": "webpack --mode development",
     "prod": "webpack",
     "serv": "webpack server --mode development",
-    "deploy": "gh-pages -d dist",
     "lint": "eslint src",
     "fix": "eslint --fix src"
   },
