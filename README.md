@@ -82,7 +82,3 @@ npm run fix
 - [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) - The standard shareable config for `stylelint`
 - [`stylelint-scss`](https://github.com/kristerkari/stylelint-scss) - collection of SCSS specific rules for `stylelint`
 - [`stylelint-webpack-plugin`](https://github.com/webpack-contrib/stylelint-webpack-plugin) - Stylelint configuration for webpack
-
-## Authors
-
-- [Yan Musikhin](https://www.github.com/larryself)
