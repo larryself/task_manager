@@ -1,0 +1,29 @@
+.page-main {
+  flex: 1 0 auto;
+  padding: 40px 0 0;
+
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 29px;
+    flex-wrap: wrap;
+    column-gap: 20px;
+  }
+
+  &__form-column {
+    width: 100%;
+    max-width: 393px;
+  }
+
+  &__form-legend {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 12px;
+    margin-bottom: 10px;
+  }
+
+  &__form-checkbox-inner {
+    display: flex;
+    column-gap: 10px;
+  }
+}
