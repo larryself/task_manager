@@ -1,0 +1,61 @@
+{
+  "name": "empty-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Larryself",
+  "license": "ISC",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "prod": "webpack",
+    "serv": "webpack server --mode development",
+    "deploy": "gh-pages -d dist",
+    "lint": "eslint src",
+    "fix": "eslint --fix"
+  },
+  "dependencies": {
+    "moment": "^2.29.1",
+    "vanillajs-datepicker": "^1.1.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "autoprefixer": "^10.3.1",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^6.2.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-webpack-plugin": "^3.0.1",
+    "file-loader": "^6.2.0",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.2",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "mini-css-extract-plugin": "^2.1.0",
+    "node-sass": "^6.0.1",
+    "postcss-loader": "^6.1.1",
+    "prettier": "^2.3.2",
+    "prettier-webpack-plugin": "^1.2.0",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-scss": "^3.20.1",
+    "stylelint-webpack-plugin": "^3.0.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.46.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%"
+  ]
+}

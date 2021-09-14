@@ -1,0 +1,22 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  color: $black;
+  height: 100%;
+  padding: 20px;
+  background: $lt-blue;
+}
+
+button {
+  cursor: pointer;
+}
+
+.icon {
+  fill: currentColor;
+}
