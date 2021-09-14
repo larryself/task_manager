@@ -1,0 +1,23 @@
+{
+  "ignorePatterns": ["dist", "node_modules"],
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "extends": [
+    "eslint-config-airbnb-base",
+    "eslint:recommended",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": ["error", { "endOfLine":"auto" }],
+    "linebreak-style": "warn",
+    "no-unused-vars": "warn",
+    "no-console": "warn",
+    "max-len": ["warn",{"code": 120}],
+    "import/no-unresolved": "off" /**/
+  },
+  "plugins": [
+    "prettier"
+  ]
+}
