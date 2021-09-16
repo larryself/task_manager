@@ -97,7 +97,7 @@
     <button class="btn-size-big btn__blue btn" type="button">
       <span class="btn__icon-inner">
         <svg class="icon" width="14" height="14">
-          <use href="assets/img/icon.svg#plus" xlink:href="assets/img/icon.svg#plus"></use>
+          <use href="assets/img/icon.svg#plus-in-circle" xlink:href="assets/img/icon.svg#plus-in-circle"></use>
         </svg>
       </span>
       Новая задача
@@ -137,5 +137,93 @@
       Удалить
     </button>
     <button class="btn-cancel" type="button"></button>
+    <div class="select">
+      <h3 class="select__title">Ответственный</h3>
+      <div class="select__header js-select">
+        <span class="select__current">Выберите ответственного</span>
+        <span class="select__icon"></span>
+      </div>
+      <ul class="select__body" data-simplebar>
+        <li class="select__item">Альбина Ткаченко</li>
+        <li class="select__item">София Мельник</li>
+        <li class="select__item">Альбина Ткаченко</li>
+        <li class="select__item">София Мельник</li>
+        <li class="select__item">Альбина Ткаченко</li>
+        <li class="select__item">София Мельник</li>
+        <li class="select__item">Альбина Ткаченко</li>
+        <li class="select__item">София Мельник</li>
+        <li class="select__item">Альбина Ткаченко</li>
+        <li class="select__item">София Мельник</li>
+      </ul>
+    </div>
+    <div class="select">
+      <h3 class="select__title">Ответственный</h3>
+      <div class="select__header js-select">
+        <span class="select__current">Выберите статус</span>
+      </div>
+      <ul class="select__body">
+        <li class="select__item">Любой</li>
+        <li class="select__item select__item--purple">В работе</li>
+        <li class="select__item select__item--blue">Ожидает согласования</li>
+        <li class="select__item select__item--green">Выполнено</li>
+      </ul>
+    </div>
+    <div class="load-content">
+      <div class="load-content__desc">
+        <h3 class="load-content__title">Результат</h3>
+        <p class="load-content__format">Допустимые форматы:</p>
+        <ul class="load-content__format-list">
+          <li class="load-content__format-item">
+            <svg height="16" width="30">
+              <use href="assets/img/icon.svg#avi"></use>
+            </svg>
+          </li>
+          <li class="load-content__format-item">
+            <svg height="16" width="30">
+              <use href="assets/img/icon.svg#flv"></use>
+            </svg>
+          </li>
+          <li class="load-content__format-item">
+            <svg height="16" width="37">
+              <use href="assets/img/icon.svg#mov"></use>
+            </svg>
+          </li>
+        </ul>
+      </div>
+      <div class="load-content__uploaded">
+        <form action="#" class="load-content__file-load-form">
+          <label class="load-content__file-load-label">
+            <input class="load-content__file-load-input" name="file" type="file" />
+            <span class="load-content__file-load-icon">
+              <svg class="icon" height="14" width="14">
+                <use href="assets/img/icon.svg#plus"></use>
+              </svg>
+            </span>
+          </label>
+        </form>
+      </div>
+    </div>
+    <div class="card-task">
+      <span class="card-task__type card-task__type--video">
+        <svg class="icon" height="9" width="7">
+          <use href="assets/img/icon.svg#video" xlink:href="assets/img/icon.svg#video"></use>
+        </svg>
+        Видео
+      </span>
+      <h3 class="card-task__title">Название повседневная практика показывает</h3>
+      <p class="card-task__author">Аркадий Юрченко</p>
+      <span class="card-task__time">10.02.2020</span>
+      <span class="card-task__status card-task__status--purple">В работе</span>
+      <button type="button" class="btn btn-edit-size-mini">
+        <svg height="20" width="20">
+          <use href="assets/img/icon.svg#edit" xlink:href="assets/img/icon.svg#edit"></use>
+        </svg>
+      </button>
+      <button type="button" class="btn btn-edit-size-mini">
+        <svg height="16" width="14">
+          <use href="assets/img/icon.svg#del" xlink:href="assets/img/icon.svg#del"></use>
+        </svg>
+      </button>
+    </div>
   </body>
 </html>
