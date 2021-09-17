@@ -368,6 +368,60 @@
   }
 }
 
+.notify-big {
+  padding: 16px 20px;
+  background: $white;
+  border-bottom: 1px solid $blue-outline;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  &:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  &__icon-inner {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: $lt-blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &--active::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 9px;
+      height: 9px;
+      border: 2px solid $white;
+      background-color: $red;
+      border-radius: 50%;
+    }
+  }
+
+  &__content-inner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__name {
+    @include font(500, 14px, 16px);
+  }
+
+  &__time {
+    @include font(400, 12px, 14px);
+
+    order: 1;
+    width: 100%;
+    opacity: 0.6;
+  }
+}
+
 /* profile */
 .profile {
   display: flex;
@@ -882,8 +936,9 @@
   border: 1px solid $blue-outline;
   padding: 18px 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
   cursor: pointer;
 
   &:hover {
@@ -892,6 +947,7 @@
 
   &__type {
     font-weight: 500;
+    white-space: nowrap;
 
     &--video {
       color: $blue;
@@ -908,10 +964,40 @@
 
   &__title {
     @include font(500, 14px, 16px);
+
+    max-width: 482px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &__author {
+    max-width: 165px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &__date-inner {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    max-width: 116px;
+    width: 100%;
+  }
+
+  &__date-icon {
+    fill: #96aecd;
   }
 
   &__status {
     @include font(500, 14px, 16px);
+
+    max-width: 181px;
+    width: 100%;
+    overflow: hidden;
 
     &--purple {
       color: #d663ff;
@@ -924,5 +1010,10 @@
     &--green {
       color: #97dc26;
     }
+  }
+
+  &__btn-inner {
+    display: flex;
+    column-gap: 10px;
   }
 }
