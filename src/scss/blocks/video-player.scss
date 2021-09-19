@@ -1,0 +1,106 @@
+.video-player {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba($black, 0.3);
+  width: 100%;
+  z-index: 10;
+  align-items: center;
+
+  &__active {
+    display: flex;
+  }
+
+  &__progress {
+    background-color: rgba($white, 0.3);
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &-tree {
+      height: 3px;
+      background: $blue;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 9px;
+        height: 9px;
+        background-color: $blue;
+        border-radius: 50%;
+        top: 0;
+        transform: translateY(-34%);
+      }
+    }
+  }
+
+  &__btn {
+    border: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    background: transparent;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &-play::before {
+      content: '';
+      background: url('../assets/player-icon/play-icon.svg') no-repeat center center transparent;
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+
+    &-play--active::before {
+      background: url('../assets/player-icon/pause-icon.svg') no-repeat center center transparent;
+    }
+
+    &-volume::before {
+      content: '';
+      background: url('../assets/player-icon/volume-icon.svg') no-repeat center center transparent;
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+
+    &-volume--active::before {
+      background: url('../assets/player-icon/mute-icon.svg') no-repeat center center transparent;
+    }
+
+    &-fullscreen::before {
+      content: '';
+      background: url('../assets/player-icon/fullscreen-icon.svg') no-repeat center center transparent;
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+
+    &-fullscreen--active::before {
+      background: url('../assets/player-icon/fullscreen-icon-active.svg') no-repeat center center transparent;
+    }
+  }
+
+  &__time-control {
+    color: rgba($white, 0.6);
+  }
+
+  &__volume {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+  }
+
+  &__volume-input {
+    height: 3px;
+    width: 83px;
+  }
+}

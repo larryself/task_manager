@@ -1,0 +1,13 @@
+@import '../../../node_modules/simplebar/dist/simplebar.min';
+
+.simplebar-scrollbar::before {
+  background: #96aecd;
+  width: 4px;
+  margin: 0 auto;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.simplebar-visible::before {
+  opacity: 1 !important;
+}

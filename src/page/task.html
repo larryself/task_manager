@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width,initial-scale=1.0" name="viewport" />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <title>Document</title>
+  </head>
+  <body class="page-body">
+    <header class="page-header">
+      <div class="wrap">
+        <div class="page-header__inner">
+          <a class="page-header__logo-link" href="#">
+            <img alt="Логотип" height="30" src="../assets/img/logo.svg" width="30" />
+            <h1 class="page-header__title">Менеджер задач</h1>
+          </a>
+          <nav class="menu page-header__menu">
+            <ul class="menu__list">
+              <li class="menu__item">
+                <a class="menu__link" href="index.html">Главная</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link menu__link--active" href="task.html">Задачи</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="users.html">Пользователи</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="page-header__user-area">
+            <a class="notify-bell" href="#">
+              <span class="notify-bell__count">3</span>
+            </a>
+            <p class="page-header__user-name">Семен Щеглов</p>
+            <div class="profile">
+              <button class="profile__btn" type="button">
+                <img alt="Аватар" class="profile__img" height="40" src="../assets/img/avatar-icon.svg" width="40" />
+              </button>
+              <ul class="profile__menu-list">
+                <li class="profile__menu-item">
+                  <a class="profile__menu-link" href="profile.html">Профиль</a>
+                </li>
+                <li class="profile__menu-item">
+                  <a class="profile__menu-link" href="auth.html">Выход</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="page-main">
+      <div class="wrap">
+        <section class="task">
+          <form action="" class="task__form">
+            <div class="task__form-column task__form-column--size-b search">
+              <label class="search__label" for="search">Поиск</label>
+              <div class="search__input-inner">
+                <input
+                  class="search__input"
+                  id="search"
+                  placeholder="Введите название задачи или имя ответственного"
+                  type="text"
+                />
+                <span class="search__icon">
+                  <svg height="14" viewBox="0 0 13 14" width="13">
+                    <use href="../assets/img/icon.svg#search"></use>
+                  </svg>
+                </span>
+                <button class="search__btn btn-cancel"></button>
+              </div>
+            </div>
+            <div class="task__form-column task__form-column--size-m select">
+              <h3 class="select__title">Ответственный</h3>
+              <div class="select__header">
+                <span class="select__current">Выберите статус</span>
+              </div>
+              <ul class="select__body">
+                <li class="select__item">Любой</li>
+                <li class="select__item select__item--purple">В работе</li>
+                <li class="select__item select__item--blue">Ожидает согласования</li>
+                <li class="select__item select__item--green">Выполнено</li>
+              </ul>
+            </div>
+            <div class="task__form-column task__form-column--size-m date">
+              <label class="date__label" for="data">Срок выполнения</label>
+              <div class="date__input-inner">
+                <input class="date__input" id="data" name="date" placeholder="Укажите дату" type="text" />
+                <span class="date__icon">
+                  <svg height="14" viewBox="0 0 15 14" width="15">
+                    <use href="../assets/img/icon.svg#calendar"></use>
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="task__form-column task__form-column--size-b">
+              <fieldset class="checkbox-group">
+                <legend class="checkbox-group__legend">Тип контента</legend>
+                <div class="checkbox-group__inner">
+                  <label class="filter">
+                    <input class="filter__input" name="video" type="checkbox" />
+                    <span class="filter__name filter__name--video">
+                      <svg class="icon" height="9" width="7">
+                        <use href="../assets/img/icon.svg#video"></use>
+                      </svg>
+                      Видео
+                    </span>
+                  </label>
+                  <label class="filter">
+                    <input class="filter__input" name="photo" type="checkbox" />
+                    <span class="filter__name filter__name--photo">
+                      <svg class="icon" height="9" width="11">
+                        <use href="../assets/img/icon.svg#photo"></use>
+                      </svg>
+                      Фото
+                    </span>
+                  </label>
+                  <label class="filter">
+                    <input class="filter__input" name="audio" type="checkbox" />
+                    <span class="filter__name filter__name--audio">
+                      <svg class="icon" height="10" width="8">
+                        <use href="../assets/img/icon.svg#audio"></use>
+                      </svg>
+                      Аудио
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+            <div class="task__form-column-btn">
+              <button class="btn-size-big btn__blue btn" type="button">
+                <span class="btn__icon-inner">
+                  <svg class="icon" height="14" width="14">
+                    <use href="../assets/img/icon.svg#plus-in-circle"></use>
+                  </svg>
+                </span>
+                Новая задача
+              </button>
+            </div>
+          </form>
+          <ul class="task__list">
+            <li class="task__item">
+              <a class="task__link" href="">
+                <div class="card-task">
+                  <span class="card-task__type card-task__type--video">
+                    <svg class="icon" height="9" width="7">
+                      <use href="../assets/img/icon.svg#video"></use>
+                    </svg>
+                    Видео
+                  </span>
+                  <h3 class="card-task__title">
+                    Название повседневная практика показывает<span class="card-task__title-overlay"></span>
+                  </h3>
+                  <p class="card-task__author">Аркадий Юрченко</p>
+                  <div class="card-task__date-inner">
+                    <svg width="15" height="14" class="card-task__date-icon">
+                      <use href="../assets/img/icon.svg#calendar"></use>
+                    </svg>
+                    <span class="card-task__time">10.02.2020</span>
+                  </div>
+                  <span class="card-task__status card-task__status--purple">В работе</span>
+                  <div class="card-task__btn-inner">
+                    <button class="btn btn-edit-size-mini" type="button">
+                      <svg height="20" width="20">
+                        <use href="../assets/img/icon.svg#edit"></use>
+                      </svg>
+                    </button>
+                    <button class="btn btn-edit-size-mini" type="button">
+                      <svg height="16" width="14">
+                        <use href="../assets/img/icon.svg#del"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="task__item">
+              <a class="task__link" href="">
+                <div class="card-task">
+                  <span class="card-task__type card-task__type--photo">
+                    <svg class="icon" height="9" width="11">
+                      <use href="../assets/img/icon.svg#photo"></use>
+                    </svg>
+                    Фото
+                  </span>
+                  <h3 class="card-task__title">
+                    Название равным образом начало повседневной работы<span class="card-task__title-overlay"></span>
+                  </h3>
+                  <p class="card-task__author">Эльза Калининa</p>
+                  <div class="card-task__date-inner">
+                    <svg width="15" height="14" class="card-task__date-icon">
+                      <use href="../assets/img/icon.svg#calendar"></use>
+                    </svg>
+                    <span class="card-task__time">09.02.2020</span>
+                  </div>
+                  <span class="card-task__status card-task__status--green">Выполнено</span>
+                  <div class="card-task__btn-inner">
+                    <button class="btn btn-edit-size-mini" type="button">
+                      <svg height="20" width="20">
+                        <use href="../assets/img/icon.svg#edit"></use>
+                      </svg>
+                    </button>
+                    <button class="btn btn-edit-size-mini" type="button">
+                      <svg height="16" width="14">
+                        <use href="../assets/img/icon.svg#del"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="task__item">
+              <a class="task__link" href="">
+                <div class="card-task">
+                  <span class="card-task__type card-task__type--audio">
+                    <svg class="icon" height="9" width="7">
+                      <use href="../assets/img/icon.svg#audio"></use>
+                    </svg>
+                    Аудио
+                  </span>
+                  <h3 class="card-task__title">
+                    Название с другой стороны начало повседневной работы по формиро<span
+                      class="card-task__title-overlay"
+                    ></span>
+                  </h3>
+                  <p class="card-task__author">Дмитрий Румянцев</p>
+                  <div class="card-task__date-inner">
+                    <svg width="15" height="14" class="card-task__date-icon">
+                      <use href="../assets/img/icon.svg#calendar"></use>
+                    </svg>
+                    <span class="card-task__time">08.02.2020</span>
+                  </div>
+                  <span class="card-task__status card-task__status--blue">Ожидает согласования</span>
+                  <div class="card-task__btn-inner">
+                    <button class="btn btn-edit-size-mini" type="button">
+                      <svg height="20" width="20">
+                        <use href="../assets/img/icon.svg#edit"></use>
+                      </svg>
+                    </button>
+                    <button class="btn btn-edit-size-mini" type="button">
+                      <svg height="16" width="14">
+                        <use href="../assets/img/icon.svg#del"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="task__item">
+              <a class="task__link" href="">
+                <div class="card-task">
+                  <span class="card-task__type card-task__type--photo">
+                    <svg class="icon" height="9" width="11">
+                      <use href="../assets/img/icon.svg#photo"></use>
+                    </svg>
+                    Фото
+                  </span>
+                  <h3 class="card-task__title">
+                    Название равным образом начало повседневной работы<span class="card-task__title-overlay"></span>
+                  </h3>
+                  <p class="card-task__author">Гена Черемнов</p>
+                  <div class="card-task__date-inner">
+                    <svg width="15" height="14" class="card-task__date-icon">
+                      <use href="../assets/img/icon.svg#calendar"></use>
+                    </svg>
+                    <span class="card-task__time">06.02.2020</span>
+                  </div>
+                  <span class="card-task__status card-task__status--blue">Ожидает согласования</span>
+                  <div class="card-task__btn-inner">
+                    <button class="btn btn-edit-size-mini" type="button">
+                      <svg height="16" width="14">
+                        <use href="../assets/img/icon.svg#del"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="task__item">
+              <a class="task__link" href="">
+                <div class="card-task">
+                  <span class="card-task__type card-task__type--video">
+                    <svg class="icon" height="9" width="7">
+                      <use href="../assets/img/icon.svg#video"></use>
+                    </svg>
+                    Видео
+                  </span>
+                  <h3 class="card-task__title">
+                    Название повседневная практика показывает<span class="card-task__title-overlay"></span>
+                  </h3>
+                  <p class="card-task__author">Инесса Соловьёвa</p>
+                  <div class="card-task__date-inner">
+                    <svg width="15" height="14" class="card-task__date-icon">
+                      <use href="../assets/img/icon.svg#calendar"></use>
+                    </svg>
+                    <span class="card-task__time">01.02.2020</span>
+                  </div>
+                  <span class="card-task__status card-task__status--green">Выполнено</span>
+                  <div class="card-task__btn-inner">
+                    <button class="btn btn-edit-size-mini" type="button">
+                      <svg height="16" width="14">
+                        <use href="../assets/img/icon.svg#del"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="task__item">
+              <a class="task__link" href="">
+                <div class="card-task">
+                  <span class="card-task__type card-task__type--video">
+                    <svg class="icon" height="9" width="7">
+                      <use href="../assets/img/icon.svg#video"></use>
+                    </svg>
+                    Видео
+                  </span>
+                  <h3 class="card-task__title">
+                    Название повседневная практика показывает<span class="card-task__title-overlay"></span>
+                  </h3>
+                  <p class="card-task__author">Аркадий Юрченко</p>
+                  <div class="card-task__date-inner">
+                    <svg width="15" height="14" class="card-task__date-icon">
+                      <use href="../assets/img/icon.svg#calendar"></use>
+                    </svg>
+                    <span class="card-task__time">10.02.2020</span>
+                  </div>
+                  <span class="card-task__status card-task__status--purple">В работе</span>
+                  <div class="card-task__btn-inner">
+                    <button class="btn btn-edit-size-mini" type="button">
+                      <svg height="20" width="20">
+                        <use href="../assets/img/icon.svg#edit"></use>
+                      </svg>
+                    </button>
+                    <button class="btn btn-edit-size-mini" type="button">
+                      <svg height="16" width="14">
+                        <use href="../assets/img/icon.svg#del"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="task__item">
+              <a href="" class="task__link">
+                <div class="card-task">
+                  <span class="card-task__type card-task__type--video">
+                    <svg class="icon" height="9" width="7">
+                      <use href="../assets/img/icon.svg#video"></use>
+                    </svg>
+                    Видео
+                  </span>
+                  <h3 class="card-task__title">
+                    Название повседневная практика показывает<span class="card-task__title-overlay"></span>
+                  </h3>
+                  <p class="card-task__author">Аркадий Юрченко</p>
+                  <div class="card-task__date-inner">
+                    <svg width="15" height="14" class="card-task__date-icon">
+                      <use href="../assets/img/icon.svg#calendar"></use>
+                    </svg>
+                    <span class="card-task__date">10.02.2020</span>
+                  </div>
+                  <span class="card-task__status card-task__status--purple">В работе</span>
+                  <div class="card-task__btn-inner">
+                    <button type="button" class="btn btn-edit-size-mini">
+                      <svg height="20" width="20">
+                        <use href="../assets/img/icon.svg#edit"></use>
+                      </svg>
+                    </button>
+                    <button type="button" class="btn btn-edit-size-mini">
+                      <svg height="16" width="14">
+                        <use href="../assets/img/icon.svg#del"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

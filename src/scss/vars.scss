@@ -1,0 +1,16 @@
+$blue: #107eff;
+$green: #43dd9c;
+$yellow: #ffac2f;
+$black: #313131;
+$blue-outline: #d8e3ec;
+$grey-blue: #96aecd;
+$lt-blue: #e8f3ff;
+$red: #ff603e;
+$bg: #f3f8fb;
+$white: #fff;
+
+@mixin font($weight, $size, $line-height) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+}

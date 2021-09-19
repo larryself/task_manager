@@ -1,0 +1,28 @@
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  color: $black;
+  height: 100%;
+  background: $bg;
+}
+
+header {
+  flex: 0 0 auto;
+}
+
+main {
+  flex: 1 0 auto;
+  position: relative;
+}
+
+.icon {
+  fill: currentColor;
+}
