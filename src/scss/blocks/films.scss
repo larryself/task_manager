@@ -32,11 +32,11 @@
     margin: 0;
     flex-wrap: wrap;
 
-    @media (max-width: 1160px) {
+    @media (max-width: $xl-bp) {
       justify-content: space-around;
     }
 
-    @media (max-width: 595px) {
+    @media (max-width: $small-bp) {
       justify-content: center;
       margin: 0 5px;
     }
@@ -46,7 +46,7 @@
     max-width: 280px;
     width: 100%;
 
-    @media (max-width: 1160px) {
+    @media (max-width: $xl-bp) {
       margin: 0 5px 10px;
     }
   }

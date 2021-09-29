@@ -16,7 +16,7 @@
     border-radius: 8px;
     margin-bottom: 16px;
 
-    @media (max-width: 1160px) {
+    @media (max-width: $xl-bp) {
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -32,7 +32,7 @@
     align-items: center;
     justify-content: center;
 
-    @media (max-width: 1160px) {
+    @media (max-width: $xl-bp) {
       padding-top: 20px;
       padding-bottom: 20px;
     }

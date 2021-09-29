@@ -6,11 +6,11 @@
   margin: 0;
   padding: 0;
 
-  @media (max-width: 1160px) {
+  @media (max-width: $xl-bp) {
     justify-content: space-around;
   }
 
-  @media (max-width: 595px) {
+  @media (max-width: $small-bp) {
     justify-content: center;
     margin: 0 5px;
   }
@@ -24,11 +24,11 @@
     align-items: center;
     position: relative;
 
-    @media (max-width: 1160px) {
+    @media (max-width: $xl-bp) {
       margin: 0 5px 10px;
     }
 
-    @media (max-width: 595px) {
+    @media (max-width: $small-bp) {
       margin-bottom: 5px;
     }
   }

@@ -23,7 +23,7 @@
     padding-left: 11px;
     color: $gray;
 
-    @media (max-width: 600px) {
+    @media (max-width: $small-bp) {
       overflow: hidden;
       height: 1px;
       width: 1px;

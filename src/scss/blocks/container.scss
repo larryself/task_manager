@@ -5,11 +5,11 @@
   margin: 0 auto;
   box-sizing: border-box;
 
-  @media (max-width: 1160px) {
+  @media (max-width: $xl-bp) {
     max-width: 750px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: $medium-bp) {
     max-width: none;
   }
 }

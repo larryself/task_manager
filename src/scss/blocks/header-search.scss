@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
 
-  @media (max-width: 1160px) {
+  @media (max-width: $xl-bp) {
     order: 1;
     width: 100%;
   }
@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: space-between;
 
-    @media (max-width: 1160px) {
+    @media (max-width: $xl-bp) {
       justify-content: center;
     }
   }
@@ -28,7 +28,7 @@
     font-size: 16px;
     line-height: 19px;
 
-    @media (max-width: 1160px) {
+    @media (max-width: $xl-bp) {
       width: 100%;
     }
   }
@@ -51,16 +51,15 @@
     font-weight: 500;
     cursor: pointer;
 
-    @media (max-width: 800px) {
+    @media (max-width: $xl-bp) {
       margin-right: 0;
-      padding-right: 0;
     }
   }
 
   &__btn:hover {
     color: $dark-red;
 
-    @media (max-width: 1160px) {
+    @media (max-width: $xl-bp) {
       margin-right: 0;
     }
   }
