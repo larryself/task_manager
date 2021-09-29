@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 100%;
   margin: 0;
-  font-family: 'Rubik', sans-serif;
+  font-family: $font-default;
 
   &_not-overflow {
     overflow: hidden;

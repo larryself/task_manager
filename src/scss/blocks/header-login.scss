@@ -12,7 +12,7 @@
     display: none;
     outline: none;
     border: 0;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid $gray;
     padding: 7px 0;
     width: 100%;
     font-weight: 500;
@@ -48,7 +48,7 @@
     align-self: center;
     font-weight: 500;
     font-size: 16px;
-    color: #333;
+    color: $gray;
     padding-top: 4px;
     overflow: hidden;
   }
@@ -60,17 +60,17 @@
   }
 
   &__btn_red {
-    background: #e5261e;
-    color: #fff;
+    background: $red;
+    color: $white;
   }
 
   &__btn_red:hover {
-    background: #cc221b;
+    background: $dark-red;
   }
 
   &__btn_white {
-    color: #e5261e;
-    background: #fff;
+    color: $red;
+    background: $white;
   }
 
   &__label_sr-only {

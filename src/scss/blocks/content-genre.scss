@@ -34,26 +34,26 @@
   }
 
   &__item_bg-yellow {
-    background: linear-gradient(127.83deg, #f2c94c 8.44%, #f29a4a 91.36%);
+    background: $yellow-gradient;
     opacity: 0.8;
     box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.15);
   }
 
   &__item_bg-orange {
-    background: linear-gradient(127.83deg, #f2994a 8.44%, #eb5757 91.36%);
+    background: $orange-gradient;
     opacity: 0.8;
     box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.15);
   }
 
   &__item_bg-blue {
-    background: linear-gradient(127.83deg, #56ccf2 8.44%, #2f80ed 91.36%);
+    background: $blue-gradient;
     opacity: 0.8;
     box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.15);
     transition: 0.2s all;
   }
 
   &__item_bg-gray {
-    background: linear-gradient(127.83deg, #828282 8.44%, #333 91.36%);
+    background: $gray-gradient;
     opacity: 0.8;
     box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.15);
   }
@@ -80,7 +80,7 @@
     bottom: 24px;
     font-weight: normal;
     font-size: 20px;
-    color: #fff;
+    color: $white;
     left: 50%;
     transform: translateX(-50%);
   }

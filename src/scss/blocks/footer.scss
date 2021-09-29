@@ -1,6 +1,6 @@
 .footer {
   flex: 0 0 auto;
-  background: #f2f2f2;
+  background: $white-smoke;
 
   &__inner {
     display: flex;
@@ -24,13 +24,13 @@
   }
 
   &__contacts-phone-link {
-    color: #333;
+    color: $gray;
     text-decoration: none;
   }
 
   &__contacts-link-to-site {
     text-decoration: none;
     font-weight: 500;
-    color: #1f4766;
+    color: $blue-dark;
   }
 }
