@@ -291,31 +291,31 @@
       </div>
     </footer>
     <section class="modal js-modal-window">
-      <div class="modal-login">
-        <h2 class="modal-login__title">Вход</h2>
-        <form action="#" class="modal-login__form js-modal-form">
-          <label class="modal-login__label modal-login__label_sr-only" for="login-name">Логин</label>
+      <div class="login-group">
+        <form action="#" class="login-group__form js-modal-form">
+          <h2 class="login-group__title">Вход</h2>
+          <label class="login-group__label login-group__label_sr-only" for="login-name">Логин</label>
           <input
-            class="modal-login__input js-form-login"
+            class="login-group__input js-form-login"
             id="login-name"
             name="login-name"
             placeholder="Логин"
             required
             type="text"
           />
-          <label class="modal-login__label modal-login__label_sr-only" for="login-password">Пароль</label>
+          <label class="login-group__label login-group__label_sr-only" for="login-password">Пароль</label>
           <input
             autocomplete="on"
-            class="modal-login__input js-form-password"
+            class="login-group__input js-form-password"
             id="login-password"
             name="login-password"
             placeholder="Пароль"
             required
             type="password"
           />
-          <input checked class="modal-login__checkbox js-form-checkbox" id="checkbox" type="checkbox" />
-          <label class="modal-login__checkbox-label" for="checkbox">Запомнить</label>
-          <button class="modal-login__btn modal-login__btn_red js-form-btn" type="submit">Войти</button>
+          <input checked class="login-group__checkbox js-form-checkbox" id="checkbox" type="checkbox" />
+          <label class="login-group__checkbox-label" for="checkbox">Запомнить</label>
+          <button class="login-group__btn login-group__btn_red js-form-btn" type="submit">Войти</button>
         </form>
       </div>
     </section>
