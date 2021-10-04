@@ -1,6 +1,6 @@
 const section = document.querySelectorAll('.js-section');
 const sections = Array.prototype.slice.call(section);
-const tabsButton = document.querySelectorAll('.js-tabs');
+const tabButton = document.querySelectorAll('.js-tabs');
 const tabButtons = Array.prototype.slice.call(tabsButton);
 const MAIN_NAV_ITEM_ACTIVE = 'main-nav__item_active';
 const MAIN_NAV_SECTION_ACTIVE = 'main-nav__section_active';
