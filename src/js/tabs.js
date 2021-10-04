@@ -1,25 +1,28 @@
 const section = document.querySelectorAll('.js-section');
-const sectionArray = Array.prototype.slice.call(section);
+const sections = Array.prototype.slice.call(section);
 const tabsButton = document.querySelectorAll('.js-tabs');
-const tabsButtonArray = Array.prototype.slice.call(tabsButton);
+const tabButtons = Array.prototype.slice.call(tabsButton);
+const MAIN_NAV_ITEM_ACTIVE = 'main-nav__item_active';
+const MAIN_NAV_SECTION_ACTIVE = 'main-nav__section_active';
+
 function openActiveElement(tab) {
-  tabsButtonArray.forEach((currentTab) => {
+  tabButtons.forEach((currentTab) => {
     if (currentTab === tab) {
-      currentTab.classList.add('main-nav__item_active');
+      currentTab.classList.add(`${MAIN_NAV_ITEM_ACTIVE}`);
       window.location.hash = tab.dataset.trigger;
     } else {
-      currentTab.classList.remove('main-nav__item_active');
+      currentTab.classList.remove(`${MAIN_NAV_ITEM_ACTIVE}`);
     }
   });
-  sectionArray.forEach((currentSection) => {
+  sections.forEach((currentSection) => {
     if (tab.dataset.trigger === currentSection.dataset.content) {
-      currentSection.classList.add('main-nav__section_active');
+      currentSection.classList.add(`${MAIN_NAV_SECTION_ACTIVE}`);
     } else {
-      currentSection.classList.remove('main-nav__section_active');
+      currentSection.classList.remove(`${MAIN_NAV_SECTION_ACTIVE}`);
     }
   });
 }
-tabsButtonArray.forEach((tab) => {
+tabButtons.forEach((tab) => {
   tab.addEventListener('click', (e) => {
     e.preventDefault();
     openActiveElement(tab);

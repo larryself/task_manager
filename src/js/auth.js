@@ -5,14 +5,21 @@ const btnExit = document.querySelector('.js-logguot');
 const userName = document.querySelector('.js-current-user-name');
 const modalWindow = document.querySelector('.js-modal-window');
 const formChangeName = document.querySelector('.js-form-change-name');
+const changeNameInput = document.querySelector('.js-change-name-input');
+const loginInput = document.querySelector('.js-form-login');
+const checkbox = document.querySelector('.js-form-checkbox');
+const HEADER_LOGIN_BTN_ACTIVE = 'header-login__btn_active';
+const HEADER_LOGIN_INPUT_ACTIVE = 'header-login__input_active';
+const HEADER_LOGIN_USER_NAME_ACTIVE = 'header-login__user-name_active';
+const MODAL_ACTIVE = 'modal--active';
+const PAGE_BODY_NOT_OVERFLOW = 'page-body_not-overflow';
 const userKey = 'autorized';
 
 userName.addEventListener('click', () => {
-  const changeNameInput = document.querySelector('.js-change-name-input');
   changeNameInput.value = userName.textContent;
-  changeNameInput.classList.add('header-login__input_active');
+  changeNameInput.classList.add(`${HEADER_LOGIN_INPUT_ACTIVE}`);
   changeNameInput.focus();
-  userName.classList.remove('header-login__user-name_active');
+  userName.classList.remove(`${HEADER_LOGIN_USER_NAME_ACTIVE}`);
 });
 
 function saveToLocalStorage(user) {
@@ -26,29 +33,29 @@ function saveToLocalStorage(user) {
 
 formChangeName.addEventListener('submit', (e) => {
   e.preventDefault();
-  const changeNameInput = document.querySelector('.js-change-name-input');
   saveToLocalStorage(changeNameInput.value);
   userName.textContent = changeNameInput.value;
-  changeNameInput.classList.remove('header-login__input_active');
-  userName.classList.add('header-login__user-name_active');
+  changeNameInput.classList.remove(`${HEADER_LOGIN_INPUT_ACTIVE}`);
+  userName.classList.add(`${HEADER_LOGIN_USER_NAME_ACTIVE}`);
   formChangeName.reset();
 });
 
-document.querySelector('.js-change-name-input').addEventListener('blur', () => {
+changeNameInput.addEventListener('blur', () => {
   formChangeName.requestSubmit();
 });
 
 function loginFormOn() {
-  if (modalWindow.matches('.modal_active')) {
+  if (modalWindow.matches(`${MODAL_ACTIVE}`)) {
     return;
   }
-  modalWindow.classList.add('modal_active');
-  page.classList.add('page-body_not-overflow');
+  console.log('234');
+  modalWindow.classList.add(`${MODAL_ACTIVE}`);
+  page.classList.add(`${PAGE_BODY_NOT_OVERFLOW}`);
 }
 
 function closeModalWindow() {
-  modalWindow.classList.remove('modal_active');
-  page.classList.remove('page-body_not-overflow');
+  modalWindow.classList.remove(`${MODAL_ACTIVE}`);
+  page.classList.remove(`${PAGE_BODY_NOT_OVERFLOW}`);
 }
 
 modalWindow.addEventListener('click', (e) => {
@@ -60,14 +67,15 @@ modalWindow.addEventListener('click', (e) => {
 });
 
 btnLoginEnter.addEventListener('click', () => {
+  console.log(111);
   loginFormOn();
 });
 
 function authorize(user) {
   userName.textContent = user;
-  userName.classList.add('header-login__user-name_active');
-  btnLoginEnter.classList.remove('header-login__btn_active');
-  btnExit.classList.add('header-login__btn_active');
+  userName.classList.add(`${HEADER_LOGIN_USER_NAME_ACTIVE}`);
+  btnLoginEnter.classList.remove(`${HEADER_LOGIN_BTN_ACTIVE}`);
+  btnExit.classList.add(`${HEADER_LOGIN_BTN_ACTIVE}`);
 }
 
 if (localStorage.getItem(userKey)) {
@@ -77,9 +85,7 @@ if (localStorage.getItem(userKey)) {
 }
 
 function authorization() {
-  const loginInput = document.querySelector('.js-form-login');
   const loginValue = loginInput.value;
-  const checkbox = document.querySelector('.js-form-checkbox');
   if (checkbox.checked) {
     saveToLocalStorage(loginValue);
   }
@@ -94,8 +100,8 @@ formModal.addEventListener('submit', (e) => {
 });
 
 btnExit.addEventListener('click', () => {
-  btnExit.classList.remove('header-login__btn_active');
-  btnLoginEnter.classList.add('header-login__btn_active');
+  btnExit.classList.remove(`${HEADER_LOGIN_BTN_ACTIVE}`);
+  btnLoginEnter.classList.add(`${HEADER_LOGIN_BTN_ACTIVE}`);
   localStorage.clear();
   userName.innerHTML = '';
 });
