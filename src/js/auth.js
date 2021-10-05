@@ -48,7 +48,6 @@ function loginFormOn() {
   if (modalWindow.matches(`${MODAL_ACTIVE}`)) {
     return;
   }
-  console.log('234');
   modalWindow.classList.add(`${MODAL_ACTIVE}`);
   page.classList.add(`${PAGE_BODY_NOT_OVERFLOW}`);
 }
@@ -67,7 +66,6 @@ modalWindow.addEventListener('click', (e) => {
 });
 
 btnLoginEnter.addEventListener('click', () => {
-  console.log(111);
   loginFormOn();
 });
 
