@@ -84,11 +84,11 @@
 
     &:hover {
       cursor: pointer;
-    }
 
-    &:hover .films__desc {
-      opacity: 0.8;
-      transition: 0.2s all;
+      .films__desc {
+        opacity: 0.8;
+        transition: 0.2s all;
+      }
     }
   }
 

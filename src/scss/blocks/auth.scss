@@ -47,10 +47,6 @@
     }
   }
 
-  &__checkbox {
-    display: none;
-  }
-
   &__checkbox-label {
     align-self: flex-start;
     font-weight: normal;
@@ -72,9 +68,13 @@
     }
   }
 
-  &__checkbox:checked + .login-group__checkbox-label::before {
-    background: url('../img/checked.png') no-repeat 0 50%;
-    background-size: contain;
+  &__checkbox {
+    display: none;
+
+    &:checked + .login-group__checkbox-label::before {
+      background: url('../img/checked.png') no-repeat 0 50%;
+      background-size: contain;
+    }
   }
 
   &__btn {

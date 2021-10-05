@@ -19,10 +19,10 @@
 
   &__item {
     padding-top: 12px;
-  }
 
-  &__item:first-child {
-    color: $red;
+    &:first-child {
+      color: $red;
+    }
   }
 
   &__time {
