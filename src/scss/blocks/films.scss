@@ -11,16 +11,16 @@
   &__title_active-img {
     padding-left: 30px;
     position: relative;
-  }
 
-  &__title_active-img::before {
-    content: '';
-    width: 24px;
-    height: 24px;
-    background: url('../img/fire.png'), no-repeat;
-    background-size: cover;
-    position: absolute;
-    left: 0;
+    &::before {
+      content: '';
+      width: 24px;
+      height: 24px;
+      background: url('../img/fire.png'), no-repeat;
+      background-size: cover;
+      position: absolute;
+      left: 0;
+    }
   }
 
   &__list {
@@ -56,10 +56,10 @@
     flex-direction: column;
     text-decoration: none;
     color: inherit;
-  }
 
-  &__link :visited {
-    color: inherit;
+    &:visited {
+      color: inherit;
+    }
   }
 
   &__desc {
@@ -81,15 +81,15 @@
     height: 370px;
     border-radius: 8px;
     position: relative;
-  }
 
-  &__poster:hover {
-    cursor: pointer;
-  }
+    &:hover {
+      cursor: pointer;
+    }
 
-  &__poster:hover .films__desc {
-    opacity: 0.8;
-    transition: 0.2s all;
+    &:hover .films__desc {
+      opacity: 0.8;
+      transition: 0.2s all;
+    }
   }
 
   &__img {

@@ -31,15 +31,15 @@
     @media (max-width: $xl-bp) {
       width: 100%;
     }
-  }
 
-  &__input::placeholder {
-    font-weight: normal;
-  }
+    &::placeholder {
+      font-weight: normal;
+    }
 
-  &__input:focus {
-    outline: none;
-    font-weight: 500;
+    &:focus {
+      outline: none;
+      font-weight: 500;
+    }
   }
 
   &__btn {
@@ -54,13 +54,9 @@
     @media (max-width: $xl-bp) {
       margin-right: 0;
     }
-  }
 
-  &__btn:hover {
-    color: $dark-red;
-
-    @media (max-width: $xl-bp) {
-      margin-right: 0;
+    &:hover {
+      color: $dark-red;
     }
   }
 

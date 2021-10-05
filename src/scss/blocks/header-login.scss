@@ -62,10 +62,10 @@
   &__btn_red {
     background: $red;
     color: $white;
-  }
 
-  &__btn_red:hover {
-    background: $dark-red;
+    &:hover {
+      background: $dark-red;
+    }
   }
 
   &__btn_white {
