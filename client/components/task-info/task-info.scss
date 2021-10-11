@@ -1,0 +1,119 @@
+@import '../../styles/vars';
+
+.task-info {
+  background: $white;
+  border: 1px solid $blue-outline;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 30px;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+  }
+
+  &__format,
+  &__status {
+    @include font(500, 14px, 16px);
+  }
+
+  &__format {
+    &--video {
+      color: $blue;
+    }
+
+    &--audio {
+      color: $red;
+    }
+
+    &--photo {
+      color: $green;
+    }
+  }
+
+  &__status {
+    &--inWork {
+      color: $purple;
+    }
+
+    &--waiting {
+      color: $blue-azure;
+    }
+
+    &--completed {
+      color: $green-azure;
+    }
+  }
+
+  &__title {
+    @include font(500, 20px, 23px);
+
+    width: 80%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  &__desc {
+    @include font(400, 14px, 21px);
+
+    margin-bottom: 20px;
+  }
+
+  &__files-format {
+    fill: $white;
+  }
+
+  &__files-title {
+    @include font(500, 12px, 14px);
+
+    margin-bottom: 8px;
+  }
+
+  &__files-list {
+    border-top: 1px solid $blue-outline;
+    border-bottom: 1px solid $blue-outline;
+  }
+
+  &__files-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__files-item-inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &__files-name {
+    padding-left: 10px;
+  }
+
+  &__files-size {
+    color: rgba($black, 0.6);
+    padding-left: 13px;
+  }
+
+  &__files-content-inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &__btn {
+    @include font(500, 12px, 14px);
+
+    border: 0;
+    border-radius: 4px;
+    padding: 8px 10px;
+    color: $blue;
+    background-color: $lt-blue;
+    cursor: pointer;
+  }
+
+  &__btn-icon-inner {
+    margin-right: 3px;
+  }
+}

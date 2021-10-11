@@ -1,0 +1,19 @@
+include ../button/button
+
+mixin user-card(id,name,email,avatar,role)
+  .user-card
+    .user-card__img-inner
+      img.user-card__img(alt='Аватар' src=avatar)
+    h3.user-card__name= name
+    span.user-card__mail= email
+    span.user-card__role
+      if role === 'admin'
+        = 'Администрано'
+      if role === 'manager'
+        = 'Менеджер'
+      if role === 'content-maker'
+        = 'Контент-мейкер'
+
+    .user-card__btn-inner
+      +btnIcon('34','link','edit','blue','user-card__btn-edit',`user.html?${id}`)
+      +btnIcon('34','button','del','blue','user-card__btn-del')

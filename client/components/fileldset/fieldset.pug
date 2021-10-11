@@ -1,0 +1,12 @@
+include ../type/type
+
+mixin fieldset(className, legend, ...items)
+  fieldset.checkbox-group(class='' + className)
+    legend.checkbox-group__legend=  legend
+    .checkbox-group__inner
+
+      each item in items
+        if ['audio','video','photo'].includes(item)
+          +filterBtn(item)
+        else
+          +filterBtn('only-text',item)

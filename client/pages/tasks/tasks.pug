@@ -1,0 +1,36 @@
+extends ../../components/header/header
+include ../../components/search-box/search-box
+include ../../components/select/select
+include ../../components/date-box/date-box
+include ../../components/fileldset/fieldset
+include ../../components/card-task/card-task
+include ../../components/button/button
+include ../../components/modal/modal
+
+block variables
+  - var title = 'Задачи'
+  - var tasksPage = true
+  - var tasks = [{id:'15',type: 'video', name: 'Название с другой стороны начало повседневной работы по формированию',executor:'Иванов Сергей', status: 'inWork', dateExpired: '2021-10-02T12:36:15.847Z'},{id:'14',type: 'photo', name: 'Название с другой стороны начало повседневной работы по формированию',executor:'Иванов Сергей', status: 'waiting', dateExpired: '2021-10-02T12:36:15.847Z'},{id:'13',type: 'audio', name: 'Название с другой стороны начало повседневной работы по формированию',executor:'Иванов Сергей', status: 'completed', dateExpired: '2021-10-02T12:36:15.847Z'},{id:'11',type: 'photo', name: 'Название с другой стороны начало повседневной работы по формированию',executor:'Иванов Сергей', status: 'inWork', dateExpired: '2021-10-02T12:36:15.847Z'},{id:'12',type: 'video', name: 'Название с другой стороны начало повседневной работы по формированию',executor:'Иванов Сергей', status: 'waiting', dateExpired: '2021-10-02T12:36:15.847Z'}]
+
+block content
+  main.page-main
+    .wrap
+      section.tasks
+        form.tasks__form
+          +search-box('tasks__form-column tasks__form-column--size-big','Поиск','Введите название задачи или имя ответственного')
+          +select('colored','tasks__form-column tasks__form-column--size-small','Ответственный','Выберите статус', ['Любой', 'inWork','waiting','completed'])
+          +date-box('tasks__form-column tasks__form-column--size-small','Срок выполнения','Укажите дату')
+          +fieldset('tasks__form-column tasks__form-column--size-big','Тип контента','video','photo','audio')
+        .tasks__link-inner
+          +button('link','big','tasks__link','blue','Новая задача','plus-in-circle','task_no_result.html')
+        ul.tasks__list
+          each task in tasks
+            li.tasks__item
+              +card-task(task.id , task.type, task.name, task.executor, task.dateExpired.substring(0,10).split('-').reverse().join('.'), task.status, 'edit','del')
+
+
+block append content
+  +modal('message', 'Вы действительно хотите удалить задачу')
+  template(id='card-task')
+    +card-task(tasks[0])
+

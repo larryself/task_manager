@@ -1,0 +1,14 @@
+mixin profile(userName)
+  .profile
+    p.profile__user-name= userName
+    button.profile__btn(type='button')
+      img(alt="Аватар"
+        class="profile__img"
+        height="40"
+        src="../../../public/img/avatar-icon.svg"
+        width="40")
+    ul.profile__menu-list
+      li.profile__menu-item
+        a.profile__menu-link(href="profile.html")= 'Профиль'
+      li.profile__menu-item
+        a.profile__menu-link(href="auth.html")= 'Выход'

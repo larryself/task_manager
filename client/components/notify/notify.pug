@@ -1,0 +1,16 @@
+include ../svg-icon/svg-icon
+
+mixin notify(type, url, valueCount, comment, nameTask, time)
+  if type === 'bell'
+    a.notify-bell(href= url)
+      span.notify-bell__count= valueCount
+  else
+    .notify-big
+      .notify-big__icon-inner.notify-big__icon-inner--active
+        +icon('comment')
+      .notify-big__content-inner
+        p.notify-big__desc
+          = comment
+          span.notify-big__name= nameTask
+        p.notify-big__time= time
+

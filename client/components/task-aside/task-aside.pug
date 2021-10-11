@@ -1,0 +1,16 @@
+mixin taskAside(className,dateCreate,dueDate,published,responsible)
+  article.task-aside(class='' + className)
+    ul.task-aside__list
+      li.task-aside__item= 'Задача создана'
+        span.task-aside__item-line
+        span.task-aside__item-value= dateCreate
+      li.task-aside__item= 'Срок выполнения'
+        span.task-aside__item-line
+        span.task-aside__item-value= dueDate
+      li.task-aside__item= 'Опубликовал'
+        span.task-aside__item-line
+        span.task-aside__item-value= published
+      li.task-aside__item= 'Ответственный'
+        span.task-aside__item-line
+        span.task-aside__item-value= responsible
+

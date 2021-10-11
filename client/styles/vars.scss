@@ -1,0 +1,25 @@
+$blue: #107eff;
+$dark-blue: #0067df;
+$heavenly: #70b2ff;
+$green: #43dd9c;
+$yellow: #ffac2f;
+$black: #313131;
+$blue-outline: #d8e3ec;
+$grey-blue: #96aecd;
+$lt-blue: #e8f3ff;
+$red: #ff603e;
+$bg: #f3f8fb;
+$white: #fff;
+$purple: #d663ff;
+$blue-azure: #2cccff;
+$green-azure: #97dc26;
+
+$font-default: 'Roboto', sans-serif;
+
+$medium: 835px;
+
+@mixin font($weight, $size, $line-height) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+}

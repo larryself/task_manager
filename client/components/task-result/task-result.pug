@@ -1,0 +1,20 @@
+mixin taskResult(className)
+  article.task-result(class=''+ className)
+    .task-result__desc
+      h3.task-result__title= 'Результат'
+      p.task-result__format= 'Допустимые форматы:'
+      ul.task-result__format-list
+        li.task-result__format-item
+          +iconFormat('avi')
+        li.task-result__format-item
+          +iconFormat('flv')
+        li.task-result__format-item
+          +iconFormat('mov')
+    .task-result__upload-file-inner
+      form.task-result__file-load-form
+        label.task-result__file-load-label
+          input.task-result__file-load-input(name="file" type="file")
+          +icon('plus')
+
+
+

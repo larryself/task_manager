@@ -1,0 +1,4 @@
+mixin input-box(label,id,type, placeholder, pattern)
+  .input-box&attributes(attributes)
+    label.input-box__label(for= id)= label
+    input.input-box__input(id= id, type= type,name= type, placeholder= placeholder, pattern= pattern)

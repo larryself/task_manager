@@ -1,0 +1,148 @@
+@import '../../styles/vars';
+
+.btn {
+  @include font(500, 1.4rem, 1.6rem);
+
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  transition: 0.2s;
+  border: 0;
+  cursor: pointer;
+
+  &-size-big {
+    padding: 12px 15px;
+  }
+
+  &-size-small {
+    padding: 9px 12px;
+  }
+
+  &__icon-inner {
+    display: inline-flex;
+    margin-right: 10px;
+  }
+
+  &--blue {
+    background: $blue;
+    color: $white;
+
+    &:hover {
+      background: #308fff;
+    }
+
+    &:active {
+      background: $dark-blue;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  &--green {
+    background: $green;
+    color: $white;
+
+    &:hover {
+      background: #51efac;
+    }
+
+    &:active {
+      background: #33cd8c;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  &--tranparent {
+    background: transparent;
+    color: $blue;
+
+    &:hover {
+      background-color: $lt-blue;
+    }
+
+    &:active {
+      background-color: #c2dfff;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  &--red-text {
+    color: $red;
+    background-color: transparent;
+
+    &:hover {
+      background-color: #fff0ec;
+    }
+
+    &:active {
+      background-color: #ffd9cf;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  &--lt-blue {
+    color: $blue;
+    background-color: $lt-blue;
+
+    &:hover {
+      background-color: #308fff;
+      color: $white;
+    }
+
+    &:active {
+      background-color: $dark-blue;
+      color: $white;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      color: $blue;
+    }
+  }
+
+  &-square-size-big {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-square-size-mini {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-video-player {
+    height: 40px;
+    width: 40px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.btn-cancel {
+  width: 10px;
+  height: 10px;
+  border: 0;
+}

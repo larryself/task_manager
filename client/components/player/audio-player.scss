@@ -1,0 +1,71 @@
+.audio-player {
+  background-color: $black;
+  width: 100%;
+  display: none;
+  align-items: center;
+  padding: 15px;
+  max-width: 628px;
+  justify-content: space-between;
+  border-radius: 4px;
+
+  &__active {
+    display: flex;
+  }
+
+  &__progress {
+    display: flex;
+    width: 100%;
+    max-width: 299px;
+  }
+
+  &__btn {
+    border: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    background: transparent;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &-play::before {
+      content: '';
+      background: url('../../../public/player-icon/play-icon.svg') no-repeat center center transparent;
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+
+    &-play--active::before {
+      background: url('../../../public/player-icon/pause-icon.svg') no-repeat center center transparent;
+    }
+
+    &-volume::before {
+      content: '';
+      background: url('../../../public/player-icon/volume-icon.svg') no-repeat center center transparent;
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+
+    &-volume--active::before {
+      background: url('../../../public/player-icon/mute-icon.svg') no-repeat center center transparent;
+    }
+  }
+
+  &__time-control {
+    color: rgba($white, 0.6);
+  }
+
+  &__volume {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+  }
+
+  &__volume-input {
+    height: 3px;
+    width: 81px;
+  }
+}

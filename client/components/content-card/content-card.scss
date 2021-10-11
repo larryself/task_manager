@@ -1,0 +1,75 @@
+@import '../../styles/vars';
+
+.content-card {
+  display: flex;
+  flex-direction: column;
+
+  &__poster {
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 15px;
+
+    &:hover {
+      cursor: pointer;
+      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
+      transition: 0.2s;
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__format {
+    @include font(500, 14px, 16px);
+
+    margin-bottom: 10px;
+
+    &--video {
+      color: $blue;
+    }
+
+    &--photo {
+      color: $green;
+    }
+
+    &--audio {
+      color: $yellow;
+    }
+  }
+
+  &__time {
+    opacity: 0.6;
+    font-weight: 400;
+  }
+
+  &__title {
+    @include font(400, 14px, 16px);
+
+    margin-bottom: 6px;
+  }
+
+  &__author {
+    color: rgba($black, 0.6);
+    font-size: 12px;
+    line-height: 14px;
+
+    &-time {
+      padding-left: 15px;
+      position: relative;
+
+      &::before {
+        content: '';
+        height: 3px;
+        width: 3px;
+        background: $heavenly;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 8%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}

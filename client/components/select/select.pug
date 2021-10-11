@@ -1,0 +1,42 @@
+mixin select(type,className,title,placeholder, namesResponsible)
+ case type
+    when 'scroll'
+      div(class='select '+ className)&attributes(attributes)
+        h3.select__title= title
+        .select__header
+          span.select__current= placeholder
+          span.select__icon
+        ul.select__body(data-simplebar)
+            for name in namesResponsible
+              li.select__item= name
+    when 'colored'
+      div(class=`select ${className}`)&attributes(attributes)
+        h3.select__title= title
+        .select__header
+          span.select__current= placeholder
+          span.select__icon
+        ul.select__body
+          for name in namesResponsible
+            if name === 'audio'
+              li(class='select__item select__item--audio')= 'Аудио'
+            if name === 'video'
+              li(class='select__item select__item--video')= 'Видео'
+            if name === 'photo'
+              li(class='select__item select__item--photo')= 'Фото'
+            if name === 'inWork'
+              li.select__item.select__item--purple= "В работе"
+            if name === 'completed'
+              li.select__item.select__item--green= "Выполнено"
+            if name === 'waiting'
+              li.select__item.select__item--blue= "Ожидает согласования"
+            unless ['audio','video','photo','inWork','completed','waiting'].includes(name)
+              li.select__item.select__item--default= name
+    when 'default'
+      div(class=`select ${className}`)&attributes(attributes)
+        h3.select__title= title
+        .select__header
+          span.select__current= placeholder
+          span.select__icon
+        ul.select__body
+          for name in namesResponsible
+            li(class='select__item select__item--default')= name

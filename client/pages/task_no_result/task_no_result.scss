@@ -1,0 +1,155 @@
+@import '../../styles/common';
+@import '../../styles/wrap';
+
+.task {
+  padding-top: 30px;
+
+  &__btn-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__btn-back {
+    margin-left: -13px;
+  }
+
+  &__btn-square-inner {
+    display: flex;
+    column-gap: 20px;
+  }
+
+  &__content-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-top: 20px;
+    grid-template-areas:
+      'main main aside'
+      'main main .'
+      'other other .';
+  }
+
+  &__desc {
+    grid-area: main;
+  }
+
+  &__other {
+    grid-area: other;
+  }
+
+  &__aside {
+    grid-area: aside;
+  }
+
+  &__other-item:not(:last-child) {
+    border-bottom: 0;
+    border-radius: 4px 4px 0 0;
+  }
+
+  &__other-item:last-child {
+    border-radius: 0 0 4px 4px;
+  }
+}
+
+.task-info__title {
+  @include font(500, 20px, 23px);
+
+  width: 80%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.task-info__desc {
+  @include font(400, 14px, 21px);
+
+  margin-bottom: 20px;
+}
+
+.task-info__files-format {
+  fill: $white;
+}
+
+.task-info__files-title {
+  @include font(500, 12px, 14px);
+
+  margin-bottom: 8px;
+}
+
+.task-info__files-list {
+  border-top: 1px solid $blue-outline;
+  border-bottom: 1px solid $blue-outline;
+}
+
+.task-info__files-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.task-info__files-name {
+  padding-left: 10px;
+}
+
+.task-info__files-size {
+  color: rgba($black, 0.6);
+  padding-left: 13px;
+}
+
+.task-info__files-content-inner {
+  display: flex;
+  align-items: center;
+}
+
+.task-info__btn {
+  @include font(500, 12px, 14px);
+
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 10px;
+  color: $blue;
+  background-color: $lt-blue;
+  cursor: pointer;
+}
+
+.task-info__btn-icon-inner {
+  margin-right: 3px;
+}
+
+/* textarea box */
+.textarea-box {
+  padding: 30px;
+  background: $white;
+  border-radius: 4px;
+  border: 1px solid $blue-outline;
+
+  &__inner {
+    position: relative;
+    display: flex;
+  }
+
+  &__input {
+    padding: 10px;
+    resize: none;
+    border: 1px solid $blue-outline;
+    border-radius: 4px;
+  }
+
+  &__input::placeholder {
+    font-size: 14px;
+  }
+
+  &__btn {
+    @include font(500, 12px, 14px);
+
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 8px 10px;
+    color: $white;
+    background: $blue;
+    border-radius: 4px;
+    border: 0;
+  }
+}

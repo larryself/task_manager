@@ -1,0 +1,16 @@
+@import '../../styles/vars';
+
+.checkbox-group {
+  &__legend {
+    @include font(500, 12px, 14px);
+
+    margin-bottom: 10px;
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+}

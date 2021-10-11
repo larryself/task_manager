@@ -1,0 +1,24 @@
+include ../profile-box/profile-box
+include ../notify/notify
+include ../navigation-menu/navigation-menu
+
+doctype html
+
+block variables
+
+html(lang='ru')
+    head
+      meta(charset='utf-8')
+      title #{title}
+      meta(content="width=device-width,initial-scale=1", name="viewport")
+      link(href="../public/favicon/favicon.ico" rel="icon")
+    header.page-header
+      .wrap.page-header__inner
+        a.page-header__logo-link(href='#')
+          img(alt="Логотип" height="30" src="../public/img/logo.svg" width="30")
+          h1.page-header__title= 'Менеджер задач'
+        +navigation-menu('page-header__menu')
+        .page-header__user-area
+          +notify('bell','notifications.html', 3)
+          +profile('Семен Щеглов')
+    block content

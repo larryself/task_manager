@@ -1,0 +1,46 @@
+extends ../../components/header/header
+include ../../components/button/button
+include ../../components/input-box/input-box
+include ../../components/date-box/date-box
+include ../../components/textarea-box/textarea-box
+include ../../components/select/select
+
+block variables
+  - var attributes = {}
+  - var title = 'Задачи'
+  - var tasksPage = true
+  - var requester = ['Альбина Ткаченко', 'София Мельник',  'Альбина Ткаченко',  'София Мельник',  'Альбина Ткаченко',  'София Мельник',  'Альбина Ткаченко',  'София Мельник',  'Альбина Ткаченко',  'София Мельник']
+
+block content
+  main.page-main
+    .wrap
+      section.new-task
+        .new-task__btn-inner
+          +button('link','small','new-task__btn-back','tranparent','К списку задач','back','tasks.html')
+        form.new-task__form.new-task__content-inner
+          .new-task__desc
+            +select('colored','new-task__desc-select','Тип контента','Выберите тип контента',['audio','video','photo'])
+            +input-box('Заголовок','name','text', 'Введите заголовок задачи')
+            +textarea
+            .new-task__stick-files-inner
+              .new-task__loaded-files
+                .new-task__loaded-file
+                  span.new-task__loaded-file-format
+                    +iconDocType('zip')
+                  span.new-task__loaded-file-name= 'Материалы.zip'
+                  span.new-task__loaded-file-size= '61 Мб'
+                  +button('button','small','new-task__loaded-file-btn','red-text','Удалить','del')
+              label(class="new-task__file-load-label btn btn--lt-blue")
+                input(class="new-task__file-load-input" name="file" type="file")
+                span(class="new-task__file-icon-inner")
+                  +icon('stick')
+                = 'Прикрепить файл'
+
+          .new-task__aside
+            +date-box('new-task__aside-date', 'Срок выполнения', 'Укажите дату')
+            +select('scroll','new-task__aside-requester','Инициатор','Выберите инициатора', requester)&attributes(attributes)
+            +select('scroll','new-task__aside-responsible','Ответственный','Выберите ответственного', requester)&attributes(attributes)
+
+          .new-task__btn-create-inner
+            +button('button','big','new-task__btn-create','blue','Создать заявку','approved')
+

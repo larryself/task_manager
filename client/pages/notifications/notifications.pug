@@ -1,0 +1,13 @@
+extends ../../components/header/header
+include ../../components/notify/notify
+block variables
+  - var title = 'Уведомления'
+
+
+block content
+  main.page-main
+    .wrap
+      section.notify
+        .notify__content-inner
+          h2.notify__title= 'Уведомления'
+          +notify('big','','','Новый комментарий в задаче','Название задачи','11:51 13.02.2020')

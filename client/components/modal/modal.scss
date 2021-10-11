@@ -1,0 +1,133 @@
+@import '../../styles/vars';
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba($black, 0.85);
+  right: 0;
+  bottom: 0;
+
+  &--active {
+    display: block;
+  }
+}
+
+.modal-media {
+  &__btn {
+    position: absolute;
+    left: 30px;
+    top: 22px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &::before {
+      content: '';
+      background: url('../../../public/img/back.svg') no-repeat center center;
+      display: block;
+      width: 25px;
+      height: 11px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: flex-start;
+    position: absolute;
+    left: 73px;
+    top: 30px;
+    color: $white;
+  }
+
+  &__title-inner {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__time {
+    @include font(inherit, 1.2rem, 1.4rem);
+
+    opacity: 0.6;
+  }
+
+  &__mediacontent-inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    overflow: hidden;
+    max-width: 938px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__mediacontent {
+    width: 100%;
+  }
+}
+
+.modal-message {
+  position: absolute;
+  padding: 30px;
+  background: $white;
+  border: 1px solid $blue-outline;
+  box-sizing: border-box;
+  border-radius: 4px;
+  max-width: 393px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__title {
+    @include font(500, 20px, 23px);
+
+    margin-bottom: 20px;
+  }
+
+  &__btn-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  &__btn-inner {
+    display: flex;
+    column-gap: 20px;
+  }
+
+  &__btn {
+    @include font(500, 14px, 16px);
+
+    padding: 12px 15px;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  &__btn-yes {
+    background: $blue;
+    color: $white;
+  }
+
+  &__btn-no {
+    background: $lt-blue;
+    color: $blue;
+  }
+}

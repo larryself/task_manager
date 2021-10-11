@@ -1,0 +1,91 @@
+@import '../../styles/vars';
+
+.task-result {
+  padding: 30px;
+  background: $white;
+  border-radius: 4px;
+  border: 1px solid $blue-outline;
+
+  &__desc {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &__title {
+    @include font(500, 16px, 19px);
+
+    margin-right: 20px;
+  }
+
+  &__format {
+    opacity: 0.6;
+    margin-right: 9px;
+  }
+
+  &__format-list {
+    display: flex;
+    column-gap: 5px;
+    line-height: 0;
+  }
+
+  &__upload-file-inner {
+    order: 1;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  &__loaded-file-inner {
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 2px;
+
+    &--loading {
+      border-color: $blue-outline;
+    }
+  }
+
+  &__loaded-file-img {
+    display: flex;
+    border-radius: 4px;
+    width: 110px;
+    height: 68px;
+  }
+
+  &__file-load-form {
+    order: 1;
+  }
+
+  &__file-load-label {
+    color: $grey-blue;
+    cursor: pointer;
+    width: 110px;
+    height: 68px;
+    border: 2px dashed $grey-blue;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      border-color: $blue;
+      color: $blue;
+    }
+  }
+
+  &__file-load-input {
+    appearance: none;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &__file-load-icon {
+    text-align: center;
+  }
+}

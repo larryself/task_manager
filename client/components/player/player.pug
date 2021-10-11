@@ -1,0 +1,21 @@
+mixin player(type)
+  case type
+    when 'audio'
+      .audio-player
+        button.audio-player__btn.audio-player__btn-play(type='button')
+        .audio-player__progress
+          span.audio-player__progress-tree
+        .audio-player__volume
+          button.audio-player__btn.audio-player__btn-volume(type='button')
+          input.audio-player__volume-input(max='100' min='0' type='range')
+        .audio-player__time-control= '00:00 / 0:00'
+    when 'video'
+      .video-player
+        .video-player__progress
+          span.video-player__progress-tree
+        button.video-player__btn.video-player__btn-play(type="button")
+        .video-player__volume
+          button.video-player__btn.video-player__btn-volume(type="button")
+          input.video-player__volume-input(max="100" min="0" type="range")
+        .video-player__time-control= '00:00 / 0:00'
+        button.video-player__btn.video-player__btn-fullscreen(type="button")

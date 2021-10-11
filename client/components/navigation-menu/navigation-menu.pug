@@ -1,0 +1,12 @@
+block variables
+
+mixin navigation-menu(className)
+  nav.menu(class=''+className)
+    ul.menu__list
+      li.menu__item
+        a.menu__link(href="index.html" class={ 'menu__link--active': mainPage })= 'Главная'
+      li.menu__item
+        a.menu__link(href="tasks.html" class={ 'menu__link--active': tasksPage })= 'Задачи'
+      li.menu__item
+        a.menu__link(href="users.html" class={ 'menu__link--active': userPage })= 'Пользователи'
+

@@ -1,0 +1,36 @@
+include ../button/button
+
+mixin card-task(id,type,title,authorName,dateChange, status,...btns)
+  .card-task
+    if type === 'video'
+      span.card-task__type(class=`card-task__type--${type}`)
+        +icon(type)
+        = 'Видео'
+    if type === 'audio'
+      p.card-task__type(class=`card-task__type--${type}`)
+        +icon(type)
+        = 'Аудио'
+    if type === 'photo'
+      p.card-task__type(class=`card-task__type--${type}`)
+        +icon(type)
+        = 'Фото'
+
+    h3.card-task__title= title
+      span.card-task__title-overlay
+    p.card-task__author= authorName
+    .card-task__date-inner
+      +icon('calendar')
+      span.card-task__date= dateChange
+    if status === 'inWork'
+      span.card-task__status.card-task__status--purple= "В работе"
+    if status === 'completed'
+      span.card-task__status.card-task__status--green= "Выполнено"
+    if status === 'waiting'
+      span.card-task__status.card-task__status--blue= "Ожидает согласования"
+
+    .card-task__btn-inner
+      each btn in btns
+        if btn ==='del'
+          +btnIcon('34','button',btn,'lt-blue',`card-task__btn-${btn}`)
+        else
+          +btnIcon('34','link',btn,'lt-blue',`card-task__btn-${btn}`,`new-task.html?id${id}`)

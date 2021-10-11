@@ -1,0 +1,68 @@
+include ../svg-icon/svg-icon
+
+mixin button(type,size, className, color, value, typeIcon,link)
+  case type
+    when 'link'
+      case size
+        when 'big'
+          a(class='btn btn-size-big '+ `btn--${color} ` + className href=`${link}`)&attributes(attributes)
+            if typeIcon
+              span.btn__icon-inner
+                +icon(typeIcon)
+
+            else
+              block
+            = value
+        when 'small'
+          a(class='btn btn-size-small '+ `btn--${color} ` + className href=`${link}`)&attributes(attributes)
+            if typeIcon
+              span.btn__icon-inner
+                +icon(typeIcon)
+
+            else
+              block
+            = value
+    when 'button'
+      case size
+        when 'big'
+          button(class='btn btn-size-big ' + className + ` btn--${color}`)&attributes(attributes)
+            if typeIcon
+              span.btn__icon-inner
+                +icon(typeIcon)
+            else
+              block
+            = value
+        when 'small'
+          button(class='btn btn-size-small ' + className + ` btn--${color}`)&attributes(attributes)
+            if typeIcon
+              span.btn__icon-inner
+                +icon(typeIcon)
+            else
+              block
+            = value
+
+mixin btnIcon(size, elementType, iconType, color, className, url)
+  case size
+    when '40'
+      case elementType
+        when 'link'
+          a.btn.btn-square-size-big(class='btn--' + color + ' '+ className href='' + url)&attributes(attributes)
+            +icon(iconType)
+
+        when 'button'
+          button.btn.btn-square-size-big(class='btn--' + color + ' ' + className type="button")&attributes(attributes)
+            +icon(iconType)
+    when '34'
+      case elementType
+        when 'link'
+          a.btn.btn-square-size-mini(class='btn--' + color + ' ' + className href='' + url)&attributes(attributes)
+            +icon(iconType)
+
+        when 'button'
+          button.btn.btn-square-size-mini(class='btn--' + color + ' ' + className type="button")&attributes(attributes)
+            +icon(iconType)
+
+mixin btnCancel(className)
+    button.btn.btn-cancel(class='' + className type='button')
+      +icon('cancel')
+

@@ -1,0 +1,22 @@
+doctype html
+
+include ../../components/input-box/input-box
+include ../../components/button/button
+
+html(lang='ru')
+  head
+    meta(charset='utf-8')
+    title= 'Авторизация'
+    meta(content='width=device-width,initial-scale=1', name='viewport')
+    link(href='../public/favicon/favicon.ico' rel='icon')
+  body
+    section.auth
+      .auth__inner
+        img.auth__img(alt='Логотип' src='../public/img/logo.svg' width='70' height='70')
+        h2.auth__title= 'Вход'
+        form.auth__form(action='/index.html')
+          +input-box('E-mail', 'email', 'email', 'Введите e-mail', '([A-z0-9_.-]{1,})@([A-z0-9_.-]{2,}).([A-z]{2,8})')
+          +input-box('Пароль', 'password', 'password','Введите пароль', '([A-z0-9_.-]{1,})')
+          +button('button','big','auth__btn','blue','Войти','login')
+
+

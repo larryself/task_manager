@@ -1,0 +1,17 @@
+extends ../../components/header/header
+include ../../components/svg-icon/svg-icon
+
+block variables
+  - var title = '404'
+block content
+  main.page-main
+    .wrap
+      section.not-found
+        .not-found__inner
+          img.not-found__img(src="../public/img/404.svg" alt="Error 404")
+          h2.not-found__title= 'Потерялись?'
+          p.not-found__desc= 'Страница, которую вы ищите не существует, либо была удалена'
+          a(href="index.html" class="not-found__btn btn-size-big btn--blue btn")
+            span.btn__icon-inner
+              +icon('home')
+            ='На главную'

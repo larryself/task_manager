@@ -1,0 +1,120 @@
+@import '../../styles/vars';
+
+.icon {
+  fill: currentColor;
+
+  &-type-search {
+    width: 13px;
+    height: 14px;
+  }
+
+  &-type-comment {
+    width: 12px;
+    height: 10px;
+  }
+
+  &-type-upload {
+    height: 12px;
+    width: 12px;
+  }
+
+  &-type-format {
+    width: 30px;
+    height: 16px;
+  }
+
+  &-type-back {
+    width: 25px;
+    height: 11px;
+  }
+
+  &-type-stick {
+    width: 18px;
+    height: 18px;
+  }
+
+  &-type-calendar {
+    width: 15px;
+    height: 14px;
+  }
+
+  &-type-plus {
+    width: 14px;
+    height: 14px;
+  }
+
+  &-type-plus-in-circle {
+    width: 14px;
+    height: 14px;
+  }
+
+  &-type-login {
+    width: 18px;
+    height: 18px;
+  }
+
+  &-type-audio {
+    width: 7px;
+    height: 10px;
+    margin-right: 5px;
+  }
+
+  &-type-photo {
+    width: 10px;
+    height: 9px;
+    margin-right: 5px;
+  }
+
+  &-type-video {
+    width: 7px;
+    height: 9px;
+    margin-right: 5px;
+  }
+
+  &-type-download {
+    width: 14px;
+    height: 16px;
+    fill: $white;
+  }
+
+  &-type-approved-green {
+    width: 18px;
+    height: 18px;
+  }
+
+  &-type-approved-blue {
+    width: 18px;
+    height: 18px;
+  }
+
+  &-type-edit {
+    width: 20px;
+    height: 20px;
+  }
+
+  &-type-del {
+    width: 13px;
+    height: 16px;
+  }
+
+  &-type-load {
+    width: 14px;
+    height: 14px;
+  }
+
+  &-type-home {
+    width: 18px;
+    height: 18px;
+  }
+
+  &-type-cancel {
+    width: 10px;
+    height: 10px;
+    fill: $grey-blue;
+    background: $white;
+
+    &:hover {
+      fill: $blue;
+    }
+  }
+}

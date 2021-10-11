@@ -1,0 +1,22 @@
+include ../svg-icon/svg-icon
+mixin content-card(card)
+  article.content-card(data-url =''+ card.url)
+    .content-card__poster
+      img.content-card__img(height="250",src=card.preview,width="393")
+    if card.type === 'video'
+      p.content-card__format(class=`content-card__format--${card.type}`)
+        +icon(card.type)
+        = 'Видео'
+      span.content-card__time= card.time
+    if card.type === 'audio'
+      p.content-card__format(class=`content-card__format--${card.type}`)
+        +icon(card.type)
+        = 'Аудио'
+      span.content-card__time= time
+    if card.type === 'photo'
+      p.content-card__format(class=`content-card__format--${card.type}`)
+        +icon(card.type)
+        = 'Фото'
+    p.content-card__title= card.name
+    p.content-card__author= card.author
+      span.content-card__author-time= card.dateCreated.substring(0,10).split('-').reverse().join('.')

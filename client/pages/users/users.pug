@@ -1,0 +1,34 @@
+extends ../../components/header/header
+include ../../components/date-box/date-box
+include ../../components/search-box/search-box
+include ../../components/select/select
+include ../../components/fileldset/fieldset
+include ../../components/user-card/user-card
+include ../../components/modal/modal
+
+block variables
+  - var title = 'Пользователи'
+  - var userPage = true
+  - var users = [{id: '1', name: 'Иванов Сергей', email: 'user-guser@example.com', avatar: '../public/img/avatar.png', role: 'manager'},{id: '1', name: 'Иванов Сергей', email: 'admin@example.com', avatar: '../public/img/avatar.png', role: 'admin'},{id: '1', name: 'Иванов Сергей', email: 'manager@example.com', avatar: '../public/img/avatar.png', role: 'manager'},{id: '1', name: 'Иванов Сергей', email: 'content-maker@example.com', avatar: '../public/img/avatar.png', role: 'content-maker'},{id: '1', name: 'Иванов Сергей', email: 'admin@example.com', avatar: '../public/img/avatar.png', role: 'admin'}]
+
+block content
+  main.page-main
+    .wrap
+      section.users
+        form.users__form
+          +search-box('users__form-column users__search-box','Поиск','Введите имя пользователя')
+          +fieldset('users__form-column users__checkbox-box','Роль','Все','Контент-мейкер','Менеджер', 'Администратор')
+        .users__link-inner
+          a.btn-size-big.btn--blue.btn(href='user.html')
+            span.btn__icon-inner
+              svg(class="icon" height="14" width="14")
+                use(href="../../../public/img/icon.svg#plus-in-circle")
+            = 'Добавить пользователя'
+        ul.users__list
+          each user in users
+            li.users__list
+                +user-card(user.id, user.name,user.email,user.avatar,user.role)
+block append content
+  +modal('message','Вы действительно хотите удалить пользователя')
+  template(id='user-card')
+    +user-card(users[1])

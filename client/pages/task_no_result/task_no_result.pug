@@ -1,0 +1,36 @@
+extends ../../components/header/header
+include ../../components/button/button
+include ../../components/task-info/task-info
+include ../../components/task-aside/task-aside
+include ../../components/task-comment/task-comment
+include ../../components/task-result/task-result
+include ../../components/modal/modal
+include ../../components/modal/modal
+
+block variables
+  - var attributes = {}
+    -attributes.download = {'download':'true'}
+  - var title = 'Задачи'
+  - var tasksPage = true
+  - var taskTitle = 'Заголовок задачи с другой стороны консультация с широким активом позволяет'
+  - var taskDesc = 'Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности позволяет оценить значение форм развития. Значимость этих проблем настолько очевидна, что новая модель организационной деятельности требуют от нас анализа системы обучения кадров, соответствует насущным потребностям. Товарищи! постоянный количественный рост и сфера нашей активности требуют определения и уточнения позиций, занимаемых участниками в отношении поставленных задач. Повседневная практика показывает, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям.'
+  - var taskFiles = [{format: 'zip', name: 'Материалы.zip', size: '61 Мб'},{format: 'doc', name: 'Техническое задание.doc', size: '215 Кб'}]
+
+block content
+  main.page-main
+    .wrap
+      section.task
+        .task__btn-inner
+          +button('link','small','new-task__btn-back','tranparent','К списку задач','back','tasks.html')
+          .task__btn-square-inner
+            +btnIcon('40','link','edit','blue','task__btn-edit','/')
+            +btnIcon('40','button','del','blue','task__btn-delete')
+        .task__content-inner
+          +taskInfo('task__desc ', 'video', 'Видео', 'inWork', 'В работе', taskTitle, taskDesc, taskFiles)
+          +taskAside('task__date','05.02.2020','11.02.2020','Семён Щеглов','Станислав Щукин')
+          .task__other
+            +taskResult('task__other-item')
+            +taskComment('task__other-item')
+block append content
+  +modal('message', 'Вы действительно хотите удалить задачу')
+

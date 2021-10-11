@@ -1,0 +1,18 @@
+mixin filterBtn(type,value)
+  label.filter
+    input.filter__input(type='checkbox', name= type)
+    span(class='filter__name filter__name--' + type)
+      if type ==='audio'
+        svg(class='icon icon-type-' + type)
+          use(href=`../../../public/img/icon.svg#${type}`)
+        = 'Аудио'
+      if type === 'video'
+        svg(class='icon icon-type-' + type)
+          use(href=`../../../public/img/icon.svg#${type}`)
+        = 'Видео'
+      if type === 'photo'
+        svg(class='icon icon-type-' + type)
+          use(href=`../../../public/img/icon.svg#${type}`)
+        = 'Фото'
+      else
+        = value

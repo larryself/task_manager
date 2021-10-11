@@ -1,0 +1,8 @@
+mixin date-box(className, label = 'Дата публикации', placeholder = 'Укажите дату публикации')
+  div(class='date-box ' + className)
+    label.date-box__label(for='date')= label
+    .date-box__input-inner
+      input.date-box__input(id="date" placeholder= placeholder type="text" name='date' autocomplete='off')
+      span.date-box__icon
+        svg(height="14" width='15')
+          use(href="../../../public/img/icon.svg#calendar")

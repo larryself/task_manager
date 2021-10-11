@@ -1,0 +1,9 @@
+import './tasks.scss';
+import '../../components/select/select';
+import '../../components/date-box/date-box';
+import '../../components/header/header';
+import '../../components/modal/modal';
+import '../../components/card-task/card-task';
+import '../../components/fileldset/fieldset';
+import '../../components/search-box/search-box';
+import '../../components/button/button';

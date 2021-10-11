@@ -1,0 +1,27 @@
+include ../button/button
+include ../player/player
+
+mixin modal(type, messageValue)
+  section.modal
+      case type
+        when 'message'
+          .modal-message
+            h2.modal-message__title= messageValue
+            +btnCancel('modal-message__btn-close')
+            .modal-message__btn-inner
+              button(type="button" class="modal-message__btn-yes modal-message__btn")= 'Да'
+              button(type="button" class="modal-message__btn-no modal-message__btn")= 'Нет'
+        when 'media'
+          .modal-media
+            button(class="modal-media__btn")
+              .modal-media__content
+                p.modal-media__format
+                .modal-media__title-inner
+                  p.modal-media__title
+                  span.modal-media__time
+              .modal-media__mediacontent-inner
+                template(id='video-player')
+                  +player('video')
+                template(id='audio-player')
+                  +player('audio')
+

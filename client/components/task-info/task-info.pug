@@ -1,0 +1,26 @@
+block variables
+  - var attributes = {}
+  - attributes.download = {download:'true'}
+
+mixin taskInfo(className, type, typeValue, taskStatus, taskStatusValue, taskTitle, taskDesc, files)
+  article.task-info(class=''+ className)
+    .task-info__top
+      p.task-info__format.task-info__format--video
+        +icon(type)
+        = typeValue
+      p.task-info__status(class='task-info__status--'+ taskStatus)= taskStatusValue
+    h2.task-info__title= taskTitle
+    p.task-info__desc= taskDesc
+    .task-info__files
+      h3.task-info__files-title= 'Файлы'
+      ul.task-info__files-list
+        for file in files
+          li.task-info__files-item
+            .task-info__files-item-inner
+              span.task-info__files-format
+                +iconDocType(file.format)
+              span.task-info__files-name= file.name
+              span.task-info__files-size= file.size
+            +button('link','small','task-info__btn','lt-blue','Скачать','upload','')&attributes({'download': 'true'})
+
+

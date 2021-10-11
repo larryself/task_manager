@@ -1,0 +1,6 @@
+mixin taskComment(className)
+  article.task-comment(class='' + className)
+    .task-comment-inner
+      form.task-comment__form
+        textarea.task-comment__input(cols='103', rows='6', placeholder="Введите сообщение...", name="textarea")
+        +button('button','small','textarea-box__btn','blue','Отправить')&attributes({'type':'button'})
