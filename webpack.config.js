@@ -8,7 +8,6 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const PrettierPlugin = require('prettier-webpack-plugin');
 const imageminMozjpeg = require('imagemin-mozjpeg');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
-const CopyPlugin = require('copy-webpack-plugin');
 const filename = (ext) => `[name].[contenthash].${ext}`;
 
 const lintPlugin = (isDev) => isDev ? [] : [new ESLintPlugin({ extensions: ['js'] }),
@@ -17,34 +16,35 @@ const lintPlugin = (isDev) => isDev ? [] : [new ESLintPlugin({ extensions: ['js'
 
 const fs = require('fs')
 
+function generateEntryPoints(templateDir) {
+  const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
+  const result = {};
+  for (const key of templateFiles) {
+    result[key] = path.resolve(__dirname, `${templateDir}/${key}/${key}.js`);
+  }
+  console.log(result)
+  return result;
+}
 function generateHtmlPlugins(templateDir) {
   const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
   return templateFiles.map(item => {
-    const parts = item.split('.');
-    const name = parts[0];
-    const extension = parts[1];
     return new HtmlWebpackPlugin({
-      filename: `${name}.html`,
-      template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
+      filename: `${item}.html`,
+      template: path.resolve(__dirname, `${templateDir}/${item}/${item}.pug`),
       inject: true,
-      chunks: [`${name}`]
+      chunks: [`${item}`]
     })
   })
 }
-const htmlPlugins = generateHtmlPlugins('./src/page')
+const entryPoints = generateEntryPoints('./client/pages');
+const htmlPlugins = generateHtmlPlugins('./client/pages');
 
 module.exports = ({ develop }) => ({
+
   mode: develop ? 'development' :  'production',
   devtool: develop ? 'inline-source-map' : false,
-  context: path.resolve(__dirname, 'src'),
-  entry: {
-    index: './config/index.js',
-    404 : './config/404.js',
-    auth: './config/auth.js',
-    profile: './config/profile.js',
-    task: './config/task.js',
-    users: './config/users.js'
-  },
+  context: path.resolve(__dirname, 'client'),
+  entry: entryPoints,
 
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -53,15 +53,22 @@ module.exports = ({ develop }) => ({
     assetModuleFilename: '[path][name][ext]',
   },
   devServer: {
+    static: {
+      publicPath: '/public',
+      directory: path.join(__dirname, 'public'),
+    },
     historyApiFallback: true,
-    contentBase: path.resolve(__dirname, 'dist'),
     open: true,
     compress: true,
     hot: true,
-    port: 3000,
+    port: 8000,
   },
   module: {
     rules: [
+      {
+        test: /\.pug/i,
+        loader: 'pug-loader',
+      },
       {
         test: /\.html$/i,
         loader: 'html-loader',
@@ -73,7 +80,7 @@ module.exports = ({ develop }) => ({
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       },
       {
         test: /\.s[ac]ss$/,
@@ -81,7 +88,7 @@ module.exports = ({ develop }) => ({
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'sass-loader'
+          'sass-loader',
         ]
       },
       {
@@ -95,22 +102,9 @@ module.exports = ({ develop }) => ({
     ]
   },
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   appMountId: 'app',
-    //   filename: 'index.html',
-    //   template: path.resolve(__dirname, 'src/index.html'),
-    //   minify: {
-    //     collapseWhitespace: true,
-    //   }
-    // }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: `${filename('css')}`
-    }),
-    new CopyPlugin({
-      patterns: [
-        {from:'./assets', to : 'assets'}
-      ],
     }),
     new ImageminPlugin({
       plugins: [
@@ -121,6 +115,6 @@ module.exports = ({ develop }) => ({
       ]
     }),
     ...lintPlugin(develop),
-    ...htmlPlugins
+    ...htmlPlugins,
   ]
 });

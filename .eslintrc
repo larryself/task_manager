@@ -15,7 +15,7 @@
     "no-unused-vars": "warn",
     "no-console": "warn",
     "max-len": ["warn",{"code": 120}],
-    "import/no-unresolved": "off" /**/
+    "import/no-unresolved": "off"
   },
   "plugins": [
     "prettier"
