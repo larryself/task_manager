@@ -1,13 +1,15 @@
 @import '../../styles/vars';
 
 .notify-bell {
-  display: block;
+  display: flex;
   width: 40px;
   height: 40px;
-  background: url('../../../public/img/union.svg') no-repeat center center $white;
+  background: $white;
   border-radius: 4px;
   border: 1px solid transparent;
   position: relative;
+  align-items: center;
+  justify-content: center;
 
   &:hover,
   &:focus {
@@ -15,12 +17,12 @@
   }
 
   &:active {
-    background: url('../../../public/img/union.svg') no-repeat center center $lt-blue;
+    background: $lt-blue;
   }
 
   &__count {
     font-weight: 500;
-    font-size: 12px;
+    font-size: 1.2rem;
     color: $white;
     background: $red;
     border: 2px solid $white;
@@ -73,12 +75,43 @@
     }
   }
 
+  &__icon {
+    &--audio {
+      background-color: $blue;
+      color: $white;
+    }
+
+    &--video {
+      background-color: $yellow;
+      color: $white;
+    }
+
+    &--photo {
+      background-color: $green;
+      color: $white;
+    }
+
+    &--comment {
+      color: $white;
+    }
+
+    &--content {
+      color: $white;
+    }
+  }
+
   &__content-inner {
     display: flex;
     flex-wrap: wrap;
+    column-gap: 5px;
+    row-gap: 5px;
   }
 
-  &__name {
+  &__author-name {
+    @include font(500, 14px, 16px);
+  }
+
+  &__task-name {
     @include font(500, 14px, 16px);
   }
 

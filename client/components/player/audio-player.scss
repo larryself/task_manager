@@ -1,21 +1,37 @@
+@import '../../styles/vars';
+
 .audio-player {
   background-color: $black;
   width: 100%;
-  display: none;
+  display: flex;
   align-items: center;
   padding: 15px;
   max-width: 628px;
   justify-content: space-between;
   border-radius: 4px;
 
-  &__active {
-    display: flex;
-  }
-
   &__progress {
     display: flex;
+    align-items: center;
     width: 100%;
     max-width: 299px;
+    height: 3px;
+    background: rgba($white, 0.6);
+    border-radius: 4px;
+
+    &::after {
+      content: '';
+      background: $blue;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+
+    &-tree {
+      background: $blue;
+      height: 100%;
+      transition: 0.2s;
+    }
   }
 
   &__btn {
@@ -67,5 +83,19 @@
   &__volume-input {
     height: 3px;
     width: 81px;
+    border-radius: 52px;
+    appearance: none;
+
+    &::-webkit-slider-thumb {
+      width: 9px;
+      height: 9px;
+      border-radius: 100%;
+      border: 0;
+      appearance: none;
+      background-color: $white;
+      z-index: 99;
+      position: relative;
+      transition: 0.5s all ease;
+    }
   }
 }

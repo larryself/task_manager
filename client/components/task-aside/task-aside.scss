@@ -15,8 +15,8 @@
   }
 
   &__item {
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
     color: rgba($black, 0.6);
     display: flex;
     align-items: flex-end;
@@ -30,9 +30,8 @@
   }
 
   &__item-value {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
+    @include font(500, 1.4rem, 2.1rem);
+
     color: $black;
   }
 }

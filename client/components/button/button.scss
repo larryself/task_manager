@@ -9,6 +9,7 @@
   transition: 0.2s;
   border: 0;
   cursor: pointer;
+  column-gap: 10px;
 
   &-size-big {
     padding: 12px 15px;
@@ -20,7 +21,6 @@
 
   &__icon-inner {
     display: inline-flex;
-    margin-right: 10px;
   }
 
   &--blue {
@@ -145,4 +145,11 @@
   width: 10px;
   height: 10px;
   border: 0;
+  color: $grey-blue;
+  background: transparent;
+
+  &:hover,
+  &:focus {
+    color: $blue;
+  }
 }

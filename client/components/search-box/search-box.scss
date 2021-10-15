@@ -34,6 +34,11 @@
       padding-left: 38px;
       padding-right: 28px;
     }
+
+    &--active {
+      padding-left: 38px;
+      padding-right: 28px;
+    }
   }
 
   &__input-inner {
@@ -48,24 +53,33 @@
     transition: all 0.3s ease;
   }
 
-  &__input:focus + .search-box__icon {
-    left: 14px;
-    right: auto;
-  }
-
   &__btn {
     visibility: hidden;
     position: absolute;
     top: 50%;
-    right: 15px;
+    right: -15px;
     transform: translateY(-50%);
     cursor: pointer;
     transition: all 0.1s ease;
-    opacity: 0;
+
+    &--active {
+      visibility: visible;
+      right: 15px;
+
+      ~ .search-box__icon {
+        right: auto;
+        left: 14px;
+      }
+    }
   }
 
-  &__input:focus ~ .search-box__btn {
+  &__input--active ~ .search-box__btn {
     visibility: visible;
-    opacity: 1;
+    right: 15px;
+  }
+
+  &__input--active ~ .search-box__icon {
+    right: auto;
+    left: 14px;
   }
 }

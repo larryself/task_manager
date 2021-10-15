@@ -1,19 +1,19 @@
 include ../button/button
 
-mixin user-card(id,name,email,avatar,role)
+mixin user-card(user)
   .user-card
     .user-card__img-inner
-      img.user-card__img(alt='Аватар' src=avatar)
-    h3.user-card__name= name
-    span.user-card__mail= email
+      img.user-card__img(alt='Аватар' src=user.avatar)
+    h3.user-card__name= user.name
+    span.user-card__mail= user.email
     span.user-card__role
-      if role === 'admin'
+      if user.role === 'admin'
         = 'Администрано'
-      if role === 'manager'
+      if user.role === 'manager'
         = 'Менеджер'
-      if role === 'content-maker'
+      if user.role === 'content-maker'
         = 'Контент-мейкер'
 
     .user-card__btn-inner
-      +btnIcon('34','link','edit','blue','user-card__btn-edit',`user.html?${id}`)
+      +btnIcon('34','link','edit','blue','user-card__btn-edit',`user.html?${user.id}`)
       +btnIcon('34','button','del','blue','user-card__btn-del')

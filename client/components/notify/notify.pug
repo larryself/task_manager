@@ -1,16 +1,22 @@
 include ../svg-icon/svg-icon
 
-mixin notify(type, url, valueCount, comment, nameTask, time)
+mixin notify(type, valueNotify,notify)
+
   if type === 'bell'
-    a.notify-bell(href= url)
-      span.notify-bell__count= valueCount
-  else
+    a.notify-bell(href='notifications.html')
+      span.notify-bell__icon-inner
+        +icon('notify')
+      span.notify-bell__count= valueNotify
+  if type === 'big'
     .notify-big
-      .notify-big__icon-inner.notify-big__icon-inner--active
-        +icon('comment')
+      div(class=`notify-big__icon-inner notify-big__icon-inner--active notify-big__icon--${notify.type}`)
+        +icon(notify.type)
       .notify-big__content-inner
-        p.notify-big__desc
-          = comment
-          span.notify-big__name= nameTask
-        p.notify-big__time= time
+        if notify.nameAuthor
+          p.notify-big__author-name= notify.nameAuthor
+        if notify.message
+          p.notify-big__desc= notify.message
+        if notify.taskName
+          p.notify-big__task-name= notify.taskName
+        p.notify-big__time= notify.date
 

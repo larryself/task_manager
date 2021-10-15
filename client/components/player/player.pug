@@ -17,5 +17,8 @@ mixin player(type)
         .video-player__volume
           button.video-player__btn.video-player__btn-volume(type="button")
           input.video-player__volume-input(max="100" min="0" type="range")
-        .video-player__time-control= '00:00 / 0:00'
+        .video-player__time-control
+          span.video-player__time-current= '00:00'
+          | /
+          span.video-player__time-duration= '0:00'
         button.video-player__btn.video-player__btn-fullscreen(type="button")

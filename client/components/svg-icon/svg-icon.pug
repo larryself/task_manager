@@ -1,13 +1,13 @@
 mixin icon(type)
   svg(class='icon icon-type-'+ type)
-    use(href='../../../public/img/icon.svg#'+ type)
+    use(href='../public/img/icon.svg#'+ type)
 mixin iconDocType(docType)
   svg(width="22" height="22")
-    use(href='../../../public/img/docType.svg#'+ docType)
+    use(href='../public/img/docType.svg#'+ docType)
 mixin iconFormat(format)
   if format === 'mov'
     svg(height='16' width='37')
-      use(href='../../../public/img/icon.svg#' + format)
+      use(href='../public/img/icon.svg#' + format)
   else
     svg(class="icon-type-format")
-      use(href='../../../public/img/icon.svg#' + format)
+      use(href='../public/img/icon.svg#' + format)

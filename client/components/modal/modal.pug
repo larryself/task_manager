@@ -1,5 +1,4 @@
 include ../button/button
-include ../player/player
 
 mixin modal(type, messageValue)
   section.modal
@@ -13,15 +12,14 @@ mixin modal(type, messageValue)
               button(type="button" class="modal-message__btn-no modal-message__btn")= 'Нет'
         when 'media'
           .modal-media
-            button(class="modal-media__btn")
-              .modal-media__content
-                p.modal-media__format
-                .modal-media__title-inner
-                  p.modal-media__title
-                  span.modal-media__time
-              .modal-media__mediacontent-inner
-                template(id='video-player')
-                  +player('video')
-                template(id='audio-player')
-                  +player('audio')
+            button.modal-media__btn
+              span.modal-media__btn-icon-inner
+                +icon('back')
+            .modal-media__content
+              p.modal-media__format
+              .modal-media__title-inner
+                p.modal-media__title
+                span.modal-media__time
+            .modal-media__mediacontent-inner
+
 

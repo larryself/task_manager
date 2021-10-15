@@ -24,18 +24,15 @@
     background: transparent;
     border: 0;
     cursor: pointer;
+    color: $white;
 
     &:hover {
       opacity: 0.8;
     }
+  }
 
-    &::before {
-      content: '';
-      background: url('../../../public/img/back.svg') no-repeat center center;
-      display: block;
-      width: 25px;
-      height: 11px;
-    }
+  &__btn-icon-inner {
+    stroke: $white;
   }
 
   &__content {
@@ -47,6 +44,12 @@
     left: 73px;
     top: 30px;
     color: $white;
+  }
+
+  &__format {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
   }
 
   &__title-inner {

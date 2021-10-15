@@ -2,7 +2,6 @@ mixin date-box(className, label = 'Дата публикации', placeholder =
   div(class='date-box ' + className)
     label.date-box__label(for='date')= label
     .date-box__input-inner
-      input.date-box__input(id="date" placeholder= placeholder type="text" name='date' autocomplete='off')
+      input.date-box__input(id="date" placeholder= placeholder type="text" name='date' autocomplete='off',pattern ='([0-9]{2}.[0-9]{2},[0-9]{4})')
       span.date-box__icon
-        svg(height="14" width='15')
-          use(href="../../../public/img/icon.svg#calendar")
+        +icon('calendar')

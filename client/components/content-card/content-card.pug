@@ -1,6 +1,6 @@
 include ../svg-icon/svg-icon
 mixin content-card(card)
-  article.content-card(data-url =''+ card.url)
+  article.content-card(data-url =card.url data-type=card.type)
     .content-card__poster
       img.content-card__img(height="250",src=card.preview,width="393")
     if card.type === 'video'
@@ -12,7 +12,7 @@ mixin content-card(card)
       p.content-card__format(class=`content-card__format--${card.type}`)
         +icon(card.type)
         = 'Аудио'
-      span.content-card__time= time
+      span.content-card__time= card.time
     if card.type === 'photo'
       p.content-card__format(class=`content-card__format--${card.type}`)
         +icon(card.type)

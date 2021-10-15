@@ -6,6 +6,7 @@ mixin search-box(className, label = 'Поиск', placeholder = 'Введите 
     label.search-box__label(for = 'search')=label
     .search-box__input-inner
       input.search-box__input(id = 'search', type='text', name='author' placeholder= placeholder)
+      +btnCancel('search-box__btn')
       span.search-box__icon
         +icon('search')
-      +btnCancel('search-box__btn')
+

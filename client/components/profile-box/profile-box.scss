@@ -34,14 +34,12 @@
       transform: translateY(-50%);
     }
 
-    &:hover .profile__img {
-      border: 1px solid $blue;
-      transition: 0.2s;
-    }
-
-    &:focus .profile__img {
-      border: 1px solid $blue;
-      transition: 0.2s;
+    &:hover,
+    &:focus {
+      .profile__img {
+        border: 1px solid $blue;
+        transition: 0.2s;
+      }
     }
   }
 

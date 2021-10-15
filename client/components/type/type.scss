@@ -11,6 +11,9 @@
     border-radius: 4px;
     padding: 12px 15px;
     background: $white;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
 
     &--video {
       border-color: $blue;

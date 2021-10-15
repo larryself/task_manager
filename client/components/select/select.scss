@@ -15,6 +15,7 @@
 
 .select {
   position: relative;
+  width: 100%;
 
   &__title {
     @include font(500, 12px, 14px);
@@ -32,10 +33,6 @@
     &:hover {
       border-color: $grey-blue;
     }
-  }
-
-  &--active .select__header {
-    border-color: $dark-blue;
   }
 
   &__current {
@@ -56,10 +53,6 @@
     }
   }
 
-  &--active .select__current::after {
-    transform: rotate(180deg);
-  }
-
   &__body {
     display: none;
     cursor: pointer;
@@ -70,11 +63,21 @@
     margin-top: 10px;
   }
 
-  &--active .select__body {
-    display: block;
-    position: absolute;
-    width: 100%;
-    z-index: 100;
+  &--active {
+    .select__body {
+      display: block;
+      position: absolute;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .select__current::after {
+      transform: rotate(180deg);
+    }
+
+    .select__header {
+      border-color: $dark-blue;
+    }
   }
 
   &__item {
