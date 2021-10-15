@@ -6,29 +6,27 @@ include ../../components/search-box/search-box
 
 block variables
   - var title = 'Профиль'
-
 block content
   main.page-main
     .wrap
-      section.profile
-        .profile__content-inner
-          h2.page-main__title= 'Профиль'
-          .profile-box
+      section.profile-box
+        .profile-box__content-inner
+          .profile-box__title-inner
+            +button('button','small','profile-box__btn-back','tranparent','','back')
+            h2.page-box__title= 'Профиль'
+          .profile-box__form-inner
             form.profile-box__form
-              .profile-box__img-group
+              .profile-box__img-column
                 .profile-box__img-inner
                   img.profile-box__img(src='../public/img/avatar.svg' width='120' height='120' alt='Аватар')
-                label.profile-box__load-img-label
-                  input.profile-box__load-img-input(type='file', name='upload')
-                  span.profile-bpx__load-icon-inner
-                    svg.icon(height="12" width="12")
-                      use(href="../../../public/img/icon.svg#upload")
+                label.profile-box__img-load-label
+                  input.profile-box__img-load-input(type='file', name='upload')
+                  span.profile-bpx__icon-load-inner
+                   +icon('upload')
                   = 'Загрузить аватар'
-              .profile-box__input-group
-                +input-box('Имя, фамилия','name','text','Введите имя и фамилию')
-                +input-box('E-mail', 'email','email','Введите e-mail','([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})')
-                +select('default','','Роль','Выберите роль',['Администаров', 'Контент-мейкер', 'Менеджер'])
-                +search-box('')
+              .profile-box__input-column
+                +input-box('Имя, фамилия','name','text','Введите имя и фамилию')&attributes(attributes)
+                +input-box('E-mail', 'email','email','Введите e-mail','([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})')&attributes(attributes)
                 .profile-box__btn-inner
-                  +button('size-big','','blue', 'Сохранить','approved')
-                  +button('size-big','','red-text','Удалить','del')
+                  +button('button','big','profile-box__btn-save','blue', 'Сохранить','approved-blue')
+                  +button('button','big','profile-box__btn-del','red-text','Удалить','del')

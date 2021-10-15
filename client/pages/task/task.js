@@ -1,6 +1,5 @@
 import './task.scss';
 import '../../components/header/header';
-import '../../js/load';
 
 const modalWindow = document.querySelector('.modal');
 

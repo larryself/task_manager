@@ -1,13 +1,21 @@
 extends ../../components/header/header
 include ../../components/notify/notify
+include ../../components/button/button
+
 block variables
   - var title = 'Уведомления'
-
+  - var notifys = [{id: 1,type: "audio",date: "15:17 13.02.2020",message: "поручил вам новую задача",nameAuthor: "Аркадий Аркадьев"},{id: 2,type: "video",date: "15:17 13.02.2020",message: "поручил вам новую задача",nameAuthor: "Виктор Викторов"},{id: 3,type: "photo",date: "15:17 13.02.2020",message: "поручил вам новую задача",nameAuthor: "Семен Семенов"},{id: 4,type: "comment",date: "15:17 13.02.2020",message: "Новый комментарий в задаче",taskName:'Название задачи'},{id: 5,type: "video",date: "15:17 13.02.2020",message: "поручил вам новую задача",nameAuthor: "Илья Ильин"},{id: 6,type: "content",date: "15:17 13.02.2020",message: "загрузил контент к задаче",nameAuthor: "Иван Иванов",taskName: "Новая задача"},{id: 7,type: "comment",date: "15:17 13.02.2020",message: "string",taskName: "Новая задача"},{id: 0,type: "content",date: "15:17 13.02.2020",message: "загрузил контент к задаче",nameAuthor: "Альберт Альбертов",taskName: "Новая задача"},{id: 0,type: "comment",date: "15:17 13.02.2020",message: "urna neque viverra justo",taskName: "Новая задача"}]
 
 block content
   main.page-main
     .wrap
       section.notify
-        .notify__content-inner
-          h2.notify__title= 'Уведомления'
-          +notify('big','','','Новый комментарий в задаче','Название задачи','11:51 13.02.2020')
+        .notify__inner
+          .notify__title-inner
+            +button('button','small','notify__btn-back','tranparent','','back')
+            h2.notify__title= 'Уведомления'
+          .notify__content-inner
+            ul.notify__list
+              each notify in notifys
+                li.notify__item
+                  +notify('big',12,notify)

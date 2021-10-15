@@ -21,13 +21,12 @@ block content
         .users__link-inner
           a.btn-size-big.btn--blue.btn(href='user.html')
             span.btn__icon-inner
-              svg(class="icon" height="14" width="14")
-                use(href="../../../public/img/icon.svg#plus-in-circle")
+              +icon('plus-in-circle')
             = 'Добавить пользователя'
         ul.users__list
           each user in users
             li.users__list
-                +user-card(user.id, user.name,user.email,user.avatar,user.role)
+                +user-card(user)
 block append content
   +modal('message','Вы действительно хотите удалить пользователя')
   template(id='user-card')

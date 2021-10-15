@@ -3,9 +3,34 @@
 @import '../../styles/wrap';
 
 .notify {
+  display: flex;
+  justify-content: center;
+
+  &__inner {
+    max-width: 806px;
+    width: 100%;
+  }
+
+  &__title-inner {
+    display: flex;
+    column-gap: 11px;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
   &__title {
     @include font(500, 24px, 28px);
+  }
 
-    margin-bottom: 30px;
+  &__btn-back {
+    stroke: $blue;
+  }
+
+  &__item {
+    position: relative;
+
+    &:hover {
+      z-index: 10;
+    }
   }
 }

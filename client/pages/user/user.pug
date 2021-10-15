@@ -6,14 +6,13 @@ include ../../components/button/button
 block variables
   - var title = 'Личный кабинет'
   - var userPage = true
-  - var attributes = {}
-    -attributes.class = 'user-area__input-column-item'
 block content
   main.page-main
     .wrap
       section.user-area
-        .user-area__inner
-          a.user-area__link(href='users.html')
+        .user-area__content-inner
+          .user-area__title-inner
+            +button('button','small','user-area__btn-back','tranparent','','back')
             h2.user-area__title= 'Пользователь'
           .user-area__box
             form.user-area__form
@@ -26,8 +25,8 @@ block content
                     +icon('download')
                     span= 'Загрузить аватар'
               .user-area__input-column
-                +input-box('Имя, фамилия','name','name','Введите имя и фамилию')&attributes(attributes)
-                +input-box('E-mail', 'email','email','Введите e-mail','([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})')&attributes(attributes)
-                +select('default','','Роль','Выберите роль',['Администаров', 'Контент-мейкер', 'Менеджер'])&attributes(attributes)
-                +input-box('Пароль','password','password','Введите пароль')&attributes(attributes)
+                +input-box('Имя, фамилия','name','name','Введите имя и фамилию')
+                +input-box('E-mail', 'email','email','Введите e-mail','([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})')
+                +select('default','','Роль','Выберите роль',['Администаров', 'Контент-мейкер', 'Менеджер'])
+                +input-box('Пароль','password','password','Введите пароль')
                 +button('button','big','','blue','Сохранить','approved-blue')

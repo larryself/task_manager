@@ -1,3 +1,8 @@
+@import '../../styles/common';
+@import '../../components/fileldset/fieldset';
+@import '../../styles/wrap';
+@import '../../components/type/type';
+
 .users {
   &__form {
     display: flex;

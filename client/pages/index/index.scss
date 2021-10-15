@@ -20,6 +20,10 @@
     max-width: 393px;
   }
 
+  &__list-inner {
+    position: relative;
+  }
+
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 393px));
@@ -29,14 +33,19 @@
     @media (max-width: $medium) {
       justify-content: center;
     }
-
-    &--load {
-      opacity: 0.1;
-    }
   }
 
   &__item {
     margin-bottom: 30px;
     max-width: 393px;
+  }
+
+  &__filters-loader {
+    padding-top: 10%;
+  }
+
+  &__scroll-loader-inner {
+    position: relative;
+    height: 35px;
   }
 }

@@ -5,12 +5,15 @@ include ../../components/fileldset/fieldset
 include ../../components/content-card/content-card
 include ../../components/player/player
 include ../../components/modal/modal
-
+include ../../components/loader/loader
 
 block variables
   - var title = 'Главная страница'
   - var mainPage = true
-  - var cards = [{id: 1 ,type: "photo", name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-12T08:26:31.174Z", author: "семен селезнев",format: "jpg",url: "../public/img/1.jpg",preview: "../public/img/1.jpg"},{type: "audio",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-24T08:26:31.174Z",author: "string",format: "jpg",url: "../public/img/2.jpg",preview: "../public/img/2.jpg"},{id: 2,type: "video",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-22T08:26:31.174Z",author: "хз хзов",format: "jpg",url: "../public/img/3.jpg",preview: "../public/img/3.jpg"},{id: 1,type: "video",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-23T08:26:31.174Z",author: "вася пупкин",format: "jpg",url: "../public/img/4.jpg",preview: "../public/img/4.jpg"},{id: 0,type: "audio",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-24T08:26:31.174Z",author: "Аркадий Юрченко",format: "jpg",url: "../public/img/audio.jpg",preview: "../public/img/audio.jpg"},{id: 9,type: "photo",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-25T08:26:31.174Z",author: "Аркадий Юрченко",format: "jpg",url: "../public/img/3.jpg",preview: "../public/img/3.jpg"},{id: 1,type: "video",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-26T08:26:31.174Z",author: "Артем Юрченко",format: "jpg",url: "../public/img/1.jpg",preview: "../public/img/1.jpg"},{id: 6,type: "photo",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-27T08:26:31.174Z",author: "Ана ванна",format: "jpg",url: "../public/img/5.jpg",preview: "../public/img/5.jpg"},{id: 4,type: "audio",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-28T08:26:31.174Z",author: "гера хуера",format: "jpg",url: "../public/img/audio.jpg",preview: "../public/img/audio.jpg"},{id: 5,type: "video",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-29T08:26:31.174Z",author: "пиздик шмыздик",format: "jpg",url: "https://static.pexels.com/lib/videos/free-videos.mp4",preview: "../public/img/1+.jpg"},{id: 2,type: "photo",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-30T08:26:31.174Z",author: "олешка обычный",format: "jpg",url: "../public/img/audio.jpg",preview: "../public/img/audio.jpg"},{id: 3,type: "audio",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-04T08:26:31.174Z",author: "просто ваня",format: "jpg",url: "../public/img/audio.jpg",preview: "../public/img/audio.jpg"}]
+  - var cards = [{id: 1 ,type: "photo", name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-12T08:26:31.174Z", author: "Семен Селезнев",format: "jpg",url: "../public/img/1.jpg",preview: "../public/img/1.jpg"},{type: "audio",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-24T08:26:31.174Z",author: "string stringov",format: "jpg",url: "../public/img/2.jpg",preview: "../public/img/2.jpg"},{id: 2,type: "video",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-22T08:26:31.174Z",author: "хз хзов",format: "jpg",url: "../public/test/mov_bbb.mp4",preview: "../public/img/3.jpg"},{id: 1,type: "video",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-23T08:26:31.174Z",author: "вася пупкин",format: "jpg",url: "../public/test/mov_bbb.mp4",preview: "../public/img/4.jpg"},{id: 0,type: "audio",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-24T08:26:31.174Z",author: "Аркадий Юрченко",format: "jpg",url: "../public/img/audio.jpg",preview: "../public/img/audio.jpg"},{id: 9,type: "photo",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-25T08:26:31.174Z",author: "Аркадий Юрченко",format: "jpg",url: "../public/img/3.jpg",preview: "../public/img/3.jpg"},{id: 1,type: "video",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-26T08:26:31.174Z",author: "Артем Юрченко",format: "jpg",url: "../public/test/mov_bbb.mp4",preview: "../public/img/1.jpg"},{id: 6,type: "photo",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-27T08:26:31.174Z",author: "Ана ванна",format: "jpg",url: "../public/img/5.jpg",preview: "../public/img/5.jpg"},{id: 4,type: "audio",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-28T08:26:31.174Z",author: "Георгий Андреев",format: "jpg",url: "../public/img/audio.jpg",preview: "../public/img/audio.jpg"},{id: 5,type: "video",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-29T08:26:31.174Z",author: "Молодой человек",format: "jpg",url: "../public/test/mov_bbb.mp4",preview: "../public/img/1+.jpg"},{id: 2,type: "photo",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-30T08:26:31.174Z",author: "Ана Вана",format: "jpg",url: "../public/img/audio.jpg",preview: "../public/img/audio.jpg"},{id: 3,type: "audio",name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-04T08:26:31.174Z",author: "Иван Обыкновенный",format: "jpg",url: "../public/img/audio.jpg",preview: "../public/img/audio.jpg"}]
+  - var attributes = {}
+  - var cardTest = [{id: 1 ,type: "formatIcon", name: "Название равным образом начало повседневной работы",dateCreated: "2021-09-12T08:26:31.174Z", author: "Семен Селезнев",format: "jpg",url: "../public/img/1.jpg",preview: "../public/img/1.jpg"}]
+
 block content
   main.page-main
     .wrap
@@ -19,11 +22,15 @@ block content
           +search-box('cards__form-column')
           +date-box('cards__form-column')
           +fieldset('cards__form-column','Тип контента','video','photo','audio')
-        ul.cards__list
-          each card in cards
-            li.cards__item
-              +content-card(card)
-      .loader
+        .cards__list-inner
+          ul.cards__list
+            each card in cards
+              li.cards__item
+                +content-card(card)
+          +loader&attributes({'class': 'cards__filters-loader'})
+        .cards__scroll-loader-inner
+          +loader&attributes({'class': 'cards__scroll-loader'})
+
 block append content
   +modal('media')
 
