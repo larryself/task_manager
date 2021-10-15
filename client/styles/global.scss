@@ -1,5 +1,4 @@
 html {
-  height: 100%;
   font-size: 10px;
 }
 
@@ -30,5 +29,10 @@ button {
 }
 
 .no-scroll {
+  overflow: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
   overflow: hidden;
 }

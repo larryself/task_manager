@@ -28,7 +28,7 @@
     color: $white;
 
     &:hover {
-      background: #308fff;
+      background: $light-blue;
     }
 
     &:active {
@@ -45,11 +45,11 @@
     color: $white;
 
     &:hover {
-      background: #51efac;
+      background: $light-green;
     }
 
     &:active {
-      background: #33cd8c;
+      background: $active-green;
     }
 
     &:disabled {
@@ -66,7 +66,7 @@
     }
 
     &:active {
-      background-color: #c2dfff;
+      background-color: $light-grey;
     }
 
     &:disabled {
@@ -79,11 +79,11 @@
     background-color: transparent;
 
     &:hover {
-      background-color: #fff0ec;
+      background-color: $white-red;
     }
 
     &:active {
-      background-color: #ffd9cf;
+      background-color: $white-yellow;
     }
 
     &:disabled {
@@ -96,7 +96,7 @@
     background-color: $lt-blue;
 
     &:hover {
-      background-color: #308fff;
+      background-color: $light-blue;
       color: $white;
     }
 

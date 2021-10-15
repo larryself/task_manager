@@ -1,12 +1,18 @@
+$light-blue: #308fff;
 $blue: #107eff;
 $dark-blue: #0067df;
 $heavenly: #70b2ff;
+$active-green: #33cd8c;
+$light-green: #51efac;
 $green: #43dd9c;
+$white-yellow: #ffd9cf;
 $yellow: #ffac2f;
 $black: #313131;
 $blue-outline: #d8e3ec;
+$light-grey: #c2dfff;
 $grey-blue: #96aecd;
 $lt-blue: #e8f3ff;
+$white-red: #fff0ec;
 $red: #ff603e;
 $bg: #f3f8fb;
 $white: #fff;
@@ -16,7 +22,7 @@ $green-azure: #97dc26;
 
 $font-default: 'Roboto', sans-serif;
 
-$medium: 835px;
+$medium: 855px;
 
 @mixin font($weight, $size, $line-height) {
   font-weight: $weight;
