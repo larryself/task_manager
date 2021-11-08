@@ -1,0 +1,60 @@
+@import '../../../styles/vars';
+
+.user-card {
+  border-radius: 4px;
+  background: $white;
+  border: 1px solid $blue-outline;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+  padding: 18px 20px;
+
+  @media (max-width: 1050px) {
+    row-gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  &:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  &__img-inner {
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  &__name {
+    @include font(500, 14px, 16px);
+
+    max-width: 187px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &__mail {
+    max-width: 201px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &__role {
+    max-width: 150px;
+    width: 100%;
+    margin-right: auto;
+  }
+
+  &__btn-inner {
+    display: flex;
+    column-gap: 15px;
+    max-width: 83px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

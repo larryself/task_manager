@@ -1,0 +1,23 @@
+@import '../../../styles/vars';
+
+.textarea-box {
+  display: flex;
+  flex-direction: column;
+  row-gap: 9px;
+
+  &__input {
+    resize: none;
+    padding: 12px 15px;
+    background: $white;
+    border-radius: 4px;
+    border: 1px solid $blue-outline;
+
+    &::placeholder {
+      @include font(400, 1.4rem, 1.6rem);
+    }
+  }
+
+  &--invalid &__input {
+    border-color: $red;
+  }
+}

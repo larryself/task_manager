@@ -1,0 +1,37 @@
+@import '../../../../styles/vars';
+
+.comment {
+  display: flex;
+  position: relative;
+  margin-left: 60px;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  row-gap: 9px;
+  border-bottom: 1px solid rgba($blue-outline, 0.6);
+
+  &__img-inner {
+    position: absolute;
+    left: -60px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__name-row {
+    display: flex;
+    column-gap: 10px;
+    align-items: end;
+  }
+
+  &__name {
+    @include font(500, 1.4rem, 1.8rem);
+  }
+
+  &__time {
+    @include font(400, 1.2rem, 1.4rem);
+
+    opacity: 0.6;
+  }
+}

@@ -1,0 +1,117 @@
+@import '../../styles/vars';
+
+.new-task {
+  &__btn-inner {
+    display: flex;
+  }
+
+  &__content-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-top: 20px;
+    grid-template-areas:
+      'main main aside'
+      'main main .'
+      'other other .';
+  }
+
+  &__desc {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  &__btn-create-inner {
+    grid-area: other;
+  }
+
+  &__aside {
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  &__desc,
+  &__aside {
+    background: $white;
+    border: 1px solid $blue-outline;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 30px;
+  }
+
+  &__desc-select {
+    max-width: 393px;
+    width: 100%;
+  }
+
+  &__desc-textarea {
+    width: 100%;
+  }
+
+  &__stick-files-inner {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  &__loaded-files {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__loaded-file {
+    display: flex;
+    align-items: center;
+  }
+
+  &__loaded-file-format {
+    fill: $white;
+  }
+
+  &__loaded-file-name {
+    padding-left: 10px;
+  }
+
+  &__loaded-file-size {
+    color: rgba($black, 0.6);
+    padding-left: 13px;
+  }
+
+  &__loaded-file-btn {
+    margin-left: 25px;
+  }
+
+  &__file-load-label {
+    cursor: pointer;
+    padding: 11px 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__file-load-input {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &__file-icon-inner {
+    line-height: 0;
+    margin-right: 8px;
+  }
+
+  &__attention-inner {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__attention-message {
+    color: $red;
+  }
+}

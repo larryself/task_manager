@@ -1,0 +1,74 @@
+@import '../../../../styles/vars';
+
+.modal-media {
+  &__btn {
+    position: absolute;
+    left: 30px;
+    top: 22px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    color: transparent;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 5px;
+    position: absolute;
+    left: 73px;
+    top: 30px;
+    color: $white;
+  }
+
+  &__format {
+    @include font(500, 1.4rem, 1.6rem);
+  }
+
+  &__title-inner {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  &__time {
+    @include font(inherit, 1.2rem, 1.4rem);
+
+    opacity: 0.6;
+  }
+
+  &__mediacontent-inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    overflow: hidden;
+    max-width: 60%;
+    max-height: 60%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+
+    @media (max-width: $medium) {
+      max-width: 100%;
+    }
+  }
+
+  &__mediacontent {
+    width: 100%;
+  }
+}

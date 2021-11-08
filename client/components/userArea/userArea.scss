@@ -1,0 +1,86 @@
+@import '../../styles/vars';
+
+.user-area {
+  display: flex;
+  position: relative;
+  align-items: center;
+
+  &__name {
+    padding-left: 30px;
+    padding-right: 20px;
+  }
+
+  &__img-inner {
+    border-radius: 50%;
+    border: 1px solid transparent;
+    display: flex;
+    overflow: hidden;
+  }
+
+  &__btn {
+    display: flex;
+    background-color: $white;
+    border: 0;
+    cursor: pointer;
+    padding: 0 15px 0 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      background: url('../../../public/img/arrow-down.svg') no-repeat top center;
+      width: 6px;
+      height: 4px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:hover .user-area__img {
+      border: 1px solid $blue;
+      transition: 0.2s;
+    }
+
+    &:focus .user-area__img {
+      border: 1px solid $blue;
+      transition: 0.2s;
+    }
+  }
+
+  &__menu-list {
+    border: 1px solid $blue-outline;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    background: $white;
+    position: absolute;
+    text-align: right;
+    top: 100%;
+    right: 10%;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+
+    &--active {
+      visibility: visible;
+      opacity: 1;
+      transition: 0.5s;
+      z-index: 10;
+    }
+  }
+
+  &__menu-item {
+    &:not(:last-child) {
+      border-bottom: 1px solid $blue-outline;
+    }
+
+    &:hover {
+      background: $lt-blue;
+    }
+  }
+
+  &__menu-link {
+    color: $black;
+    display: block;
+    padding: 13px 14px 11px;
+  }
+}

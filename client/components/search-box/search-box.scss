@@ -1,0 +1,76 @@
+@import '../../styles/vars';
+
+.search-box {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__label {
+    @include font(500, 12px, 14px);
+
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    border-radius: 4px;
+    border: 1px solid $blue-outline;
+    background: $white;
+    width: 100%;
+    padding: 12px 28px 12px 15px;
+    position: relative;
+
+    &::placeholder {
+      @include font(400, 14px, 16px);
+
+      color: $black;
+      opacity: 0.6;
+    }
+
+    &:hover {
+      border-color: $grey-blue;
+    }
+
+    &:focus {
+      border-color: $blue;
+      padding-right: 28px;
+    }
+
+    &--active {
+      padding-left: 38px;
+      padding-right: 28px;
+    }
+  }
+
+  &__input-inner {
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 14px;
+  }
+
+  &__btn {
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  &__input:valid {
+    padding-left: 38px;
+  }
+
+  &__input:valid ~ .search-box__btn {
+    visibility: visible;
+  }
+
+  &__input:valid ~ .search-box__icon {
+    right: auto;
+    left: 14px;
+  }
+}

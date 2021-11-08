@@ -1,0 +1,10 @@
+@import '../../styles/vars';
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba($black, 0.85);
+  right: 0;
+  bottom: 0;
+}

@@ -1,0 +1,36 @@
+@import '../../styles/vars';
+
+.avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 15px;
+
+  &__inner {
+    display: flex;
+    border: 1px solid $blue-outline;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__load-label {
+    cursor: pointer;
+  }
+
+  &__load-input {
+    appearance: none;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &__load-title {
+    @include font(500, 1.4rem, 1.6rem);
+
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    color: $blue;
+  }
+}

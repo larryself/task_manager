@@ -1,0 +1,90 @@
+@import '../../../styles/vars';
+
+.filter {
+  display: flex;
+  cursor: pointer;
+
+  &__name {
+    @include font(500, 14px, 16px);
+
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 12px 15px;
+    background: $white;
+
+    &--video {
+      border-color: $blue;
+      color: $blue;
+
+      &:hover {
+        background-color: rgba($blue, 0.1);
+      }
+
+      &:active {
+        background-color: $blue;
+        color: $white;
+      }
+    }
+
+    &--photo {
+      color: $green;
+      border-color: $green;
+
+      &:hover {
+        background-color: rgba($green, 0.1);
+      }
+
+      &:active {
+        background-color: $green;
+        color: $white;
+      }
+    }
+
+    &--audio {
+      color: $yellow;
+      border-color: $yellow;
+
+      &:hover {
+        background-color: rgba($yellow, 0.1);
+      }
+
+      &:active {
+        background: $yellow;
+        color: $white;
+      }
+    }
+  }
+
+  &__input {
+    appearance: none;
+    position: absolute;
+
+    &:focus + .filter__name--audio {
+      background-color: rgba($yellow, 0.1);
+    }
+
+    &:focus + .filter__name--video {
+      background-color: rgba($blue, 0.1);
+    }
+
+    &:focus + .filter__name--photo {
+      background-color: rgba($green, 0.1);
+    }
+
+    &:checked + .filter__name {
+      color: $white;
+    }
+
+    &:checked + .filter__name--audio {
+      background: $yellow;
+    }
+
+    &:checked + .filter__name--video {
+      background: $blue;
+    }
+
+    &:checked + .filter__name--photo {
+      background: $green;
+    }
+  }
+}

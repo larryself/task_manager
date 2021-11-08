@@ -1,0 +1,42 @@
+@import '../../../styles/vars';
+
+.publish-file {
+  border: 1px solid #d8e3ec;
+  box-sizing: border-box;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+
+  :hover {
+    border-color: #96aecd;
+  }
+
+  &--active {
+    background: #e8f3ff;
+    border: 1px solid #107eff;
+  }
+
+  &__img-inner {
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+  }
+
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+    margin: 10px;
+  }
+
+  &__name {
+    @include font(400, 1.2rem, 1.8rem);
+  }
+
+  &__date-created {
+    @include font(400, 1.2rem, 1.4rem);
+
+    color: rgba($black, 0.6);
+  }
+}

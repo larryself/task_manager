@@ -1,0 +1,37 @@
+@import '../../styles/vars';
+
+.cards {
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 29px;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 10px;
+  }
+
+  &__form-column {
+    flex-grow: 1;
+    max-width: 393px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 393px));
+    column-gap: 20px;
+    align-items: flex-start;
+
+    @media (max-width: $medium) {
+      justify-content: center;
+    }
+
+    &--load {
+      opacity: 0.1;
+    }
+  }
+
+  &__item {
+    margin-bottom: 30px;
+    max-width: 393px;
+  }
+}

@@ -1,0 +1,43 @@
+@import '../../../styles/vars';
+
+.radio-btn {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+
+  &__name {
+    @include font(400, 14px, 16px);
+
+    border: 1px solid $blue-outline;
+    border-radius: 4px;
+    padding: 12px 15px;
+    background: $white;
+    transition: all 0.4s;
+
+    &:hover {
+      background-color: rgba($blue, 0.1);
+    }
+
+    &:active {
+      background-color: $blue;
+      color: $white;
+    }
+  }
+
+  &__input {
+    appearance: none;
+    position: absolute;
+
+    &:focus + radio-btn__name {
+      background-color: rgba($blue, 0.1);
+    }
+
+    &:checked + .radio-btn__name {
+      @include font(500, 14px, 16px);
+
+      color: $white;
+      background: $blue;
+      border-color: $blue;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import '../../styles/vars';
+
+.task {
+  padding-top: 30px;
+
+  &__btn-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__btn-back {
+    margin-left: -13px;
+  }
+
+  &__btn-square-inner {
+    display: flex;
+    column-gap: 20px;
+  }
+
+  &__content-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-top: 20px;
+    grid-template-areas:
+      'main main aside'
+      'main main .'
+      'other other .';
+  }
+
+  &__desc {
+    grid-area: main;
+  }
+
+  &__other {
+    grid-area: other;
+  }
+
+  &__aside {
+    grid-area: aside;
+  }
+
+  &__other-item:not(:last-child) {
+    border-bottom: 0;
+    border-radius: 4px 4px 0 0;
+  }
+
+  &__other-item:last-child {
+    border-radius: 0 0 4px 4px;
+  }
+}

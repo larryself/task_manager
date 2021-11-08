@@ -1,0 +1,39 @@
+@import '../../styles/common';
+@import '../../styles/wrap';
+
+.tasks {
+  padding-top: 40px;
+
+  &__form {
+    display: flex;
+    column-gap: 20px;
+    row-gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+
+  &__form-column {
+    width: 100%;
+
+    &--size-big {
+      max-width: 383px;
+    }
+
+    &--size-small {
+      max-width: 187px;
+    }
+  }
+
+  &__link-inner {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+}

@@ -1,0 +1,46 @@
+@import '../../styles/vars';
+
+.publish-task {
+  &__title-inner {
+    display: flex;
+    column-gap: 11px;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  &__content-inner {
+    background: $white;
+    border: 1px solid $blue-outline;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  &__content-item {
+    padding: 30px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $blue-outline;
+    }
+  }
+
+  &__file-list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+
+  &__file-inner {
+    margin-top: 30px;
+  }
+
+  &__label {
+    @include font(500, 1.2rem, 1.4rem);
+
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    padding-bottom: 30px;
+  }
+}

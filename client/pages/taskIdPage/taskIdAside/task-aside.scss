@@ -1,0 +1,37 @@
+@import '../../../styles/vars';
+
+.task-aside {
+  background: $white;
+  border: 1px solid $blue-outline;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 30px;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    white-space: nowrap;
+  }
+
+  &__item {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    color: rgba($black, 0.6);
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__item-line {
+    width: 100%;
+    margin-bottom: 5px;
+    height: 1px;
+    background: $blue-outline;
+  }
+
+  &__item-value {
+    @include font(500, 1.4rem, 2.1rem);
+
+    color: $black;
+  }
+}

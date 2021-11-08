@@ -1,0 +1,130 @@
+@import '../../styles/vars';
+
+.react-datepicker {
+  background: $white;
+  border: 1px solid $blue-outline;
+  box-sizing: border-box;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  margin-top: 19px;
+  padding: 19px 15px 15px;
+  border-radius: 4px;
+  position: relative;
+
+  &-popper {
+    z-index: 1;
+  }
+
+  &__navigation {
+    background: 0;
+    cursor: pointer;
+    position: absolute;
+    text-indent: -999em;
+    width: 26px;
+    height: 26px;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 16px;
+
+    &--next {
+      right: 20px;
+    }
+
+    &--previous {
+      right: 52px;
+    }
+  }
+
+  &__navigation-icon {
+    &--next::before {
+      transform: rotate(45deg);
+      right: 10px;
+    }
+
+    &--previous::before {
+      transform: rotate(225deg);
+      left: 10px;
+    }
+
+    &::before {
+      border-color: $blue;
+      border-style: solid;
+      border-width: 3px 3px 0 0;
+      content: '';
+      display: block;
+      position: absolute;
+      top: 6px;
+      height: 9px;
+      width: 9px;
+    }
+  }
+
+  &__day-names {
+    @include font(400, 1.2rem, 1.4rem);
+
+    display: flex;
+    column-gap: 19px;
+    color: rgba($black, 0.6);
+    margin-bottom: 20px;
+  }
+
+  &__day-name {
+    width: 26px;
+    text-align: center;
+  }
+
+  &__month {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+  }
+
+  &__current-month {
+    @include font(500, 1.4rem, 1.6rem);
+
+    margin-left: 5px;
+    margin-bottom: 18px;
+  }
+
+  &__current-month,
+  &__day-name {
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__week {
+    display: flex;
+    column-gap: 19px;
+  }
+
+  &__day {
+    @include font(400, 1.2rem, 1.4rem);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 26px;
+    width: 26px;
+    border-radius: 4px;
+
+    &:hover {
+      color: $blue;
+    }
+
+    &:active {
+      background: $blue;
+      color: $white;
+    }
+
+    &--today {
+      background: $lt-blue;
+    }
+
+    &--outside-month {
+      color: rgba($black, 0.2);
+    }
+  }
+}
