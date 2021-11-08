@@ -1,0 +1,67 @@
+{
+  "ignorePatterns": [
+    "dist",
+    "node_modules"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
+  "rules": {
+    "rest-spread-spacing": ["error", "never"],
+    "no-unneeded-ternary": 0, //тернарные операторы
+    "no-nested-ternary": 0,
+    "no-shadow": 0,
+    "no-plusplus": 0,
+    "no-confusing-arrow": 0,
+    "no-restricted-syntax": 0,
+    "guard-for-in": 0,
+    "class-methods-use-this": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "jsx-a11y/label-has-associated-control": [ "error", {
+      "required": {
+        "some": [ "nesting", "id"  ]
+      }
+    }],
+    "react/no-danger": 0,
+    "react/button-has-type": 0, //тип кнопок по умолчаниию
+
+    "react/prop-types": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-curly-brace-presence": ["error", { "props": "always", "children": "never" }],
+    "import/no-unresolved": [2, {
+      "caseSensitiveStrict": true}],
+    "import/extensions": 0,
+    "react/jsx-props-no-spreading": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "import/prefer-default-export": 0,
+    "prettier/prettier": ["error", {
+      "singleQuote": true,
+      "trailingComma": "all"
+    }]
+  },
+  "plugins": [
+    "import",
+    "jsx-a11y",
+    "prettier"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
+}
