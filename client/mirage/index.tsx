@@ -239,11 +239,12 @@ export function startMirage() {
         },
       }),
       auth: Factory.extend({
-        email() {
-          return 'yanmusikhin@gmail.com';
+        email(i) {
+          const mails = ['albina_t@gmail.com', 'aaa@mail.ru', 'vv@mail.ru', 'mn@gg.gg', 'cm@gg.gg', 'admin@gg.gg'];
+          return mails[i];
         },
         password() {
-          return 'asdf';
+          return '12345';
         },
       }),
       idTask: Factory.extend({
@@ -379,7 +380,7 @@ export function startMirage() {
       server.createList('content', 40);
       server.createList('task', 6);
       server.createList('notification', 6);
-      server.createList('auth', 1);
+      server.createList('auth', 5);
       server.createList('idTask', 6);
       server.createList('file', 6);
     },
@@ -491,7 +492,16 @@ export function startMirage() {
         const { notifications }: any = schema;
         return notifications.all();
       });
-      this.post('/auth', () => new Response(201));
+      this.post('/auth', (schema, request) => {
+        const attrs = JSON.parse(request.requestBody);
+        const { email, password } = attrs;
+        const mails = ['albina_t@gmail.com', 'aaa@mail.ru', 'vv@mail.ru', 'mn@gg.gg', 'cm@gg.gg', 'admin@gg.gg'];
+        const passwords = '12345';
+        if (mails.includes(email) && passwords.includes(password)) {
+          return new Response(201);
+        }
+        return new Response(500);
+      });
     },
   });
 }
