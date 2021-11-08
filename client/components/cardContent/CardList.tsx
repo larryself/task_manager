@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './cards.scss';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { formatISO } from 'date-fns';
 import CardItem from './cardItem/CardItem';
 import Loader from '../loader/loader';
@@ -19,7 +19,6 @@ const CardList = (props: CardListProps) => {
   const [count, setCount] = useState(9);
   const [fetching, setFetching] = useState(true);
   const [cardID, setCardID] = useState();
-  const cardListRef = useRef();
   function fetchPost() {
     fetch(`/api/contents?page=${currentPage}&count=${count}`)
       .then((response) => response.json())
@@ -99,7 +98,7 @@ const CardList = (props: CardListProps) => {
   }, [fetching]);
   return (
     <div>
-      <ul className={'cards__list'} ref={cardListRef}>
+      <ul className={'cards__list'}>
         {filteredCards.map((card) => (
           <li key={card.id} className={'cards__item'}>
             <CardItem card={card} setCardID={setCardID} />
