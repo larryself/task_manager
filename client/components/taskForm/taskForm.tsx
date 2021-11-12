@@ -35,14 +35,14 @@ const TaskForm = (props?: any) => {
 
   function editTaskFetch(data: any) {
     fetch(`/api/tasks/${id}`, { method: 'PUT', body: JSON.stringify(data) }).then((response) => {
-      if (response.status <= 204) {
+      if (response.ok) {
         router.push('/tasks');
       }
     });
   }
   function addTaskFetch(data: any) {
     fetch(`/api/tasks/`, { method: 'POST', body: JSON.stringify(data) }).then((response) => {
-      if (response.status <= 204) {
+      if (response.ok) {
         router.push('/tasks');
       }
     });
@@ -63,7 +63,7 @@ const TaskForm = (props?: any) => {
           rules={{ required: true }}
           render={({ field }: any) => (
             <SelectBox
-              className={`new-task__desc-select  ${errors.type ? 'select-box--invalid' : ''}`}
+              className={`new-task__desc-select  ${errors.type && 'select-box--invalid'}`}
               placeholder={'Выберите тип контента'}
               label={'Тип контента'}
               options={selectType}
@@ -75,14 +75,14 @@ const TaskForm = (props?: any) => {
           )}
         />
         <InputBox
-          className={`new-task__desc-input ${errors.name ? 'input-box--invalid' : ''}`}
+          className={`new-task__desc-input ${errors.name && 'input-box--invalid'}`}
           id={'name'}
           placeholder={'Введите заголовок задачи'}
           label={'Заголовок'}
           {...register('name', { required: true })}
         />
         <TextareaBox
-          className={`new-task__desc-textarea ${errors.description ? 'textarea-box--invalid' : ''}`}
+          className={`new-task__desc-textarea ${errors.description && 'textarea-box--invalid'}`}
           {...register('description', { required: true })}
         />
         <LoadedFiles />
@@ -93,7 +93,7 @@ const TaskForm = (props?: any) => {
           name={'dateExpired'}
           render={({ field }: any) => (
             <DateBox
-              className={`new-task__aside-date ${errors.dateExpired ? 'date-box--invalid' : ''}`}
+              className={`new-task__aside-date ${errors.dateExpired && 'date-box--invalid'}`}
               placeholder={'Укажите дату'}
               onChange={(date: any) => {
                 field.onChange(date);
@@ -102,14 +102,14 @@ const TaskForm = (props?: any) => {
             />
           )}
         />
-        {user.role?.name === 'admin' ? (
+        {user.role?.name === 'admin' && (
           <Controller
             control={control}
             name={'author'}
             rules={{ required: true }}
             render={({ field }: any) => (
               <SelectBox
-                className={`new-task__aside-requester ${errors.author ? 'select-box--invalid' : ''}`}
+                className={`new-task__aside-requester ${errors.author && 'select-box--invalid'}`}
                 placeholder={'Выберите инициатора'}
                 options={selectExecutor}
                 label={'Инициатор'}
@@ -120,14 +120,14 @@ const TaskForm = (props?: any) => {
               />
             )}
           />
-        ) : null}
+        )}
         <Controller
           control={control}
           name={'executor'}
           rules={{ required: true }}
           render={({ field }: any) => (
             <SelectBox
-              className={`new-task__aside-responsible  ${errors.executor ? 'select-box--invalid' : ''}`}
+              className={`new-task__aside-responsible  ${errors.executor && 'select-box--invalid'}`}
               placeholder={'Выберите ответственного'}
               label={'Ответственный'}
               options={selectExecutor}

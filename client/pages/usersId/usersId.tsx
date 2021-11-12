@@ -36,7 +36,7 @@ const UsersId = () => {
               />
               <h2 className={'new-user__title'}>Пользователь</h2>
             </div>
-            {user ? <UserForm user={user} /> : null}
+            {user && <UserForm user={user} />}
           </div>
         </section>
       </Main>

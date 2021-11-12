@@ -35,7 +35,7 @@ const TaskEdit = () => {
               onClick={() => router.push('/tasks')}
             />
           </div>
-          {task ? <TaskForm task={task} /> : null}
+          {task && <TaskForm task={task} />}
         </section>
       </Main>
     </div>

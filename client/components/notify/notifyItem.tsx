@@ -20,14 +20,14 @@ const NotifyItem = (props: any) => {
   }
   return (
     <div className={'notify-big'}>
-      <div className={`notify-big__icon-inner notify-big__icon-inner--active ${media ? media : null}`}>
+      <div className={`notify-big__icon-inner notify-big__icon-inner--active ${media && media}`}>
         <Icon type={''} typeIcon={notification.type} />
       </div>
       <div className={'notify-big__content-inner'}>
         <div className={'notify-big__desc'}>
-          {notification.user.name ? <span className={'notify-big__name'}>{notification.user.name}</span> : null}
+          {notification.user.name && <span className={'notify-big__name'}>{notification.user.name}</span>}
           <span className={'notify-big__'}>{notification.message}</span>
-          {notification.user.name ? <span className={'notify-big__name'}>{notification.task.name}</span> : null}
+          {notification.user.name && <span className={'notify-big__name'}>{notification.task.name}</span>}
         </div>
         <p className={'notify-big__time'}>{notification.date}</p>
       </div>

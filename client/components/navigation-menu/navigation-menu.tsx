@@ -20,13 +20,13 @@ const Navigation = ({ className }: any) => {
             Задачи
           </NavLink>
         </li>
-        {user.role?.name === 'admin' ? (
+        {user.role?.name === 'admin' && (
           <li className={'menu__item'}>
             <NavLink className={'menu__link'} activeClassName={'menu__link--active'} to={'/users'}>
               Пользователи
             </NavLink>
           </li>
-        ) : null}
+        )}
       </ul>
     </nav>
   );

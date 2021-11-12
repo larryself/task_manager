@@ -3,7 +3,7 @@ import './task-aside.scss';
 
 const TaskIdAside = ({ className, task }: any) => {
   const reverseDate = (date: string) => {
-    const reversedDate = date ? date.slice(0, 10).split('-').reverse().join('.') : '';
+    const reversedDate = date && date.slice(0, 10).split('-').reverse().join('.');
     return reversedDate;
   };
   return (

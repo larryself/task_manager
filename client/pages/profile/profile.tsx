@@ -21,7 +21,7 @@ const Profile = () => {
   return (
     <div>
       <Header />
-      <Main>{user ? <ProfileContainer user={user} /> : null}</Main>
+      <Main>{user && <ProfileContainer user={user} />}</Main>
     </div>
   );
 };

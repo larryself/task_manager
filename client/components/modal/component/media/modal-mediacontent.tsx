@@ -44,7 +44,7 @@ const ModalMediaContent = ({ card }: MediaContentProps) => {
       <div className={'modal-media__content'}>
         <Icon type={''} typeIcon={typeName} />
         <p className={'modal-media__format'}>{types[typeName]}</p>
-        {contentDuration ? <p className={'modal-media__duration'}>{contentDuration}</p> : null}
+        {contentDuration && <p className={'modal-media__duration'}>{contentDuration}</p>}
         <div className={'modal-media__title-inner'}>
           <p className={'modal-media__title'}>{name}</p>
           <span className={'modal-media__time'}>{formatDate(dateCreated)}</span>

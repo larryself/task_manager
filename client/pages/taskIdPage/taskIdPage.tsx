@@ -38,7 +38,7 @@ const TaskIdPage = () => {
   };
   const delTaskFetch = () =>
     fetch(`/api/tasks/${id}`, { method: 'DELETE' }).then((response) => {
-      if (response.status <= 204) {
+      if (response.ok) {
         router.push('/tasks');
       }
     });
@@ -72,7 +72,7 @@ const TaskIdPage = () => {
               onClick={() => router.push('/tasks')}
             />
             <div className={'task__btn-square-inner'}>
-              {loadFiles ? (
+              {loadFiles && (
                 <Button
                   value={'Утвердить и опубликовать'}
                   type={'button'}
@@ -81,7 +81,7 @@ const TaskIdPage = () => {
                   size={'big'}
                   onClick={() => approvedTaskFetch()}
                 />
-              ) : null}
+              )}
               <BtnIcon
                 size={'big'}
                 className={'user-card__btn-edit'}
@@ -101,7 +101,7 @@ const TaskIdPage = () => {
           <div className={'task__content-inner'}>
             <TaskIdInfo task={task} className={'task__desc'} />
             <TaskIdAside task={task} className={'task__date'} />
-            {user.role?.name === 'manager' ? null : (
+            {user.role?.name !== 'manager' && (
               <div className={'task__other'}>
                 <TaskIdResult className={'task__other-item'} setLoadFiles={setLoadFiles} />
                 <TaskIdComment setFetching={setFetching} comments={comments} className={'task__other-item'} />

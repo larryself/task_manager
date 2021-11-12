@@ -17,7 +17,7 @@ const Auth = () => {
   const { GlobalDispatch }: any = useContext(GlobalContext);
   async function fetchPost(data: any) {
     const response = await fetch('/api/auth', { method: 'POST', body: JSON.stringify(data) });
-    if (response.status <= 204) {
+    if (response.ok) {
       localStorage.setItem('auth', 'true');
       localStorage.setItem('email', data.email);
       GlobalDispatch(setUser({ isAuth: true, email: data.email }));
@@ -38,7 +38,7 @@ const Auth = () => {
         <h2 className={'auth__title'}>Вход</h2>
         <form className={'auth__form'} onSubmit={handleSubmit(onSubmit)}>
           <InputBox
-            className={`${errors.email ? `input-box--invalid` : null}`}
+            className={`${errors.email && `input-box--invalid`}`}
             type={'email'}
             id={'email'}
             placeholder={'Введите e-mail'}
@@ -46,7 +46,7 @@ const Auth = () => {
             {...register('email', { required: 'email', maxLength: 80 })}
           />
           <InputBox
-            className={`${errors.password ? `input-box--invalid` : null}`}
+            className={`${errors.password && `input-box--invalid`}`}
             type={'password'}
             id={'password'}
             placeholder={'Введите пароль'}

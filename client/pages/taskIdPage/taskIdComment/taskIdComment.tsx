@@ -19,7 +19,7 @@ const TaskIdComment = ({ className, comments, setFetching }: any) => {
       user: GlobalState.user.id,
     };
     const response = await addCommentFetch(data);
-    if (response.status <= 204) {
+    if (response.ok) {
       setFetching(true);
       reset({});
     }

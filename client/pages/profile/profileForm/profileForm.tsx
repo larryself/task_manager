@@ -30,13 +30,13 @@ const ProfileForm = (props?: any) => {
   };
   const delUserFetch = () =>
     fetch(`/api/users/${user.id}`, { method: 'DELETE' }).then((response) => {
-      if (response.status <= 204) {
+      if (response.ok) {
         logout();
       }
     });
   const editUserFetch = (data: any) => {
     fetch(`/api/users/${user.id}`, { method: 'PUT', body: JSON.stringify(data) }).then((response) => {
-      if (response.status <= 204) {
+      if (response.ok) {
         router.go(-1);
       }
     });
@@ -64,7 +64,7 @@ const ProfileForm = (props?: any) => {
         </div>
         <div className={'profile__input-column'}>
           <InputBox
-            className={`profile__input-name ${errors.name ? 'input-box--invalid' : ''}`}
+            className={`profile__input-name ${errors.name && 'input-box--invalid'}`}
             type={'text'}
             id={'text'}
             label={'Имя, фамилия'}
@@ -72,7 +72,7 @@ const ProfileForm = (props?: any) => {
             {...register('name', { required: true })}
           />
           <InputBox
-            className={`profile__input-email  ${errors.email ? 'input-box--invalid' : ''}`}
+            className={`profile__input-email  ${errors.email && 'input-box--invalid'}`}
             id={'email'}
             type={'email'}
             label={'E-mail'}

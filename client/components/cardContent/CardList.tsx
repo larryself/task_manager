@@ -105,7 +105,7 @@ const CardList = (props: CardListProps) => {
           </li>
         ))}
       </ul>
-      {fetching ? <Loader /> : null}
+      {fetching && <Loader />}
       {GlobalState.modal.active && <Modal card={findCard()} />}
     </div>
   );

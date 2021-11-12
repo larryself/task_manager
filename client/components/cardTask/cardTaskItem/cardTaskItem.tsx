@@ -69,13 +69,13 @@ const CardTaskItem = (props: any) => {
       <span className={`card-task__status card-task__status--${task.status.name}`}>
         {statusTypes[task.status.name]}
       </span>
-      {user.role?.name !== 'contentMaker' ? (
+      {user.role?.name !== 'contentMaker' && (
         <div className={'card-task__btn-inner'}>
-          {task.status.name !== 'completed' ? (
+          {task.status.name !== 'completed' && (
             <Link to={`/tasks/${task.id}`}>
               <BtnIcon size={'mini'} className={'card-task__btn-edit'} typeIcon={'edit'} color={'lt-blue'} />
             </Link>
-          ) : null}
+          )}
           <BtnIcon
             size={'mini'}
             className={'card-task__btn-del'}
@@ -84,7 +84,7 @@ const CardTaskItem = (props: any) => {
             onClick={() => delTask()}
           />
         </div>
-      ) : null}
+      )}
     </div>
   );
 };

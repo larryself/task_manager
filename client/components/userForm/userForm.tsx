@@ -30,21 +30,21 @@ const UserForm = (props?: any) => {
   });
   function setUserFetch(data: any) {
     fetch(`/api/users/${user.id}`, { method: 'PUT', body: JSON.stringify(data) }).then((response) => {
-      if (response.status <= 204) {
+      if (response.ok) {
         router.push('/users');
       }
     });
   }
   const addUserFetch = (data: any) => {
     fetch(`/api/users`, { method: 'POST', body: JSON.stringify(data) }).then((response) => {
-      if (response.status <= 204) {
+      if (response.ok) {
         router.push('/users');
       }
     });
   };
   const delUserFetch = () =>
     fetch(`/api/users/${user.id}`, { method: 'DELETE' }).then((response) => {
-      if (response.status <= 204) {
+      if (response.ok) {
         router.push('/users');
       }
     });
@@ -89,7 +89,7 @@ const UserForm = (props?: any) => {
         </div>
         <div className={'new-user__input-column'}>
           <InputBox
-            className={`new-user__input ${errors.name ? 'input-box--invalid' : null}`}
+            className={`new-user__input ${errors.name && 'input-box--invalid'}`}
             id={'name'}
             type={'name'}
             label={'Имя, фамилия'}
@@ -97,7 +97,7 @@ const UserForm = (props?: any) => {
             {...register('name', { required: 'name' })}
           />
           <InputBox
-            className={`new-user__input ${errors.email ? 'input-box--invalid' : null}`}
+            className={`new-user__input ${errors.email && 'input-box--invalid'}`}
             id={'email'}
             type={'email'}
             label={'E-mail'}
@@ -110,7 +110,7 @@ const UserForm = (props?: any) => {
             rules={{ required: true }}
             render={({ field }: any) => (
               <SelectBox
-                className={`new-user__input ${errors.role ? 'select-box--invalid' : ''}`}
+                className={`new-user__input ${errors.role && 'select-box--invalid'}`}
                 label={'Роль'}
                 placeholder={'Выберите роль'}
                 options={selectRole}
@@ -122,7 +122,7 @@ const UserForm = (props?: any) => {
             )}
           />
           <InputBox
-            className={`new-user__input-password ${errors.password ? 'input-box--invalid' : null}`}
+            className={`new-user__input-password ${errors.password && 'input-box--invalid'}`}
             id={'password'}
             type={passwordHide.type}
             label={'Пароль'}
@@ -163,7 +163,7 @@ const UserForm = (props?: any) => {
           </div>
         </div>
       </form>
-      {GlobalState.modal.active ? <Modal delFetch={delUserFetch} /> : null}
+      {GlobalState.modal.active && <Modal delFetch={delUserFetch} />}
     </div>
   );
 };
