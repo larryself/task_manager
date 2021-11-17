@@ -396,7 +396,6 @@ export function startMirage() {
           }
           return index < +count;
         });
-
         const totalCards = contents.all().length;
         return { contents: contentCard.models, total: totalCards };
       });

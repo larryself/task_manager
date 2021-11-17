@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import UserItem from './user-item/userItem';
 import Modal from '../modal/modal';
 import GlobalContext from '../../context/context';
@@ -13,7 +14,10 @@ const UsersList = (props: any) => {
   const fetchPost = () =>
     fetch('/api/users')
       .then((response) => response.json())
-      .then((data) => setUsers(data.users));
+      .then((data) => setUsers(data.users))
+      .catch(() => {
+        toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
+      });
   const delUserFetch = () => fetch(`/api/users/${userID}`, { method: 'DELETE' }).then(() => fetchPost());
   const filtedByAuthor = (users: User[], valueAuthor = '') => {
     if (valueAuthor.trim() === '') {

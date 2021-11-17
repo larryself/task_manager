@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import './auth.scss';
 import { useHistory } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import Button from '../../components/button/button';
 import InputBox from '../../components/input/input-box';
 import GlobalContext from '../../context/context';
@@ -22,6 +23,8 @@ const Auth = () => {
       localStorage.setItem('email', data.email);
       GlobalDispatch(setUser({ isAuth: true, email: data.email }));
       router.push('/index');
+    } else {
+      toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
     }
   }
 

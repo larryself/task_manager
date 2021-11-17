@@ -2,6 +2,7 @@ import * as React from 'react';
 import './cards.scss';
 import { useContext, useEffect, useState } from 'react';
 import { formatISO } from 'date-fns';
+import toast from 'react-hot-toast';
 import CardItem from './cardItem/CardItem';
 import Loader from '../loader/loader';
 import Modal from '../modal/modal';
@@ -27,6 +28,9 @@ const CardList = (props: CardListProps) => {
         setCurrentPage((prevState) => prevState + 1);
         setCount((prevState) => prevState + 3);
       })
+      .catch(() => {
+        toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
+      })
       .finally(() => {
         setFetching(false);
       });
@@ -51,15 +55,12 @@ const CardList = (props: CardListProps) => {
       return name.toLowerCase().indexOf(valueAuthor.toLowerCase().trim()) > -1;
     });
   };
-  const filterByDate = (contents: Card[], valueDate: Date) => {
-    let result: string;
-    if (valueDate) {
-      result = formatISO(valueDate, { representation: 'date' });
-    }
+  const filterByDate = (contents: Card[], valueDate: Date | null | undefined) => {
     if (valueDate === null || valueDate === undefined) {
       return contents;
     }
-    return contents.filter((card) => card.dateCreated.indexOf(result) > -1);
+    const date = formatISO(valueDate, { representation: 'date' });
+    return contents.filter((card) => card.dateCreated.indexOf(date) > -1);
   };
   const filterByType = (contents: Card[], valueTypes: any) => {
     const filteredTypes: string[] = [];

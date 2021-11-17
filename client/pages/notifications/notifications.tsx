@@ -2,6 +2,7 @@ import * as React from 'react';
 import './notifications.scss';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import Header from '../../components/header/header';
 import Main from '../../components/main/main';
 import NotifyItem from '../../components/notify/notifyItem';
@@ -12,7 +13,12 @@ const Notify = () => {
   const [notifications, setNotifications] = useState([]);
 
   function fetchPost() {
-    fetch('/api/notification').then((response) => response.json().then((data) => setNotifications(data.notifications)));
+    fetch('/api/notification')
+      .then((response) => response.json())
+      .then((data) => setNotifications(data.notifications))
+      .catch(() => {
+        toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
+      });
   }
 
   useEffect(() => {

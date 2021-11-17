@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './profile.scss';
 import { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import Header from '../../components/header/header';
 import Main from '../../components/main/main';
 import ProfileContainer from './profileContainer/profileContainer';
@@ -13,7 +14,10 @@ const Profile = () => {
   function fetchPost() {
     fetch(`/api/users/${id}`)
       .then((response) => response.json())
-      .then((data) => setUser(data.users));
+      .then((data) => setUser(data.users))
+      .catch(() => {
+        toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
+      });
   }
   useEffect(() => {
     fetchPost();

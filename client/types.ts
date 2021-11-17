@@ -3,7 +3,7 @@ export interface Card {
   url: string;
   name: string;
   author: { name: string };
-  dateCreated: string;
+  dateCreated?: string;
   type: {
     name: string;
   };
@@ -68,12 +68,12 @@ export interface CardListProps {
   props?: any;
 }
 export interface task {
-  id: number;
+  id?: number;
   name: string;
   type: { name: string };
-  status: { name: string };
-  dateExpired: string;
-  executor: { name: string };
+  status?: { name: string };
+  dateExpired?: string;
+  executor?: { name: string };
 }
 export interface User {
   id: number;

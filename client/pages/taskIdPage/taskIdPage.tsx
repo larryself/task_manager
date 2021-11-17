@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './taskIdPage.scss';
 import { useHistory, useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import Header from '../../components/header/header';
 import Main from '../../components/main/main';
 import Button from '../../components/button/button';
@@ -28,6 +29,9 @@ const TaskIdPage = () => {
       .then((data) => {
         setTask(data.tasks);
         setComments([...data.tasks.comments]);
+      })
+      .catch(() => {
+        toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
       })
       .finally(() => {
         setFetching(false);

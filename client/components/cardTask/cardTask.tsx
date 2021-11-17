@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './card-task.scss';
 import { formatISO } from 'date-fns';
+import toast from 'react-hot-toast';
 import CardTaskItem from './cardTaskItem/cardTaskItem';
 import Modal from '../modal/modal';
 import GlobalContext from '../../context/context';
 import { task } from '../../types';
+import { filterByType } from '../../utils/filter';
 
 const CardTask = (props: any) => {
   const { formValues } = props;
@@ -13,7 +15,10 @@ const CardTask = (props: any) => {
   function fetchPost() {
     return fetch('/api/tasks')
       .then((response) => response.json())
-      .then((data) => setTasks(data.tasks));
+      .then((data) => setTasks(data.tasks))
+      .catch(() => {
+        toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
+      });
   }
 
   const filterByName = (tasks: task[], valueName = '') => {
@@ -38,7 +43,7 @@ const CardTask = (props: any) => {
       return valueStatus === name;
     });
   };
-  const filterByDate = (tasks: task[], valueDate: Date) => {
+  const filterByDate = (tasks: task[], valueDate: Date | null | undefined) => {
     let result: string;
     if (valueDate) {
       result = formatISO(valueDate, { representation: 'date' });
@@ -48,21 +53,7 @@ const CardTask = (props: any) => {
     }
     return tasks.filter((task) => task.dateExpired.indexOf(result) > -1);
   };
-  const filterByType = (tasks: task[], valueTypes: any) => {
-    const filteredTypes: string[] = [];
-    for (const type in valueTypes) {
-      if (valueTypes[type] === true) {
-        filteredTypes.push(type);
-      }
-    }
-    if (filteredTypes.length === 0) {
-      return tasks;
-    }
-    return tasks.filter((task) => {
-      const type = task.type.name;
-      return filteredTypes.includes(type);
-    });
-  };
+
   const filterTasks = () => {
     const filteredByName: task[] = filterByName(tasks, formValues.name);
     const filteredByStatus: task[] = filterByStatus(filteredByName, formValues.status);
