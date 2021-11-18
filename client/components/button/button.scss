@@ -113,7 +113,7 @@
     }
   }
 
-  &-square-size-big {
+  &-size-square-big {
     height: 40px;
     width: 40px;
     display: flex;
@@ -121,7 +121,7 @@
     justify-content: center;
   }
 
-  &-square-size-mini {
+  &-size-square-mini {
     width: 34px;
     height: 34px;
     display: flex;
@@ -143,7 +143,7 @@
   }
 }
 
-.btn-cancel {
+.btn-reset {
   width: 10px;
   height: 10px;
   border: 0;
