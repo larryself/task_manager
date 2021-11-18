@@ -1,11 +1,4 @@
-const CHANGE_MODAL = 'app/change_modal';
-const SET_USER = 'app/set_user';
-const AUTH_USER = 'app/auth_user';
-const NOTIFICATION_COUNT = 'app/notification_count';
-export const setUser = (user: any) => ({ type: SET_USER, user });
-export const changeModal = (modal: any) => ({ type: CHANGE_MODAL, modal });
-export const authUser = (user: any) => ({ type: AUTH_USER, user });
-export const notificationCount = (notify: any) => ({ type: NOTIFICATION_COUNT, notify });
+import { AUTH_USER, CHANGE_MODAL, NOTIFICATION_COUNT, SET_USER } from '../action/action';
 
 const initialStore = {
   user: {
