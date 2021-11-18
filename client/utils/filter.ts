@@ -1,6 +1,6 @@
 import { Card, task } from '../types';
 
-export const filterByType = (contents: (task | Card)[], valueTypes: any) => {
+export const filterByType = (contents: (Card | task)[], valueTypes: { [type: string]: boolean }): (Card | task)[] => {
   const filteredTypes: string[] = [];
   for (const type in valueTypes) {
     if (valueTypes[type] === true) {
@@ -10,8 +10,8 @@ export const filterByType = (contents: (task | Card)[], valueTypes: any) => {
   if (filteredTypes.length === 0) {
     return contents;
   }
-  return contents.filter((card) => {
-    const type = card.type.name;
+  return contents.filter((element: Card | task) => {
+    const type = element.type.name;
     return filteredTypes.includes(type);
   });
 };

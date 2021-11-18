@@ -47,5 +47,4 @@ export const handleDuration = (duration: number, state: State, setState: any, se
 export const handleFullscreen = (state: State, setState: any, refContainer: any) => {
   screenfull.toggle(refContainer.current);
   setState({ ...state, fullscreen: !state.fullscreen });
-  console.log(state);
 };
