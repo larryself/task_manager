@@ -21,6 +21,7 @@ const Publish = () => {
               color={'transparent'}
               value={''}
               type={'button'}
+              btnType={''}
               onClick={() => router.goBack()}
               aria-label={'Назад'}
             />
@@ -51,6 +52,7 @@ const Publish = () => {
                 typeIcon={'approved-green'}
                 color={'green'}
                 size={'big'}
+                btnType={''}
               />
             </div>
           </div>

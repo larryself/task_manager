@@ -4,13 +4,14 @@ import Header from '../../components/header/header';
 import Main from '../../components/main/main';
 import Button from '../../components/button/button';
 import UserForm from '../../components/userForm/userForm';
+import { API_USERS } from '../../constants/URL';
 
 const UsersId = () => {
   const router = useHistory();
-  const { id }: any = useParams();
+  const { id } = useParams<{ id: string }>();
   const [user, setUser] = useState();
   function fetchPost() {
-    fetch(`/api/users/${id}`)
+    fetch(`${API_USERS}${id}`)
       .then((response) => response.json())
       .then((data) => setUser(data.users));
   }
@@ -31,6 +32,7 @@ const UsersId = () => {
                 size={'small'}
                 typeIcon={'back'}
                 type={'button'}
+                btnType={''}
                 onClick={() => router.push('/users')}
                 aria-label={'Назад'}
               />

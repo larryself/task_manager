@@ -3,7 +3,7 @@ import './modal-media.scss';
 import { useContext, useState } from 'react';
 import { intlFormat } from 'date-fns';
 import GlobalContext from '../../../../context/context';
-import { changeModal } from '../../../../reducer/reducer';
+import { changeModal } from '../../../../action/action';
 import Icon from '../../../icon/icon';
 import Content from '../content/content';
 import { MediaContentProps, typesOptions } from '../../../../types';
@@ -39,10 +39,10 @@ const ModalMediaContent = ({ card }: MediaContentProps) => {
   return (
     <div className={'modal-media'}>
       <button className={'modal-media__btn'} type={'button'} aria-label={'Назад'} onClick={closeModal}>
-        <Icon type={''} typeIcon={'back-white'} />
+        <Icon typeIcon={'back-white'} />
       </button>
       <div className={'modal-media__content'}>
-        <Icon type={''} typeIcon={typeName} />
+        <Icon typeIcon={typeName} />
         <p className={'modal-media__format'}>{types[typeName]}</p>
         {contentDuration && <p className={'modal-media__duration'}>{contentDuration}</p>}
         <div className={'modal-media__title-inner'}>

@@ -1,6 +1,7 @@
 import React from 'react';
+import { IconProps } from '../../types';
 
-const Icon = ({ type, typeIcon }: any) => {
+const Icon = ({ type, typeIcon }: IconProps) => {
   let icon;
   switch (type) {
     case 'docType':

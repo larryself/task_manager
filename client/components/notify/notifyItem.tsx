@@ -21,7 +21,7 @@ const NotifyItem = (props: any) => {
   return (
     <div className={'notify-big'}>
       <div className={`notify-big__icon-inner notify-big__icon-inner--active ${media && media}`}>
-        <Icon type={''} typeIcon={notification.type} />
+        <Icon typeIcon={notification.type} />
       </div>
       <div className={'notify-big__content-inner'}>
         <div className={'notify-big__desc'}>

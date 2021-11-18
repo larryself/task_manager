@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './search-box.scss';
-import BtnReset from '../button/btnReset';
 import Icon from '../icon/icon';
+import Button from '../button/button';
 
 const SearchBox = React.forwardRef(({ className, placeholder, ...props }: any, ref) => {
   const { setValue, name } = props;
@@ -23,7 +23,16 @@ const SearchBox = React.forwardRef(({ className, placeholder, ...props }: any, r
         <span className={'search-box__icon'}>
           <Icon typeIcon={'search'} type={''} />
         </span>
-        <BtnReset className={'search-box__btn'} type={'button'} onClick={() => setValue(name, '')} />
+        <Button
+          className={'search-box__btn'}
+          value={''}
+          color={''}
+          size={''}
+          typeIcon={'reset'}
+          type={'reset'}
+          btnType={'reset'}
+          onClick={() => setValue(name, '')}
+        />
       </div>
     </div>
   );

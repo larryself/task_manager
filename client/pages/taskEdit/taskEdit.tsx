@@ -4,13 +4,14 @@ import Header from '../../components/header/header';
 import Main from '../../components/main/main';
 import Button from '../../components/button/button';
 import TaskForm from '../../components/taskForm/taskForm';
+import { API_TASKS } from '../../constants/URL';
 
 const TaskEdit = () => {
   const router = useHistory();
-  const { id }: any = useParams();
+  const { id } = useParams<{ id: string }>();
   const [task, setTask] = useState();
   function fetchPost() {
-    fetch(`/api/tasks/${id}`)
+    fetch(`${API_TASKS}${id}`)
       .then((response) => response.json())
       .then((data) => {
         setTask(data.tasks);
@@ -32,6 +33,7 @@ const TaskEdit = () => {
               typeIcon={'back'}
               color={'transparent'}
               size={'small'}
+              btnType={''}
               onClick={() => router.push('/tasks')}
             />
           </div>

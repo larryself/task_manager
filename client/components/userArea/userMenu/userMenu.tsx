@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import GlobalContext from '../../../context/context';
-import { authUser } from '../../../reducer/reducer';
+import { authUser } from '../../../action/action';
 
 const UserMenu = ({ visible }: any) => {
   const { GlobalDispatch }: any = useContext(GlobalContext);

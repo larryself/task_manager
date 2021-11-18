@@ -5,15 +5,16 @@ import toast from 'react-hot-toast';
 import CardTaskItem from './cardTaskItem/cardTaskItem';
 import Modal from '../modal/modal';
 import GlobalContext from '../../context/context';
-import { task } from '../../types';
+import { CardTaskProps, task } from '../../types';
 import { filterByType } from '../../utils/filter';
+import { API_TASKS } from '../../constants/URL';
 
-const CardTask = (props: any) => {
+const CardTask = (props: CardTaskProps) => {
   const { formValues } = props;
   const [tasks, setTasks] = useState([]);
   const [taskID, setTaskID] = useState();
   function fetchPost() {
-    return fetch('/api/tasks')
+    return fetch(API_TASKS)
       .then((response) => response.json())
       .then((data) => setTasks(data.tasks))
       .catch(() => {
@@ -63,7 +64,7 @@ const CardTask = (props: any) => {
   };
   const filteredTasks = filterTasks();
   const { GlobalState }: any = useContext(GlobalContext);
-  const delTaskFetch = () => fetch(`/api/tasks/${taskID}`, { method: 'DELETE' }).then(() => fetchPost());
+  const delTaskFetch = () => fetch(`${API_TASKS}${taskID}`, { method: 'DELETE' }).then(() => fetchPost());
   useEffect(() => {
     fetchPost();
   }, []);

@@ -2,12 +2,12 @@ import * as React from 'react';
 import './user-card.scss';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import BtnIcon from '../../button/btnIcon';
 import GlobalContext from '../../../context/context';
-import { changeModal } from '../../../reducer/reducer';
-import { typesOptions } from '../../../types';
+import { changeModal } from '../../../action/action';
+import { typesOptions, UserItemProps } from '../../../types';
+import Button from '../../button/button';
 
-const UserItem = (props: any) => {
+const UserItem = (props: UserItemProps) => {
   const { GlobalDispatch }: any = useContext(GlobalContext);
   const { setUserID } = props;
   const { user } = props;
@@ -38,13 +38,15 @@ const UserItem = (props: any) => {
       <span className={'user-card__role'}>{roles[user.role.name]}</span>
       <div className={'user-card__btn-inner'}>
         <Link to={`/users/${user.id}`}>
-          <BtnIcon size={'mini'} className={'user-card__btn-edit'} typeIcon={'edit'} color={'lt-blue'} />
+          <Button value={''} color={'lt-blue'} size={'square-mini'} typeIcon={'edit'} type={''} btnType={'square'} />
         </Link>
-        <BtnIcon
-          size={'mini'}
-          className={'user-card__btn-del'}
-          typeIcon={'del'}
+        <Button
+          value={''}
           color={'lt-blue'}
+          size={'square-mini'}
+          typeIcon={'del'}
+          type={''}
+          btnType={'square'}
           onClick={deleteUser}
         />
       </div>

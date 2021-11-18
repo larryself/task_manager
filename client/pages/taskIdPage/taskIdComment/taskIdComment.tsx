@@ -5,13 +5,14 @@ import Button from '../../../components/button/button';
 import './task-comment.scss';
 import Comment from './comment/comment';
 import GlobalContext from '../../../context/context';
+import { API_COMMENTS } from '../../../constants/URL';
 
 const TaskIdComment = ({ className, comments, setFetching }: any) => {
   const { GlobalState }: any = useContext(GlobalContext);
-  const { id }: any = useParams();
+  const { id } = useParams<{ id: string }>();
 
   const { register, handleSubmit, reset } = useForm();
-  const addCommentFetch = (data: any) => fetch('/api/comments', { method: 'POST', body: JSON.stringify(data) });
+  const addCommentFetch = (data: any) => fetch(API_COMMENTS, { method: 'POST', body: JSON.stringify(data) });
   const onSubmit = async (message: any) => {
     const data = {
       task: id,
@@ -37,7 +38,7 @@ const TaskIdComment = ({ className, comments, setFetching }: any) => {
             {...register('message')}
           />
           <div className={'task-comment__btn'}>
-            <Button value={'Отправить'} color={'blue'} size={'small'} typeIcon={''} type={'submit'} />
+            <Button value={'Отправить'} color={'blue'} size={'small'} typeIcon={''} type={'submit'} btnType={''} />
           </div>
         </form>
         <ul className={'task-comment__list'}>

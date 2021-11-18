@@ -4,8 +4,8 @@ import File from './file/file';
 
 const LoadedFiles = () => {
   const [fileList, setFileList] = useState([]);
-  const onChange = (e: any) => {
-    const { files } = e.target;
+  const onChange = (event: any) => {
+    const { files } = event.target;
     const file = files[0];
     setFileList([...fileList, file]);
   };

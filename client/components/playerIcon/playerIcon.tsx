@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface iconProps {
+interface iconPlayerProps {
   type: string;
 }
-const PlayerIcon = ({ type }: iconProps) => {
-  let icon: any = null;
+const PlayerIcon = ({ type }: iconPlayerProps) => {
+  let icon;
   switch (type) {
     case 'play':
       icon = (

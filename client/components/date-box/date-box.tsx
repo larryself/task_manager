@@ -2,11 +2,12 @@ import * as React from 'react';
 import './date-box.scss';
 import './datePicker.scss';
 import ReactDatePicker from 'react-datepicker';
-
 import { useState } from 'react';
 import ru from 'date-fns/locale/ru';
+import { DateBoxProps } from '../../types';
+import Icon from '../icon/icon';
 
-const DateBox = ({ className, placeholder, ...props }: any) => {
+const DateBox = ({ className, placeholder, ...props }: DateBoxProps) => {
   const [startDate, setStartDate] = useState('');
   return (
     <div className={`date-box ${className}`}>
@@ -27,9 +28,7 @@ const DateBox = ({ className, placeholder, ...props }: any) => {
           {...props}
         />
         <span className={'date-box__icon'}>
-          <svg viewBox={'0 0 15 14'} height={'14'} width={'15'}>
-            <use href={'../../../public/img/icon.svg#calendar'} />
-          </svg>
+          <Icon typeIcon={'calendar'} />
         </span>
       </div>
     </div>

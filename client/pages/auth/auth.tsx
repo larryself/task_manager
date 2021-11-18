@@ -6,7 +6,8 @@ import toast from 'react-hot-toast';
 import Button from '../../components/button/button';
 import InputBox from '../../components/input/input-box';
 import GlobalContext from '../../context/context';
-import { setUser } from '../../reducer/reducer';
+import { setUser } from '../../action/action';
+import { API_AUTH } from '../../constants/URL';
 
 const Auth = () => {
   const router = useHistory();
@@ -17,7 +18,7 @@ const Auth = () => {
   } = useForm();
   const { GlobalDispatch }: any = useContext(GlobalContext);
   async function fetchPost(data: any) {
-    const response = await fetch('/api/auth', { method: 'POST', body: JSON.stringify(data) });
+    const response = await fetch(API_AUTH, { method: 'POST', body: JSON.stringify(data) });
     if (response.ok) {
       localStorage.setItem('auth', 'true');
       localStorage.setItem('email', data.email);
@@ -56,7 +57,7 @@ const Auth = () => {
             label={'Пароль'}
             {...register('password', { required: 'password', maxLength: 80 })}
           />
-          <Button value={'Войти'} typeIcon={'login'} size={'big'} color={'blue'} type={'submit'} />
+          <Button value={'Войти'} typeIcon={'login'} size={'big'} color={'blue'} type={'submit'} btnType={''} />
         </form>
       </div>
     </section>

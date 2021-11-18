@@ -7,13 +7,14 @@ import Header from '../../components/header/header';
 import Main from '../../components/main/main';
 import NotifyItem from '../../components/notify/notifyItem';
 import Button from '../../components/button/button';
+import { API_NOTIFICATION } from '../../constants/URL';
 
 const Notify = () => {
   const router = useHistory();
   const [notifications, setNotifications] = useState([]);
 
   function fetchPost() {
-    fetch('/api/notification')
+    fetch(API_NOTIFICATION)
       .then((response) => response.json())
       .then((data) => setNotifications(data.notifications))
       .catch(() => {
@@ -37,6 +38,7 @@ const Notify = () => {
                 color={'transparent'}
                 value={''}
                 type={''}
+                btnType={''}
                 onClick={router.goBack}
                 aria-label={'Назад'}
               />

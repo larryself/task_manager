@@ -8,6 +8,8 @@ import Loader from '../loader/loader';
 import Modal from '../modal/modal';
 import GlobalContext from '../../context/context';
 import { Card, CardListProps } from '../../types';
+import { filterByType } from '../../utils/filter';
+import { API_CONTENTS } from '../../constants/URL';
 
 const CardList = (props: CardListProps) => {
   const { GlobalState }: any = useContext(GlobalContext);
@@ -21,7 +23,7 @@ const CardList = (props: CardListProps) => {
   const [fetching, setFetching] = useState(true);
   const [cardID, setCardID] = useState();
   function fetchPost() {
-    fetch(`/api/contents?page=${currentPage}&count=${count}`)
+    fetch(`${API_CONTENTS}?page=${currentPage}&count=${count}`)
       .then((response) => response.json())
       .then((data: { contents: []; total: number }) => {
         setCards({ contents: [...cards.contents, ...data.contents], total: data.total });
@@ -62,26 +64,11 @@ const CardList = (props: CardListProps) => {
     const date = formatISO(valueDate, { representation: 'date' });
     return contents.filter((card) => card.dateCreated.indexOf(date) > -1);
   };
-  const filterByType = (contents: Card[], valueTypes: any) => {
-    const filteredTypes: string[] = [];
-    for (const type in valueTypes) {
-      if (valueTypes[type] === true) {
-        filteredTypes.push(type);
-      }
-    }
-    if (filteredTypes.length === 0) {
-      return contents;
-    }
-    return contents.filter((card) => {
-      const type = card.type.name;
-      return filteredTypes.includes(type);
-    });
-  };
   const filterCards = (contents: Card[]) => {
     const filteredByAuthor: Card[] = filterByAuthor(contents, formValues.authorName);
-    const filteredByType: Card[] = filterByType(filteredByAuthor, formValues.type);
-    const filteredByDate: Card[] = filterByDate(filteredByType, formValues.date);
-    return filteredByDate;
+    const filteredByDate: Card[] = filterByDate(filteredByAuthor, formValues.date);
+    const filteredByType: Card[] = filterByType(filteredByDate, formValues.type);
+    return filteredByType;
   };
   const filteredCards = filterCards(cards.contents);
 

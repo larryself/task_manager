@@ -43,6 +43,7 @@ const Users = () => {
                 size={'big'}
                 type={''}
                 typeIcon={'plus-in-circle'}
+                btnType={''}
               />
             </Link>
           </div>

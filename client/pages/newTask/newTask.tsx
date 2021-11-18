@@ -20,6 +20,7 @@ const NewTask = () => {
               typeIcon={'back'}
               color={'transparent'}
               size={'small'}
+              btnType={''}
               onClick={() => router.push('/tasks')}
             />
           </div>

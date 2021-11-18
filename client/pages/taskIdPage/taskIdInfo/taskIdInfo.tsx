@@ -19,7 +19,7 @@ const TaskIdInfo = ({ className, task }: any) => {
     <article className={`task-info ${className}`}>
       <div className={'task-info__top'}>
         <p className={'task-info__format task-info__format--video'}>
-          <Icon type={''} typeIcon={task.type?.name} />
+          <Icon typeIcon={task.type?.name} />
           {types[task.type?.name]}
         </p>
         <p className={`task-info__status task-info__status--${task.status?.name}`}>{statusTypes[task.status?.name]}</p>

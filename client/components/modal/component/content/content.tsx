@@ -1,10 +1,11 @@
 import React from 'react';
 import AudioPlayer from '../player/audio/AudioPlayer';
 import VideoPlayer from '../player/video/VideoPlayer';
+import { ContentProps } from '../../../../types';
 
-const Content = (props: any) => {
-  const { card }: any = props;
-  const { setContentDuration }: any = props;
+const Content = (props: ContentProps) => {
+  const { card } = props;
+  const { setContentDuration } = props;
   const type = card.type.name;
   return (
     <div className={'modal-media__mediacontent-inner'}>

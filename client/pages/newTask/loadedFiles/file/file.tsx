@@ -23,6 +23,7 @@ const File = (props: any) => {
         size={'small'}
         typeIcon={'del'}
         type={'button'}
+        btnType={''}
         onClick={deleteFile}
       />
     </div>

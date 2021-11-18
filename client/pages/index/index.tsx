@@ -32,7 +32,7 @@ const Index = () => {
             <Controller
               control={control}
               name={'date'}
-              render={({ field }: any) => (
+              render={({ field }) => (
                 <DateBox
                   className={'cards__form-column'}
                   placeholder={'Укажите дату публикации'}

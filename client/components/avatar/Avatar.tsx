@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Icon from '../icon/icon';
 import './Avatar.scss';
+import { AvatarProps } from '../../types';
 
-const Avatar = (props: any) => {
+const Avatar = (props: AvatarProps) => {
   const { uploadFiles } = props;
   const [avatar, setAvatar] = useState('../public/img/avatar.svg');
   const onChangePicture = (fileList: any) => {
@@ -19,7 +20,7 @@ const Avatar = (props: any) => {
     }
   };
   useEffect(() => {
-    if (uploadFiles[0]) {
+    if (uploadFiles) {
       onChangePicture(uploadFiles);
     }
   }, [uploadFiles]);
@@ -31,7 +32,7 @@ const Avatar = (props: any) => {
       <label className={'avatar__load-label'}>
         <input type={'file'} name={'file'} className={'avatar__load-input'} {...props} />
         <div className={'avatar__load-title'}>
-          <Icon type={''} typeIcon={'download'} />
+          <Icon typeIcon={'download'} />
           <span>Загрузить аватар</span>
         </div>
       </label>

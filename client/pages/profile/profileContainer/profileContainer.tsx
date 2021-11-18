@@ -18,6 +18,7 @@ const ProfileContainer = (props?: any) => {
             color={'transparent'}
             value={''}
             type={'button'}
+            btnType={''}
             onClick={() => router.goBack()}
             aria-label={'Назад'}
           />

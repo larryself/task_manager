@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import './notify.scss';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { API_NOTIFICATION } from '../../constants/URL';
 
 const Notify = () => {
   const [notify, setNotify] = useState('');
   function fetchPost() {
-    fetch('/api/notification')
+    fetch(API_NOTIFICATION)
       .then((response) => response.json())
       .then((data) => setNotify(data.notifications.length))
       .catch(() => {

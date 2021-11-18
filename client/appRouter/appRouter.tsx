@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-
 import Users from '../pages/users/users';
 import Notifications from '../pages/notifications/notifications';
 import NotFound from '../pages/error/notFound';
@@ -13,7 +12,7 @@ import NewTask from '../pages/newTask/newTask';
 import NewUser from '../pages/newUser/newUser';
 import UsersId from '../pages/usersId/usersId';
 import GlobalContext from '../context/context';
-import { authUser } from '../reducer/reducer';
+import { authUser } from '../action/action';
 import TaskEdit from '../pages/taskEdit/taskEdit';
 import Publish from '../pages/publish/publish';
 

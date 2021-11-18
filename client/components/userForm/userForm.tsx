@@ -7,8 +7,9 @@ import SelectBox from '../select-box/select-box';
 import Icon from '../icon/icon';
 import GlobalContext from '../../context/context';
 import Modal from '../modal/modal';
-import { changeModal } from '../../reducer/reducer';
+import { changeModal } from '../../action/action';
 import Avatar from '../avatar/Avatar';
+import { API_USERS } from '../../constants/URL';
 
 const UserForm = (props?: any) => {
   const { user } = props;
@@ -29,21 +30,21 @@ const UserForm = (props?: any) => {
     control,
   });
   function setUserFetch(data: any) {
-    fetch(`/api/users/${user.id}`, { method: 'PUT', body: JSON.stringify(data) }).then((response) => {
+    fetch(`${API_USERS}${user.id}`, { method: 'PUT', body: JSON.stringify(data) }).then((response) => {
       if (response.ok) {
         router.push('/users');
       }
     });
   }
   const addUserFetch = (data: any) => {
-    fetch(`/api/users`, { method: 'POST', body: JSON.stringify(data) }).then((response) => {
+    fetch(API_USERS, { method: 'POST', body: JSON.stringify(data) }).then((response) => {
       if (response.ok) {
         router.push('/users');
       }
     });
   };
   const delUserFetch = () =>
-    fetch(`/api/users/${user.id}`, { method: 'DELETE' }).then((response) => {
+    fetch(`${API_USERS}${user.id}`, { method: 'DELETE' }).then((response) => {
       if (response.ok) {
         router.push('/users');
       }
@@ -76,11 +77,11 @@ const UserForm = (props?: any) => {
           <Controller
             control={control}
             name={'avatar'}
-            render={({ field }: any) => (
+            render={({ field }) => (
               <Avatar
                 uploadFiles={uploadFiles}
                 user={user}
-                onChange={(file: any) => {
+                onChange={(file: React.ChangeEvent<HTMLInputElement>) => {
                   field.onChange(file.target.files);
                 }}
               />
@@ -108,7 +109,7 @@ const UserForm = (props?: any) => {
             control={control}
             name={user ? 'role.name' : 'role'}
             rules={{ required: true }}
-            render={({ field }: any) => (
+            render={({ field }) => (
               <SelectBox
                 className={`new-user__input ${errors.role && 'select-box--invalid'}`}
                 label={'Роль'}
@@ -130,17 +131,24 @@ const UserForm = (props?: any) => {
             {...register('password', { required: 'password', maxLength: 80 })}
           >
             <button type={'button'} className={'new-user__input-password-trigger'} onClick={passwordToggler}>
-              <Icon type={''} typeIcon={passwordHide.icon} />
+              <Icon typeIcon={passwordHide.icon} />
             </button>
           </InputBox>
           {Object.keys(errors).length > 0 && (
             <div className={'new-user__attention-inner'}>
-              <Icon type={''} typeIcon={'attention'} />
+              <Icon typeIcon={'attention'} />
               <p className={'new-user__attention-message'}>Заполните отмеченные поля</p>
             </div>
           )}
           <div className={'new-user__btn-inner'}>
-            <Button value={'Сохранить'} color={'blue'} size={'big'} typeIcon={'approved-blue'} type={'submit'} />
+            <Button
+              value={'Сохранить'}
+              color={'blue'}
+              size={'big'}
+              typeIcon={'approved-blue'}
+              type={'submit'}
+              btnType={''}
+            />
             {user && (
               <Button
                 value={'Удалить'}
@@ -148,6 +156,7 @@ const UserForm = (props?: any) => {
                 size={'big'}
                 typeIcon={'del'}
                 type={'button'}
+                btnType={''}
                 onClick={() =>
                   GlobalDispatch(
                     changeModal({

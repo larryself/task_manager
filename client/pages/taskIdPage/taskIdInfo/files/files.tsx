@@ -13,7 +13,7 @@ const Files = (props: any) => {
         <span className={'task-info__file-size'}>{file.size}</span>
       </div>
       <a download className={'task-info__btn btn-lt-blue btn-size-small'} href={file.url}>
-        <Icon type={''} typeIcon={'upload'} />
+        <Icon typeIcon={'upload'} />
         Скачать
       </a>
     </div>

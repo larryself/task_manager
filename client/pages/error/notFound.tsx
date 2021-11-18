@@ -15,7 +15,7 @@ const NotFound = () => (
           <h2 className={'not-found__title'}>Потерялись?</h2>
           <p className={'not-found__desc'}>Страница, которую вы ищите не существует, либо была удалена</p>
           <Link to={'/index'}>
-            <Button color={'blue'} size={'big'} type={'button'} typeIcon={'home'} value={'На главную'} />
+            <Button color={'blue'} size={'big'} type={'button'} typeIcon={'home'} value={'На главную'} btnType={''} />
           </Link>
         </div>
       </section>

@@ -3,14 +3,15 @@ import { useContext, useEffect, useState } from 'react';
 import './userArea.scss';
 import UserMenu from './userMenu/userMenu';
 import GlobalContext from '../../context/context';
-import { setUser } from '../../reducer/reducer';
+import { setUser } from '../../action/action';
+import { API_USERS } from '../../constants/URL';
 
 const UserArea = () => {
   const { GlobalState, GlobalDispatch }: any = useContext(GlobalContext);
   const { user } = GlobalState;
   const [visible, setVisible] = useState(false);
   async function findUser(currentUser: string) {
-    const response = await fetch('/api/users')
+    const response = await fetch(API_USERS)
       .then((response) => response.json())
       .then((data) => data.users);
     response.forEach((user: any) => {

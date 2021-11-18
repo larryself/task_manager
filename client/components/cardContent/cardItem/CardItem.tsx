@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { intlFormat } from 'date-fns';
 import GlobalContext from '../../../context/context';
 import Icon from '../../icon/icon';
-import { changeModal } from '../../../reducer/reducer';
+import { changeModal } from '../../../action/action';
 import { cardItemProps, typesOptions } from '../../../types';
 
 const CardItem = (props: cardItemProps) => {

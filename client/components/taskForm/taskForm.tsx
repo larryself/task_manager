@@ -10,10 +10,12 @@ import DateBox from '../date-box/date-box';
 import Icon from '../icon/icon';
 import Button from '../button/button';
 import GlobalContext from '../../context/context';
+import { formValues, TaskFormProps } from '../../types';
+import { API_TASKS } from '../../constants/URL';
 
-const TaskForm = (props?: any) => {
+const TaskForm = (props?: TaskFormProps) => {
   const { task } = props;
-  const { id }: any = useParams();
+  const { id } = useParams<{ id: string }>();
   const router = useHistory();
   const { GlobalState }: any = useContext(GlobalContext);
   const { user } = GlobalState;
@@ -33,21 +35,21 @@ const TaskForm = (props?: any) => {
     },
   });
 
-  function editTaskFetch(data: any) {
-    fetch(`/api/tasks/${id}`, { method: 'PUT', body: JSON.stringify(data) }).then((response) => {
+  function editTaskFetch(data: formValues) {
+    fetch(`${API_TASKS}${id}`, { method: 'PUT', body: JSON.stringify(data) }).then((response) => {
       if (response.ok) {
         router.push('/tasks');
       }
     });
   }
-  function addTaskFetch(data: any) {
-    fetch(`/api/tasks/`, { method: 'POST', body: JSON.stringify(data) }).then((response) => {
+  function addTaskFetch(data: formValues) {
+    fetch(API_TASKS, { method: 'POST', body: JSON.stringify(data) }).then((response) => {
       if (response.ok) {
         router.push('/tasks');
       }
     });
   }
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: formValues) => {
     if (task) {
       editTaskFetch(data);
     } else {
@@ -61,7 +63,7 @@ const TaskForm = (props?: any) => {
           control={control}
           name={'type'}
           rules={{ required: true }}
-          render={({ field }: any) => (
+          render={({ field }) => (
             <SelectBox
               className={`new-task__desc-select  ${errors.type && 'select-box--invalid'}`}
               placeholder={'Выберите тип контента'}
@@ -91,11 +93,11 @@ const TaskForm = (props?: any) => {
         <Controller
           control={control}
           name={'dateExpired'}
-          render={({ field }: any) => (
+          render={({ field }) => (
             <DateBox
               className={`new-task__aside-date ${errors.dateExpired && 'date-box--invalid'}`}
               placeholder={'Укажите дату'}
-              onChange={(date: any) => {
+              onChange={(date) => {
                 field.onChange(date);
               }}
               selected={new Date(field.value)}
@@ -107,7 +109,7 @@ const TaskForm = (props?: any) => {
             control={control}
             name={'author'}
             rules={{ required: true }}
-            render={({ field }: any) => (
+            render={({ field }) => (
               <SelectBox
                 className={`new-task__aside-requester ${errors.author && 'select-box--invalid'}`}
                 placeholder={'Выберите инициатора'}
@@ -125,7 +127,7 @@ const TaskForm = (props?: any) => {
           control={control}
           name={'executor'}
           rules={{ required: true }}
-          render={({ field }: any) => (
+          render={({ field }) => (
             <SelectBox
               className={`new-task__aside-responsible  ${errors.executor && 'select-box--invalid'}`}
               placeholder={'Выберите ответственного'}
@@ -143,11 +145,18 @@ const TaskForm = (props?: any) => {
       <div className={'new-task__btn-create-inner'}>
         {Object.keys(errors).length > 0 && (
           <div className={'new-task__attention-inner'}>
-            <Icon type={''} typeIcon={'attention'} />
+            <Icon typeIcon={'attention'} />
             <p className={'new-task__attention-message'}>Заполните отмеченные поля</p>
           </div>
         )}
-        <Button value={'Создать задачу'} type={'submit'} typeIcon={'approved-blue'} color={'blue'} size={'big'} />
+        <Button
+          value={'Создать задачу'}
+          type={'submit'}
+          typeIcon={'approved-blue'}
+          color={'blue'}
+          size={'big'}
+          btnType={''}
+        />
       </div>
     </form>
   );

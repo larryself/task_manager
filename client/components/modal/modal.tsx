@@ -4,7 +4,7 @@ import { useContext, useEffect } from 'react';
 import ModalMediaContent from './component/media/modal-mediacontent';
 import ModalMessage from './component/message/modal-message';
 import GlobalContext from '../../context/context';
-import { changeModal } from '../../reducer/reducer';
+import { changeModal } from '../../action/action';
 
 const Modal = ({ deleteUser, ...props }: any) => {
   const { delFetch }: any = props;

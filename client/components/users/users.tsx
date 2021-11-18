@@ -5,6 +5,7 @@ import UserItem from './user-item/userItem';
 import Modal from '../modal/modal';
 import GlobalContext from '../../context/context';
 import { User } from '../../types';
+import { API_USERS } from '../../constants/URL';
 
 const UsersList = (props: any) => {
   const { GlobalState }: any = useContext(GlobalContext);
@@ -12,14 +13,14 @@ const UsersList = (props: any) => {
   const [users, setUsers] = useState([]);
   const [userID, setUserID] = useState();
   const fetchPost = () =>
-    fetch('/api/users')
+    fetch(API_USERS)
       .then((response) => response.json())
       .then((data) => setUsers(data.users))
       .catch(() => {
         toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
       });
-  const delUserFetch = () => fetch(`/api/users/${userID}`, { method: 'DELETE' }).then(() => fetchPost());
-  const filtedByAuthor = (users: User[], valueAuthor = '') => {
+  const delUserFetch = () => fetch(`${API_USERS}${userID}`, { method: 'DELETE' }).then(() => fetchPost());
+  const filterByAuthor = (users: User[], valueAuthor = '') => {
     if (valueAuthor.trim() === '') {
       return users;
     }
@@ -53,7 +54,7 @@ const UsersList = (props: any) => {
     return [];
   };
   const filterUsers = () => {
-    const filteredByAuthor: User[] = filtedByAuthor(users, formValues.name);
+    const filteredByAuthor: User[] = filterByAuthor(users, formValues.name);
     const filteredByRole: User[] = filterByRole(filteredByAuthor, formValues.role);
     return filteredByRole;
   };

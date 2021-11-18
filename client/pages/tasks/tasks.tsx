@@ -35,7 +35,7 @@ const Tasks = () => {
               control={control}
               name={'status'}
               rules={{ required: true }}
-              render={({ field }: any) => (
+              render={({ field }) => (
                 <SelectBox
                   className={'tasks__form-column tasks__form-column--size-small'}
                   placeholder={'Выберите статус'}
@@ -51,7 +51,7 @@ const Tasks = () => {
             <Controller
               control={control}
               name={'date'}
-              render={({ field }: any) => (
+              render={({ field }) => (
                 <DateBox
                   className={'tasks__form-column tasks__form-column--size-small'}
                   placeholder={'Укажите дату'}
@@ -88,7 +88,14 @@ const Tasks = () => {
           </form>
           <div className={'tasks__link-inner'}>
             <Link to={'/new_task'}>
-              <Button value={'Новая задача'} color={'blue'} size={'big'} type={''} typeIcon={'plus-in-circle'} />
+              <Button
+                value={'Новая задача'}
+                color={'blue'}
+                size={'big'}
+                type={''}
+                typeIcon={'plus-in-circle'}
+                btnType={''}
+              />
             </Link>
           </div>
           <CardTask formValues={watchAllFields} />

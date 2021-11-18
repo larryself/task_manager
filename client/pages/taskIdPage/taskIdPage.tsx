@@ -5,14 +5,14 @@ import toast from 'react-hot-toast';
 import Header from '../../components/header/header';
 import Main from '../../components/main/main';
 import Button from '../../components/button/button';
-import BtnIcon from '../../components/button/btnIcon';
 import TaskIdAside from './taskIdAside/taskIdAside';
 import TaskIdInfo from './taskIdInfo/taskIdInfo';
 import TaskIdResult from './taskIdResult/taskIdResult';
 import TaskIdComment from './taskIdComment/taskIdComment';
-import { changeModal } from '../../reducer/reducer';
+import { changeModal } from '../../action/action';
 import GlobalContext from '../../context/context';
 import Modal from '../../components/modal/modal';
+import { API_TASKS } from '../../constants/URL';
 
 const TaskIdPage = () => {
   const { GlobalState, GlobalDispatch }: any = useContext(GlobalContext);
@@ -22,9 +22,9 @@ const TaskIdPage = () => {
   const { user } = GlobalState;
   const router = useHistory();
   const [task, setTask] = useState({});
-  const { id }: any = useParams();
+  const { id } = useParams<{ id: string }>();
   const fetchPost = () => {
-    fetch(`/api/tasks/${id}`)
+    fetch(`${API_TASKS}${id}`)
       .then((response) => response.json())
       .then((data) => {
         setTask(data.tasks);
@@ -41,7 +41,7 @@ const TaskIdPage = () => {
     router.push(`/publish/${id}`);
   };
   const delTaskFetch = () =>
-    fetch(`/api/tasks/${id}`, { method: 'DELETE' }).then((response) => {
+    fetch(`${API_TASKS}${id}`, { method: 'DELETE' }).then((response) => {
       if (response.ok) {
         router.push('/tasks');
       }
@@ -73,6 +73,7 @@ const TaskIdPage = () => {
               typeIcon={'back'}
               color={'transparent'}
               size={'small'}
+              btnType={''}
               onClick={() => router.push('/tasks')}
             />
             <div className={'task__btn-square-inner'}>
@@ -83,21 +84,26 @@ const TaskIdPage = () => {
                   typeIcon={'approved-green'}
                   color={'green'}
                   size={'big'}
+                  btnType={''}
                   onClick={() => approvedTaskFetch()}
                 />
               )}
-              <BtnIcon
-                size={'big'}
-                className={'user-card__btn-edit'}
-                typeIcon={'edit'}
+              <Button
+                value={''}
                 color={'blue'}
+                size={'square-big'}
+                typeIcon={'edit'}
+                type={''}
+                btnType={'square'}
                 onClick={() => router.push(`/edit_task/${id}`)}
               />
-              <BtnIcon
-                size={'big'}
-                className={'user-card__btn-del'}
-                typeIcon={'del'}
+              <Button
+                value={''}
                 color={'blue'}
+                size={'square-big'}
+                typeIcon={'del'}
+                type={''}
+                btnType={'square'}
                 onClick={deleteUser}
               />
             </div>

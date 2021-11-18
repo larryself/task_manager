@@ -4,9 +4,10 @@ import { useHistory } from 'react-router-dom';
 import Avatar from '../../../components/avatar/Avatar';
 import InputBox from '../../../components/input/input-box';
 import Button from '../../../components/button/button';
-import { changeModal, setUser } from '../../../reducer/reducer';
+import { changeModal, setUser } from '../../../action/action';
 import Modal from '../../../components/modal/modal';
 import GlobalContext from '../../../context/context';
+import { API_USERS } from '../../../constants/URL';
 
 const ProfileForm = (props?: any) => {
   const { user } = props;
@@ -29,13 +30,13 @@ const ProfileForm = (props?: any) => {
     router.push('/auth');
   };
   const delUserFetch = () =>
-    fetch(`/api/users/${user.id}`, { method: 'DELETE' }).then((response) => {
+    fetch(`${API_USERS}${user.id}`, { method: 'DELETE' }).then((response) => {
       if (response.ok) {
         logout();
       }
     });
   const editUserFetch = (data: any) => {
-    fetch(`/api/users/${user.id}`, { method: 'PUT', body: JSON.stringify(data) }).then((response) => {
+    fetch(`${API_USERS}${user.id}`, { method: 'PUT', body: JSON.stringify(data) }).then((response) => {
       if (response.ok) {
         router.go(-1);
       }
@@ -51,11 +52,11 @@ const ProfileForm = (props?: any) => {
           <Controller
             control={control}
             name={'avatar'}
-            render={({ field }: any) => (
+            render={({ field }) => (
               <Avatar
                 uploadFiles={uploadFiles}
                 user={user}
-                onChange={(file: any) => {
+                onChange={(file: React.ChangeEvent<HTMLInputElement>) => {
                   field.onChange(file.target.files);
                 }}
               />
@@ -80,13 +81,21 @@ const ProfileForm = (props?: any) => {
             {...register('email', { required: true })}
           />
           <div className={'profile__btn-inner'}>
-            <Button size={'big'} type={'submit'} typeIcon={'approved-blue'} value={'Сохранить'} color={'blue'} />
+            <Button
+              size={'big'}
+              type={'submit'}
+              typeIcon={'approved-blue'}
+              value={'Сохранить'}
+              color={'blue'}
+              btnType={''}
+            />
             <Button
               size={'big'}
               type={'button'}
               typeIcon={'del'}
               value={'Удалить профиль'}
               color={'red-text'}
+              btnType={''}
               onClick={() =>
                 GlobalDispatch(
                   changeModal({

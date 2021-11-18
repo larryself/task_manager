@@ -3,12 +3,14 @@ import './task-result.scss';
 import { useParams } from 'react-router-dom';
 import Icon from '../../../components/icon/icon';
 import LoadFile from './loadFile/loadFile';
+import { TaskIdResultProps } from '../../../types';
+import { API_FILES } from '../../../constants/URL';
 
-const TaskIdResult = ({ className, setLoadFiles }: any) => {
+const TaskIdResult = ({ className, setLoadFiles }: TaskIdResultProps) => {
   const [fileList, setFileList] = useState([]);
-  const { id }: any = useParams();
+  const { id } = useParams<{ id: string }>();
   const uploadFile = async (formdata: any) => {
-    await fetch('/api/files', { method: 'POST', body: JSON.stringify(formdata) });
+    await fetch(API_FILES, { method: 'POST', body: JSON.stringify(formdata) });
   };
   const filesUploadHandler = (event: any) => {
     const { files } = event.target;
@@ -29,13 +31,13 @@ const TaskIdResult = ({ className, setLoadFiles }: any) => {
         <p className={'task-result__format'}>Допустимые форматы</p>
         <ul className={'task-result__format-list'}>
           <li className={'task-result__format-item'}>
-            <Icon type={''} typeIcon={`format--avi`} />
+            <Icon typeIcon={`format--avi`} />
           </li>
           <li className={'task-result__format-item'}>
-            <Icon type={''} typeIcon={`format--flv`} />
+            <Icon typeIcon={`format--flv`} />
           </li>
           <li className={'task-result__format-item'}>
-            <Icon type={''} typeIcon={`format--mov`} />
+            <Icon typeIcon={`format--mov`} />
           </li>
         </ul>
       </div>
@@ -49,7 +51,7 @@ const TaskIdResult = ({ className, setLoadFiles }: any) => {
         </ul>
         <label className={'task-result__file-load-label'}>
           <input type={'file'} name={'file'} className={'task-result__file-load-input'} onChange={filesUploadHandler} />
-          <Icon type={''} typeIcon={'plus'} />
+          <Icon typeIcon={'plus'} />
         </label>
       </div>
     </article>

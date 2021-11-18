@@ -14,7 +14,7 @@ const LoadFile = (props?: any) => {
   return (
     <div className={'load-file'}>
       <button type={'button'} className={'load-file__btn'} onClick={deleteFile}>
-        <Icon type={''} typeIcon={'delete'} />
+        <Icon typeIcon={'delete'} />
       </button>
       <div className={'load-file__img-inner'}>
         <img src={'../public/img/sunset.jpg'} alt={'Загруженный файл'} className={'load-file__img'} />

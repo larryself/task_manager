@@ -21,6 +21,7 @@ const NewUser = () => {
                 size={'small'}
                 typeIcon={'back'}
                 type={'button'}
+                btnType={''}
                 onClick={() => router.push('/users')}
                 aria-label={'Назад'}
               />
