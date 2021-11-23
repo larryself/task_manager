@@ -58,7 +58,7 @@ const CardList = (props: CardListProps) => {
     });
   };
   const filterByDate = (contents: Card[], valueDate: Date | null | undefined) => {
-    if (valueDate === null || valueDate === undefined) {
+    if (!valueDate) {
       return contents;
     }
     const date = formatISO(valueDate, { representation: 'date' });

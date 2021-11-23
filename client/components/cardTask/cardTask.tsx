@@ -49,7 +49,7 @@ const CardTask = (props: CardTaskProps) => {
     if (valueDate) {
       result = formatISO(valueDate, { representation: 'date' });
     }
-    if (valueDate === null || valueDate === undefined) {
+    if (!valueDate) {
       return tasks;
     }
     return tasks.filter((task) => task.dateExpired.indexOf(result) > -1);
