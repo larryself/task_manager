@@ -1,7 +1,7 @@
-export const API_TASKS = '/api/tasks/';
-export const API_USERS = '/api/users/';
-export const API_CONTENTS = '/api/contents';
-export const API_NOTIFICATION = '/api/notification';
-export const API_AUTH = '/api/auth';
-export const API_FILES = '/api/files';
-export const API_COMMENTS = '/api/comments';
+export const API_TASKS: string = '/api/tasks/';
+export const API_USERS: string = '/api/users/';
+export const API_CONTENTS: string = '/api/contents';
+export const API_NOTIFICATION: string = '/api/notification';
+export const API_AUTH: string = '/api/auth';
+export const API_FILES: string = '/api/files';
+export const API_COMMENTS: string = '/api/comments';

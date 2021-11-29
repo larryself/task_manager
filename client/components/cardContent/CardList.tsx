@@ -9,7 +9,7 @@ import Modal from '../modal/modal';
 import GlobalContext from '../../context/context';
 import { Card, CardListProps } from '../../types';
 import { filterByType } from '../../utils/filter';
-import { API_CONTENTS } from '../../constants/URL';
+import { getContents } from '../../api/index';
 
 const CardList = (props: CardListProps) => {
   const { GlobalState }: any = useContext(GlobalContext);
@@ -22,24 +22,19 @@ const CardList = (props: CardListProps) => {
   const [count, setCount] = useState(9);
   const [fetching, setFetching] = useState(true);
   const [cardID, setCardID] = useState();
-  function fetchPost() {
-    fetch(`${API_CONTENTS}?page=${currentPage}&count=${count}`)
-      .then((response) => response.json())
-      .then((data: { contents: []; total: number }) => {
-        setCards({ contents: [...cards.contents, ...data.contents], total: data.total });
-        setCurrentPage((prevState) => prevState + 1);
-        setCount((prevState) => prevState + 3);
-      })
-      .catch(() => {
-        toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
-      })
-      .finally(() => {
-        setFetching(false);
-      });
-  }
-  function findCard() {
-    return cards.contents.find((card) => card.id === cardID);
-  }
+  const fetchPost = async () => {
+    try {
+      const data = await getContents(currentPage, count);
+      setCards({ contents: [...cards.contents, ...data.contents], total: data.total });
+      setCurrentPage((prevState) => prevState + 1);
+      setCount((prevState) => prevState + 3);
+    } catch (e) {
+      toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
+    } finally {
+      setFetching(false);
+    }
+  };
+  const findCard = () => cards.contents.find((card) => card.id === cardID);
   const scrollHandler = (event: any) => {
     const { scrollTop } = event.target.documentElement;
     const { scrollHeight } = event.target.documentElement;

@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 import Header from '../../components/header/header';
 import Main from '../../components/main/main';
 import Button from '../../components/button/button';
 import UserForm from '../../components/userForm/userForm';
-import { API_USERS } from '../../constants/URL';
+import { getUser } from '../../api';
 
 const UsersId = () => {
   const router = useHistory();
   const { id } = useParams<{ id: string }>();
   const [user, setUser] = useState();
-  function fetchPost() {
-    fetch(`${API_USERS}${id}`)
-      .then((response) => response.json())
-      .then((data) => setUser(data.users));
-  }
+  const fetchPost = async () => {
+    try {
+      const data = await getUser(id);
+      setUser(data.users);
+    } catch (e) {
+      toast.error('Чтото пошло не так ');
+    }
+  };
   useEffect(() => {
     fetchPost();
   }, [id]);

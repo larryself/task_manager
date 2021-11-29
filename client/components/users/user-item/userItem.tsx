@@ -25,7 +25,7 @@ const UserItem = (props: UserItemProps) => {
 
   const roles: typesOptions = {
     manager: 'Менеджер',
-    admin: 'Админитратор',
+    admin: 'Админиcтратор',
     contentMaker: 'Контент-мейкер',
   };
   return (

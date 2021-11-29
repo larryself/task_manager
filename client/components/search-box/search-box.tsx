@@ -3,8 +3,8 @@ import './search-box.scss';
 import Icon from '../icon/icon';
 import Button from '../button/button';
 
-const SearchBox = React.forwardRef(({ className, placeholder, ...props }: any, ref) => {
-  const { setValue, name } = props;
+const SearchBox = React.forwardRef(({ className, placeholder, setValue, ...props }: any, ref) => {
+  const { name } = props;
   return (
     <div className={`search-box ${className}`}>
       <label htmlFor={'search'} className={'search-box__label'}>

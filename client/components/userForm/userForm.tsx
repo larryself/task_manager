@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useForm, Controller, useWatch } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 import InputBox from '../input/input-box';
 import Button from '../button/button';
 import SelectBox from '../select-box/select-box';
@@ -9,7 +10,7 @@ import GlobalContext from '../../context/context';
 import Modal from '../modal/modal';
 import { changeModal } from '../../action/action';
 import Avatar from '../avatar/Avatar';
-import { API_USERS } from '../../constants/URL';
+import { createUser, delUser, editUser } from '../../api';
 
 const UserForm = (props?: any) => {
   const { user } = props;
@@ -29,26 +30,30 @@ const UserForm = (props?: any) => {
     name: 'avatar',
     control,
   });
-  function setUserFetch(data: any) {
-    fetch(`${API_USERS}${user.id}`, { method: 'PUT', body: JSON.stringify(data) }).then((response) => {
-      if (response.ok) {
-        router.push('/users');
-      }
-    });
-  }
-  const addUserFetch = (data: any) => {
-    fetch(API_USERS, { method: 'POST', body: JSON.stringify(data) }).then((response) => {
-      if (response.ok) {
-        router.push('/users');
-      }
-    });
+  const setUserFetch = async (data: any) => {
+    try {
+      await editUser(user.id, data);
+      router.push('/users');
+    } catch (e) {
+      toast.error('Чтото пошло не так');
+    }
   };
-  const delUserFetch = () =>
-    fetch(`${API_USERS}${user.id}`, { method: 'DELETE' }).then((response) => {
-      if (response.ok) {
-        router.push('/users');
-      }
-    });
+  const addUserFetch = async (data: any) => {
+    try {
+      await createUser(data);
+      router.push('/users');
+    } catch (e) {
+      toast.error('Чтото пошло не так');
+    }
+  };
+  const delUserFetch = async () => {
+    try {
+      await delUser(user.id);
+      router.push('/users');
+    } catch (e) {
+      toast.error('Чтото пошло не так');
+    }
+  };
   const onSubmit = (data: any) => {
     if (user) {
       setUserFetch(data);

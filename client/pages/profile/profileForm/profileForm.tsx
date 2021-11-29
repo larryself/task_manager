@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 import Avatar from '../../../components/avatar/Avatar';
 import InputBox from '../../../components/input/input-box';
 import Button from '../../../components/button/button';
 import { changeModal, setUser } from '../../../action/action';
 import Modal from '../../../components/modal/modal';
 import GlobalContext from '../../../context/context';
-import { API_USERS } from '../../../constants/URL';
+import { delUser, editUser } from '../../../api';
 
 const ProfileForm = (props?: any) => {
   const { user } = props;
@@ -29,18 +30,20 @@ const ProfileForm = (props?: any) => {
     localStorage.removeItem('email');
     router.push('/auth');
   };
-  const delUserFetch = () =>
-    fetch(`${API_USERS}${user.id}`, { method: 'DELETE' }).then((response) => {
-      if (response.ok) {
-        logout();
-      }
-    });
-  const editUserFetch = (data: any) => {
-    fetch(`${API_USERS}${user.id}`, { method: 'PUT', body: JSON.stringify(data) }).then((response) => {
-      if (response.ok) {
-        router.go(-1);
-      }
-    });
+  const delUserFetch = async () => {
+    try {
+      await delUser(user.id);
+      logout();
+    } catch (e) {
+      toast.error('Чтото пошло не так');
+    }
+  };
+  const editUserFetch = async (data: any) => {
+    try {
+      await editUser(user.id, data);
+    } catch (e) {
+      toast.error('Чтото пошло не так');
+    }
   };
   const onSubmit = (data: any) => {
     editUserFetch(data);

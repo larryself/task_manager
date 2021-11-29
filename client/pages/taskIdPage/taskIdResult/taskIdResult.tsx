@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import './task-result.scss';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 import Icon from '../../../components/icon/icon';
 import LoadFile from './loadFile/loadFile';
 import { TaskIdResultProps } from '../../../types';
-import { API_FILES } from '../../../constants/URL';
+import { uploadFile } from '../../../api';
 
 const TaskIdResult = ({ className, setLoadFiles }: TaskIdResultProps) => {
   const [fileList, setFileList] = useState([]);
   const { id } = useParams<{ id: string }>();
-  const uploadFile = async (formdata: any) => {
-    await fetch(API_FILES, { method: 'POST', body: JSON.stringify(formdata) });
+  const uploadFileFetch = async (data: any) => {
+    try {
+      await uploadFile(data);
+    } catch (e) {
+      toast.error('Не удалось загрузить файл');
+    }
   };
   const filesUploadHandler = (event: any) => {
     const { files } = event.target;
@@ -18,8 +23,7 @@ const TaskIdResult = ({ className, setLoadFiles }: TaskIdResultProps) => {
       id,
       files,
     };
-    uploadFile(data);
-
+    uploadFileFetch(data);
     const file = files[0];
     setFileList([...fileList, file]);
     setLoadFiles(true);

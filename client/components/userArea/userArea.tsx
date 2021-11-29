@@ -1,25 +1,28 @@
 import * as React from 'react';
 import { useContext, useEffect, useState } from 'react';
 import './userArea.scss';
+import { toast } from 'react-hot-toast';
 import UserMenu from './userMenu/userMenu';
 import GlobalContext from '../../context/context';
 import { setUser } from '../../action/action';
-import { API_USERS } from '../../constants/URL';
+import { getUsers } from '../../api';
 
 const UserArea = () => {
   const { GlobalState, GlobalDispatch }: any = useContext(GlobalContext);
   const { user } = GlobalState;
   const [visible, setVisible] = useState(false);
-  async function findUser(currentUser: string) {
-    const response = await fetch(API_USERS)
-      .then((response) => response.json())
-      .then((data) => data.users);
-    response.forEach((user: any) => {
-      if (user.email === currentUser) {
-        GlobalDispatch(setUser({ isAuth: true, ...user }));
-      }
-    });
-  }
+  const findUser = async (currentUser: string) => {
+    try {
+      const data = await getUsers();
+      data.users.forEach((user: any) => {
+        if (user.email === currentUser) {
+          GlobalDispatch(setUser({ isAuth: true, ...user }));
+        }
+      });
+    } catch (e) {
+      toast.error('Что-то пошло не так');
+    }
+  };
   useEffect(() => {
     const currentUserName = localStorage.getItem('email');
     findUser(currentUserName);

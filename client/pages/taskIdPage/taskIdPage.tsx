@@ -12,7 +12,7 @@ import TaskIdComment from './taskIdComment/taskIdComment';
 import { changeModal } from '../../action/action';
 import GlobalContext from '../../context/context';
 import Modal from '../../components/modal/modal';
-import { API_TASKS } from '../../constants/URL';
+import { delTask, getTask } from '../../api';
 
 const TaskIdPage = () => {
   const { GlobalState, GlobalDispatch }: any = useContext(GlobalContext);
@@ -23,29 +23,29 @@ const TaskIdPage = () => {
   const router = useHistory();
   const [task, setTask] = useState({});
   const { id } = useParams<{ id: string }>();
-  const fetchPost = () => {
-    fetch(`${API_TASKS}${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setTask(data.tasks);
-        setComments([...data.tasks.comments]);
-      })
-      .catch(() => {
-        toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
-      })
-      .finally(() => {
-        setFetching(false);
-      });
+  const fetchPost = async () => {
+    try {
+      const data = await getTask(id);
+      setTask(data.tasks);
+      setComments([...data.tasks.comments]);
+    } catch (e) {
+      router.push('/tasks');
+      toast.error('Что-то пошло не так, попробуйте повторить попытку позже');
+    } finally {
+      setFetching(false);
+    }
   };
   const approvedTaskFetch = () => {
     router.push(`/publish/${id}`);
   };
-  const delTaskFetch = () =>
-    fetch(`${API_TASKS}${id}`, { method: 'DELETE' }).then((response) => {
-      if (response.ok) {
-        router.push('/tasks');
-      }
-    });
+  const delTaskFetch = async () => {
+    try {
+      await delTask(id);
+      router.push('/tasks');
+    } catch (e) {
+      toast.error('Что-то пошло не так, попробуйте повторить попытку позжe');
+    }
+  };
   const deleteUser = () => {
     GlobalDispatch(
       changeModal({

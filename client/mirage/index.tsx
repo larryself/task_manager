@@ -159,6 +159,9 @@ export function startMirage() {
         },
       }),
       user: Factory.extend({
+        id(i) {
+          return i;
+        },
         name(i) {
           const names = [
             'Инесса Соловьёвa',
@@ -496,7 +499,7 @@ export function startMirage() {
         const { email, password } = attrs;
         const mails = ['albina_t@gmail.com', 'aaa@mail.ru', 'vv@mail.ru', 'mn@gg.gg', 'cm@gg.gg', 'admin@gg.gg'];
         const passwords = '12345';
-        if (mails.includes(email) && passwords.includes(password)) {
+        if (mails.includes(email) && passwords === password) {
           return new Response(201);
         }
         return new Response(500);

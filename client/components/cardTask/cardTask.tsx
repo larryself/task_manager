@@ -7,21 +7,20 @@ import Modal from '../modal/modal';
 import GlobalContext from '../../context/context';
 import { CardTaskProps, task } from '../../types';
 import { filterByType } from '../../utils/filter';
-import { API_TASKS } from '../../constants/URL';
+import { delTask, getTasks } from '../../api';
 
 const CardTask = (props: CardTaskProps) => {
   const { formValues } = props;
   const [tasks, setTasks] = useState([]);
   const [taskID, setTaskID] = useState();
-  function fetchPost() {
-    return fetch(API_TASKS)
-      .then((response) => response.json())
-      .then((data) => setTasks(data.tasks))
-      .catch(() => {
-        toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
-      });
-  }
-
+  const loadTask = async () => {
+    try {
+      const data = await getTasks();
+      setTasks(data.tasks);
+    } catch (e) {
+      toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
+    }
+  };
   const filterByName = (tasks: task[], valueName = '') => {
     if (valueName.trim() === '') {
       return tasks;
@@ -64,9 +63,16 @@ const CardTask = (props: CardTaskProps) => {
   };
   const filteredTasks = filterTasks();
   const { GlobalState }: any = useContext(GlobalContext);
-  const delTaskFetch = () => fetch(`${API_TASKS}${taskID}`, { method: 'DELETE' }).then(() => fetchPost());
+  const delTaskFetch = async () => {
+    try {
+      await delTask(taskID);
+      await loadTask();
+    } catch (e) {
+      toast.error('Чтото пошло не так, попробуйте позже');
+    }
+  };
   useEffect(() => {
-    fetchPost();
+    loadTask();
   }, []);
   return (
     <ul className={'task__list'}>

@@ -3,8 +3,7 @@ import Icon from '../icon/icon';
 import './Avatar.scss';
 import { AvatarProps } from '../../types';
 
-const Avatar = (props: AvatarProps) => {
-  const { uploadFiles } = props;
+const Avatar = ({ uploadFiles, ...props }: AvatarProps) => {
   const [avatar, setAvatar] = useState('../public/img/avatar.svg');
   const onChangePicture = (fileList: any) => {
     if (typeof fileList === 'string') {

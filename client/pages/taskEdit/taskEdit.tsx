@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 import Header from '../../components/header/header';
 import Main from '../../components/main/main';
 import Button from '../../components/button/button';
 import TaskForm from '../../components/taskForm/taskForm';
-import { API_TASKS } from '../../constants/URL';
+import { getTask } from '../../api';
 
 const TaskEdit = () => {
   const router = useHistory();
   const { id } = useParams<{ id: string }>();
   const [task, setTask] = useState();
-  function fetchPost() {
-    fetch(`${API_TASKS}${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setTask(data.tasks);
-      });
-  }
+  const fetchPost = async () => {
+    try {
+      const data = await getTask(id);
+      setTask(data.tasks);
+    } catch (e) {
+      toast.error('Чтото пошло не так');
+    }
+  };
   useEffect(() => {
     fetchPost();
   }, [id]);

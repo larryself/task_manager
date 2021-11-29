@@ -1,29 +1,33 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 import Button from '../../../components/button/button';
 import './task-comment.scss';
 import Comment from './comment/comment';
 import GlobalContext from '../../../context/context';
-import { API_COMMENTS } from '../../../constants/URL';
+import { addComment } from '../../../api';
 
 const TaskIdComment = ({ className, comments, setFetching }: any) => {
   const { GlobalState }: any = useContext(GlobalContext);
   const { id } = useParams<{ id: string }>();
-
   const { register, handleSubmit, reset } = useForm();
-  const addCommentFetch = (data: any) => fetch(API_COMMENTS, { method: 'POST', body: JSON.stringify(data) });
+  const addCommentFetch = async (data: any) => {
+    try {
+      await addComment(data);
+      setFetching(true);
+      reset({});
+    } catch (e) {
+      toast.error('Не удалось добавить комментарий');
+    }
+  };
   const onSubmit = async (message: any) => {
     const data = {
       task: id,
       message,
       user: GlobalState.user.id,
     };
-    const response = await addCommentFetch(data);
-    if (response.ok) {
-      setFetching(true);
-      reset({});
-    }
+    addCommentFetch(data);
   };
   return (
     <article className={`task-comment ${className}`}>

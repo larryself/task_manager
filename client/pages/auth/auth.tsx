@@ -7,7 +7,7 @@ import Button from '../../components/button/button';
 import InputBox from '../../components/input/input-box';
 import GlobalContext from '../../context/context';
 import { setUser } from '../../action/action';
-import { API_AUTH } from '../../constants/URL';
+import { postAuth } from '../../api';
 
 const Auth = () => {
   const router = useHistory();
@@ -17,24 +17,22 @@ const Auth = () => {
     formState: { errors },
   } = useForm();
   const { GlobalDispatch }: any = useContext(GlobalContext);
-  async function fetchPost(data: any) {
-    const response = await fetch(API_AUTH, { method: 'POST', body: JSON.stringify(data) });
-    if (response.ok) {
+  const auth = async (data: any) => {
+    try {
+      await postAuth(data);
       localStorage.setItem('auth', 'true');
       localStorage.setItem('email', data.email);
       GlobalDispatch(setUser({ isAuth: true, email: data.email }));
       router.push('/index');
-    } else {
-      toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
-    }
-  }
-
-  const onSubmit = (data: any) => {
-    if (errors) {
-      fetchPost(data);
+    } catch (e) {
+      toast.error(`Что-то пошло не так, ${e}`);
     }
   };
-
+  const onSubmit = (data: any) => {
+    if (errors) {
+      auth(data);
+    }
+  };
   return (
     <section className={'auth'}>
       <div className={'auth__inner'}>

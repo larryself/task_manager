@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 import SelectBox from '../select-box/select-box';
 import { selectExecutor, selectType } from '../../pages/newTask/selectOption/selectOption';
 import InputBox from '../input/input-box';
@@ -11,7 +12,7 @@ import Icon from '../icon/icon';
 import Button from '../button/button';
 import GlobalContext from '../../context/context';
 import { formValues, TaskFormProps } from '../../types';
-import { API_TASKS } from '../../constants/URL';
+import { createTask, editTask } from '../../api';
 
 const TaskForm = (props?: TaskFormProps) => {
   const { task } = props;
@@ -35,20 +36,22 @@ const TaskForm = (props?: TaskFormProps) => {
     },
   });
 
-  function editTaskFetch(data: formValues) {
-    fetch(`${API_TASKS}${id}`, { method: 'PUT', body: JSON.stringify(data) }).then((response) => {
-      if (response.ok) {
-        router.push('/tasks');
-      }
-    });
-  }
-  function addTaskFetch(data: formValues) {
-    fetch(API_TASKS, { method: 'POST', body: JSON.stringify(data) }).then((response) => {
-      if (response.ok) {
-        router.push('/tasks');
-      }
-    });
-  }
+  const editTaskFetch = async (data: formValues) => {
+    try {
+      await editTask(id, data);
+      router.push('/tasks');
+    } catch (e) {
+      toast.error('Чтото пошло не так');
+    }
+  };
+  const addTaskFetch = async (data: formValues) => {
+    try {
+      await createTask(data);
+      router.push('/tasks');
+    } catch (e) {
+      toast.error('Чтото пошло не так');
+    }
+  };
   const onSubmit = (data: formValues) => {
     if (task) {
       editTaskFetch(data);

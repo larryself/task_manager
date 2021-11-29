@@ -7,23 +7,23 @@ import Header from '../../components/header/header';
 import Main from '../../components/main/main';
 import NotifyItem from '../../components/notify/notifyItem';
 import Button from '../../components/button/button';
-import { API_NOTIFICATION } from '../../constants/URL';
+import { getNotification } from '../../api';
 
 const Notify = () => {
   const router = useHistory();
   const [notifications, setNotifications] = useState([]);
 
-  function fetchPost() {
-    fetch(API_NOTIFICATION)
-      .then((response) => response.json())
-      .then((data) => setNotifications(data.notifications))
-      .catch(() => {
-        toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
-      });
-  }
+  const loadNotification = async () => {
+    try {
+      const notifications = await getNotification();
+      setNotifications(notifications);
+    } catch (e) {
+      toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
+    }
+  };
 
   useEffect(() => {
-    fetchPost();
+    loadNotification();
   }, []);
   return (
     <div>

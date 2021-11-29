@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 import './notify.scss';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { API_NOTIFICATION } from '../../constants/URL';
+import { getNotification } from '../../api';
 
 const Notify = () => {
   const [notify, setNotify] = useState('');
-  function fetchPost() {
-    fetch(API_NOTIFICATION)
-      .then((response) => response.json())
-      .then((data) => setNotify(data.notifications.length))
-      .catch(() => {
-        toast.error('Что-то пошло не так, попробуйте перезагрузить страницу');
-      });
-  }
+  const fetchPost = async () => {
+    try {
+      const data = await getNotification();
+      setNotify(data.notifications.length);
+    } catch (e) {
+      toast.error(e);
+    }
+  };
   useEffect(() => {
     fetchPost();
   }, []);
