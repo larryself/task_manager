@@ -6,7 +6,11 @@ import ModalMessage from './component/message/modal-message';
 import GlobalContext from '../../context/context';
 import { changeModal } from '../../action/action';
 
-const Modal = ({ deleteUser, ...props }: any) => {
+enum TYPE_CONTENT {
+  MEDIA = 'media',
+  MESSAGE = 'message',
+}
+const Modal = (props: any) => {
   const { delFetch }: any = props;
   const { card }: any = props;
   const { GlobalState, GlobalDispatch }: any = useContext(GlobalContext);
@@ -38,12 +42,12 @@ const Modal = ({ deleteUser, ...props }: any) => {
   }, []);
   let modalContent = null;
   switch (GlobalState.modal.typeContent) {
-    case 'media':
+    case TYPE_CONTENT.MEDIA:
       modalContent = (
         <ModalMediaContent format={'audio'} title={'fsfdsdf'} time={'12:23 34534534'} card={card} {...props} />
       );
       break;
-    case 'message':
+    case TYPE_CONTENT.MESSAGE:
       modalContent = (
         <ModalMessage value={`Вы действительно хотите удалить ${GlobalState.modal.content}?`} delFetch={delFetch} />
       );

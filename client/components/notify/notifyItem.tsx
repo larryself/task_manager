@@ -2,17 +2,22 @@ import * as React from 'react';
 import './notify.scss';
 import Icon from '../icon/icon';
 
+enum TYPE {
+  AUDIO = 'audio',
+  VIDEO = 'video',
+  PHOTO = 'photo',
+}
 const NotifyItem = (props: any) => {
   const { notification } = props;
   let media;
   switch (notification.type) {
-    case 'audio':
+    case TYPE.AUDIO:
       media = 'notify-big__icon notify-big__icon--audio';
       break;
-    case 'video':
+    case TYPE.VIDEO:
       media = 'notify-big__icon notify-big__icon--video';
       break;
-    case 'photo':
+    case TYPE.PHOTO:
       media = 'notify-big__icon notify-big__icon--photo';
       break;
     default:

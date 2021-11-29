@@ -4,13 +4,17 @@ import '../icon/icon.scss';
 import Icon from '../icon/icon';
 import { buttonProps } from '../../types';
 
+enum BTN_TYPE {
+  RESET = 'reset',
+  SQUARE = 'square',
+}
 function Button({ value, color, size, typeIcon, type, btnType, className, ...props }: buttonProps) {
   let content;
   switch (btnType) {
-    case 'reset':
+    case BTN_TYPE.RESET:
       content = <Icon typeIcon={typeIcon} />;
       break;
-    case 'square':
+    case BTN_TYPE.SQUARE:
       content = <Icon typeIcon={typeIcon} />;
       break;
     default:
